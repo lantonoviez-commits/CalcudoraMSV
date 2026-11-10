@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Margem & Bricolagem | Seção</title>
+  <title>Calculadora de Margem & Bricolagem | Leroy Merlin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -19,99 +19,97 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Open Sans', sans-serif; }
-    body { background-color: var(--lm-gray-bg); color: var(--lm-dark); padding: 24px 16px; }
+    body { background-color: var(--lm-gray-bg); color: var(--lm-dark); padding: 20px 14px; }
 
-    .container { max-width: 980px; margin: 0 auto; }
+    .container { max-width: 1060px; margin: 0 auto; }
     
-    /* Header */
     header {
       background: var(--lm-card-bg);
       border-top: 6px solid var(--lm-green);
-      padding: 20px 24px;
+      padding: 16px 20px;
       border-radius: 8px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 2px 6px rgba(0,0,0,0.04);
     }
-    .brand h1 { font-size: 1.4rem; font-weight: 800; color: var(--lm-dark); }
-    .brand p { font-size: 0.85rem; color: #64748B; }
+    .brand h1 { font-size: 1.3rem; font-weight: 800; color: var(--lm-dark); }
+    .brand p { font-size: 0.8rem; color: #64748B; }
     .badge-event {
       background: #EBF8E3;
       color: var(--lm-green-dark);
       font-weight: 700;
-      font-size: 0.75rem;
-      padding: 6px 12px;
+      font-size: 0.72rem;
+      padding: 5px 12px;
       border-radius: 20px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
-    /* Grid Layout */
-    .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    @media (max-width: 768px) { .dashboard-grid { grid-template-columns: 1fr; } }
+    .dashboard-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 18px; }
+    @media (max-width: 800px) { .dashboard-grid { grid-template-columns: 1fr; } }
 
     .card {
       background: var(--lm-card-bg);
-      padding: 22px;
+      padding: 18px;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.04);
       border: 1px solid var(--lm-border);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
     .card-title {
-      font-size: 1rem;
+      font-size: 0.94rem;
       font-weight: 700;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      margin-bottom: 12px;
+      color: var(--lm-dark);
+      border-bottom: 1px solid #F1F5F9;
+      padding-bottom: 6px;
     }
 
-    /* Form Elements */
-    .field-group { margin-bottom: 14px; }
-    label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; color: #475569; }
-    input {
+    .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .field-group { margin-bottom: 10px; }
+    label { display: block; font-size: 0.78rem; font-weight: 600; margin-bottom: 4px; color: #475569; }
+    input, select {
       width: 100%;
-      padding: 10px 12px;
+      padding: 8px 10px;
       border: 1px solid var(--lm-border);
       border-radius: 6px;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: var(--lm-dark);
       outline: none;
-      transition: border 0.2s;
+      background: #fff;
     }
-    input:focus { border-color: var(--lm-green); }
+    input:focus, select:focus { border-color: var(--lm-green); }
 
-    /* Highlights & KPI */
+    /* KPIs */
     .kpi-container {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-bottom: 16px;
+      gap: 10px;
+      margin-bottom: 14px;
     }
     .kpi-box {
       background: #F8FAFC;
       border: 1px solid var(--lm-border);
-      padding: 14px;
+      padding: 12px;
       border-radius: 6px;
       text-align: center;
     }
-    .kpi-box.primary {
+    .kpi-box.highlight {
       background: #F0FDF4;
       border-color: #BBF7D0;
       grid-column: span 2;
     }
-    .kpi-label { font-size: 0.75rem; text-transform: uppercase; color: #64748B; font-weight: 600; }
-    .kpi-value { font-size: 1.5rem; font-weight: 800; margin-top: 4px; color: var(--lm-dark); }
-    .kpi-box.primary .kpi-value { color: var(--lm-green-dark); font-size: 1.9rem; }
+    .kpi-label { font-size: 0.7rem; text-transform: uppercase; color: #64748B; font-weight: 700; }
+    .kpi-value { font-size: 1.3rem; font-weight: 800; margin-top: 2px; color: var(--lm-dark); }
+    .kpi-box.highlight .kpi-value { color: var(--lm-green-dark); font-size: 1.85rem; }
 
-    /* Termômetro Bricolagem */
+    /* Barra de Consumo de Queima */
     .brico-bar-bg {
       background: #E2E8F0;
-      height: 14px;
-      border-radius: 7px;
+      height: 12px;
+      border-radius: 6px;
       overflow: hidden;
       margin-top: 8px;
     }
@@ -123,9 +121,9 @@
     }
     .status-alert {
       margin-top: 10px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      padding: 8px 12px;
+      padding: 8px 10px;
       border-radius: 6px;
       display: none;
     }
@@ -133,42 +131,35 @@
     .status-alert.burn-warning { background: #FEF3C7; color: var(--lm-warning); display: block; }
     .status-alert.burn-danger { background: #FEE2E2; color: var(--lm-danger); display: block; }
 
-    /* Tabela de Expurgos */
+    /* Expurgos */
     .expurgo-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       margin-top: 10px;
     }
     .expurgo-table th {
       background: #F8FAFC;
       text-align: left;
-      padding: 8px;
+      padding: 6px 8px;
       border-bottom: 2px solid var(--lm-border);
       color: #64748B;
+      font-size: 0.72rem;
+      text-transform: uppercase;
     }
-    .expurgo-table td {
-      padding: 8px;
-      border-bottom: 1px solid var(--lm-border);
-    }
-    .btn-del {
-      background: transparent;
-      border: none;
-      color: var(--lm-danger);
-      font-weight: 700;
-      cursor: pointer;
-    }
+    .expurgo-table td { padding: 6px 8px; border-bottom: 1px solid var(--lm-border); }
+    .btn-del { background: transparent; border: none; color: var(--lm-danger); font-weight: 700; cursor: pointer; }
     .btn-add {
       background: var(--lm-green);
       color: #fff;
       border: none;
-      padding: 8px 14px;
+      padding: 8px 12px;
       border-radius: 6px;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 700;
       cursor: pointer;
       width: 100%;
-      margin-top: 8px;
+      margin-top: 6px;
     }
     .btn-add:hover { background: var(--lm-green-dark); }
 
@@ -176,9 +167,9 @@
       background: #0284C7;
       color: #fff;
       border: none;
-      padding: 10px 16px;
+      padding: 9px 14px;
       border-radius: 6px;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       font-weight: 700;
       cursor: pointer;
       width: 100%;
@@ -193,7 +184,7 @@
   <header>
     <div class="brand">
       <h1>Calculadora de Margem & Negociação</h1>
-      <p>Gestão diária de margem e expurgo | Seção</p>
+      <p>Gestão diária de margem da seção, expurgos e teto de queima de 30%</p>
     </div>
     <div class="badge-event">Festa da Bricolagem</div>
   </header>
@@ -201,46 +192,85 @@
   <div class="dashboard-grid">
     <!-- Coluna 1: Entradas -->
     <div>
+      <!-- Parâmetros de Seção da Planilha -->
       <div class="card">
-        <h2 class="card-title">1. Dados do Dia (Acumulado)</h2>
-        <div class="field-group">
-          <label for="vendaDia">Venda Acumulada no Dia (R$)</label>
-          <input type="number" id="vendaDia" value="8337" step="0.01">
+        <h2 class="card-title">1. Seleção da Seção & Mês de Referência</h2>
+        <div class="grid-2col">
+          <div class="field-group">
+            <label for="selSecao">Seção</label>
+            <select id="selSecao" onchange="atualizarMetasSecao()"></select>
+          </div>
+          <div class="field-group">
+            <label for="selPeriodo">Período / Mês</label>
+            <select id="selPeriodo" onchange="atualizarMetasSecao()">
+              <option value="nov" selected>Novembro (Bricolagem)</option>
+              <option value="dez">Dezembro</option>
+              <option value="out">Outubro (Abertura)</option>
+            </select>
+          </div>
         </div>
-        <div class="field-group">
-          <label for="margemDia">Margem Média Atual (%)</label>
-          <input type="number" id="margemDia" value="15" step="0.1">
+
+        <div class="grid-2col" style="background: #F8FAFC; padding: 10px; border-radius: 6px; border: 1px dashed var(--lm-border);">
+          <div>
+            <span style="font-size: 0.72rem; color: #64748B; font-weight: 700;">OBJETIVO DA SEÇÃO (% MSV):</span>
+            <div id="dspMetaMSV" style="font-size: 1.15rem; font-weight: 800; color: var(--lm-dark);">0,00%</div>
+          </div>
+          <div>
+            <span style="font-size: 0.72rem; color: #64748B; font-weight: 700;">MSV DOPPING (-30%):</span>
+            <div id="dspMsvDopping" style="font-size: 1.15rem; font-weight: 800; color: var(--lm-warning);">0,00%</div>
+          </div>
         </div>
       </div>
 
+      <!-- Venda do Dia -->
       <div class="card">
-        <h2 class="card-title">2. Simulação de Venda Pontual</h2>
-        <div class="field-group">
-          <label for="vendaPontual">Valor da Nova Venda / Orçamento (R$)</label>
-          <input type="number" id="vendaPontual" value="468" step="0.01">
-        </div>
-        <div class="field-group">
-          <label for="margemPontual">Margem Aplicada na Venda (%)</label>
-          <input type="number" id="margemPontual" value="10" step="0.1">
+        <h2 class="card-title">2. Apuração do Dia (Acumulado da Seção)</h2>
+        <div class="grid-2col">
+          <div class="field-group">
+            <label for="vendaDia">Venda Acumulada no Dia (R$)</label>
+            <input type="number" id="vendaDia" value="17629" step="0.01">
+          </div>
+          <div class="field-group">
+            <label for="margemDia">Margem Média Atual do Dia (%)</label>
+            <input type="number" id="margemDia" value="10.89" step="0.01">
+          </div>
         </div>
       </div>
 
+      <!-- Negociação Pontual -->
       <div class="card">
-        <h2 class="card-title">3. Itens com Expurgo (Isentos da Seção)</h2>
-        <p style="font-size: 0.78rem; color: #64748B; margin-bottom: 8px;">
-          Valores subsidiados ou pontas de estoque autorizadas para não penalizar a margem da seção.
+        <h2 class="card-title">3. Simulação de Negociação Pontual (Cotação)</h2>
+        <div class="grid-2col">
+          <div class="field-group">
+            <label for="vendaPontual">Valor do Pedido/Cotação (R$)</label>
+            <input type="number" id="vendaPontual" value="1500" step="0.01">
+          </div>
+          <div class="field-group">
+            <label for="margemPontual">Margem Ofertada (%)</label>
+            <input type="number" id="margemPontual" value="6.5" step="0.01">
+          </div>
+        </div>
+      </div>
+
+      <!-- Expurgos -->
+      <div class="card">
+        <h2 class="card-title">4. Itens com Expurgo (Isentos da Seção)</h2>
+        <p style="font-size: 0.74rem; color: #64748B; margin-bottom: 8px;">
+          Lançamentos subsidiados/bancados para não penalizar o indicador da seção.
         </p>
-        <div style="display: flex; gap: 8px;">
-          <input type="text" id="expurgoDesc" placeholder="Descrição / SKU" style="flex: 2;">
-          <input type="number" id="expurgoValor" placeholder="R$" style="flex: 1;" step="0.01">
+        <div style="display: grid; grid-template-columns: 2fr 1.2fr 1fr; gap: 6px;">
+          <input type="text" id="expurgoDesc" placeholder="Item / SKU">
+          <input type="number" id="expurgoValor" placeholder="Venda R$" step="0.01">
+          <input type="number" id="expurgoMargem" placeholder="Margem %" step="0.01">
         </div>
-        <button class="btn-add" onclick="adicionarExpurgo()">+ Lançar Item Expurgado</button>
+        <button class="btn-add" onclick="adicionarExpurgo()">+ Lançar Expurgo</button>
 
         <table class="expurgo-table" id="tabelaExpurgos">
           <thead>
             <tr>
               <th>Item / SKU</th>
-              <th>Valor (R$)</th>
+              <th>Venda (R$)</th>
+              <th>Margem</th>
               <th></th>
             </tr>
           </thead>
@@ -249,30 +279,38 @@
       </div>
     </div>
 
-    <!-- Coluna 2: Resultados e Indicadores -->
+    <!-- Coluna 2: Resultados -->
     <div>
       <div class="card">
-        <h2 class="card-title">Resultado Consolidado</h2>
+        <h2 class="card-title">Painel de Decisão & Margem</h2>
         
         <div class="kpi-container">
-          <div class="kpi-box primary">
-            <div class="kpi-label">Nova Margem Ponderada</div>
-            <div class="kpi-value" id="kpiNovaMargem">0,0%</div>
+          <div class="kpi-box highlight">
+            <div class="kpi-label">Margem Efetiva da Seção (s/ Expurgos)</div>
+            <div class="kpi-value" id="kpiMargemEfetiva">0,00%</div>
           </div>
           <div class="kpi-box">
-            <div class="kpi-label">Venda Total Computada</div>
-            <div class="kpi-value" id="kpiVendaTotal" style="font-size: 1.2rem;">R$ 0,00</div>
+            <div class="kpi-label">Margem Bruta (Com tudo)</div>
+            <div class="kpi-value" id="kpiMargemBruta" style="font-size: 1.15rem; color: #64748B;">0,00%</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-label">MSV Dopping Mínimo (-30%)</div>
+            <div class="kpi-value" id="kpiPiso" style="font-size: 1.15rem; color: var(--lm-warning);">0,00%</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-label">Venda Válida da Seção</div>
+            <div class="kpi-value" id="kpiVendaEfetiva" style="font-size: 1.15rem;">R$ 0,00</div>
           </div>
           <div class="kpi-box">
             <div class="kpi-label">Total Expurgado</div>
-            <div class="kpi-value" id="kpiTotalExpurgado" style="font-size: 1.2rem; color: var(--lm-warning);">R$ 0,00</div>
+            <div class="kpi-value" id="kpiTotalExpurgado" style="font-size: 1.15rem; color: var(--lm-warning);">R$ 0,00</div>
           </div>
         </div>
 
         <!-- Termômetro de Queima de Margem -->
-        <div style="margin-top: 18px;">
-          <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700;">
-            <span>Consumo do Teto de Queima (Limite: 30%)</span>
+        <div style="margin-top: 12px; background: #F8FAFC; border: 1px solid var(--lm-border); padding: 12px; border-radius: 6px;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700;">
+            <span>Consumo do Teto de Queima da Seção (30%)</span>
             <span id="txtConsumoQueima">0%</span>
           </div>
           <div class="brico-bar-bg">
@@ -281,88 +319,205 @@
           <div id="alertaQueima" class="status-alert"></div>
         </div>
 
-        <button class="btn-copy" onclick="copiarResumo()">Copiar Resumo p/ WhatsApp</button>
+        <button class="btn-copy" onclick="copiarResumo()">Copiar Status p/ WhatsApp</button>
       </div>
     </div>
   </div>
 </div>
 
 <script>
+  // Dados oficiais extraídos das abas da planilha
+  const tabelaSecoes = {
+    "01 - Materiais": {
+      out: { msv: 13.36, dopping: 9.4856 },
+      nov: { msv: 10.89, dopping: 7.7319 },
+      dez: { msv: 13.34, dopping: 9.4714 }
+    },
+    "02 - Madeiras": {
+      out: { msv: 21.14, dopping: 15.0094 },
+      nov: { msv: 19.65, dopping: 13.9515 },
+      dez: { msv: 20.23, dopping: 14.3633 }
+    },
+    "03 - Elétrica": {
+      out: { msv: 19.50, dopping: 13.8450 },
+      nov: { msv: 11.89, dopping: 8.4419 },
+      dez: { msv: 15.20, dopping: 10.7920 }
+    },
+    "04 - Ferramentas": {
+      out: { msv: 19.17, dopping: 13.6107 },
+      nov: { msv: 19.06, dopping: 13.5326 },
+      dez: { msv: 19.84, dopping: 14.0864 }
+    },
+    "05 - Laminados e Vinílicos": {
+      out: { msv: 16.64, dopping: 11.8144 },
+      nov: { msv: 14.94, dopping: 10.6074 },
+      dez: { msv: 16.59, dopping: 11.7789 }
+    },
+    "06 - Cerâmica": {
+      out: { msv: 16.45, dopping: 11.6795 },
+      nov: { msv: 17.43, dopping: 12.3753 },
+      dez: { msv: 16.59, dopping: 11.7789 }
+    },
+    "07 - Sanitários": {
+      out: { msv: 19.32, dopping: 13.7172 },
+      nov: { msv: 17.11, dopping: 12.1481 },
+      dez: { msv: 19.07, dopping: 13.5397 }
+    },
+    "08 - Encanamentos": {
+      out: { msv: 27.84, dopping: 19.7664 },
+      nov: { msv: 27.42, dopping: 19.4682 },
+      dez: { msv: 28.80, dopping: 20.4480 }
+    },
+    "09 - Jardim": {
+      out: { msv: 17.82, dopping: 12.6522 },
+      nov: { msv: 17.11, dopping: 12.1481 },
+      dez: { msv: 17.04, dopping: 12.0984 }
+    },
+    "10 - Ferragens": {
+      out: { msv: 26.11, dopping: 18.5381 },
+      nov: { msv: 23.62, dopping: 16.7702 },
+      dez: { msv: 25.72, dopping: 18.2612 }
+    },
+    "11 - Pinturas": {
+      out: { msv: 22.26, dopping: 15.8046 },
+      nov: { msv: 22.95, dopping: 16.2945 },
+      dez: { msv: 23.05, dopping: 16.3655 }
+    },
+    "12 - Decoração": {
+      out: { msv: 31.67, dopping: 22.4857 },
+      nov: { msv: 32.53, dopping: 23.0963 },
+      dez: { msv: 32.03, dopping: 22.7413 }
+    },
+    "13 - Iluminação": {
+      out: { msv: 32.68, dopping: 23.2028 },
+      nov: { msv: 32.10, dopping: 22.7910 },
+      dez: { msv: 26.86, dopping: 19.0706 }
+    },
+    "14 - Organização": {
+      out: { msv: 23.93, dopping: 16.9900 },
+      nov: { msv: 23.75, dopping: 16.8600 },
+      dez: { msv: 27.66, dopping: 19.6400 }
+    },
+    "15 - Cozinhas": {
+      out: { msv: 16.99, dopping: 12.0629 },
+      nov: { msv: 15.66, dopping: 11.1186 },
+      dez: { msv: 18.99, dopping: 13.4829 }
+    }
+  };
+
   let itensExpurgo = [];
 
   function formatarMoeda(val) {
     return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   }
 
+  function popularSecoes() {
+    const sel = document.getElementById('selSecao');
+    sel.innerHTML = '';
+    Object.keys(tabelaSecoes).forEach(nome => {
+      const opt = document.createElement('option');
+      opt.value = nome;
+      opt.innerText = nome;
+      sel.appendChild(opt);
+    });
+    atualizarMetasSecao();
+  }
+
+  function atualizarMetasSecao() {
+    const secao = document.getElementById('selSecao').value;
+    const periodo = document.getElementById('selPeriodo').value;
+    const dados = tabelaSecoes[secao][periodo];
+
+    document.getElementById('dspMetaMSV').innerText = dados.msv.toFixed(2) + '%';
+    document.getElementById('dspMsvDopping').innerText = dados.dopping.toFixed(4) + '%';
+
+    calcular();
+  }
+
   function calcular() {
+    const secao = document.getElementById('selSecao').value;
+    const periodo = document.getElementById('selPeriodo').value;
+    const dados = tabelaSecoes[secao][periodo];
+
+    const metaMSV = dados.msv;
+    const msvDopping = dados.dopping; // Piso de -30%
+
+    // 1. Apuração
     const vDia = parseFloat(document.getElementById('vendaDia').value) || 0;
     const mDia = (parseFloat(document.getElementById('margemDia').value) || 0) / 100;
 
+    // 2. Pontual
     const vPontual = parseFloat(document.getElementById('vendaPontual').value) || 0;
     const mPontual = (parseFloat(document.getElementById('margemPontual').value) || 0) / 100;
 
-    const totalExpurgado = itensExpurgo.reduce((acc, item) => acc + item.valor, 0);
+    // Totais com tudo
+    const vendaTotal = vDia + vPontual;
+    const lucroTotal = (vDia * mDia) + (vPontual * mPontual);
+    const margemBruta = vendaTotal > 0 ? (lucroTotal / vendaTotal) * 100 : 0;
 
-    // Lucro bruto gerado no dia
-    const lucroDia = vDia * mDia;
-    const lucroPontual = vPontual * mPontual;
+    // 3. Expurgos
+    let vendaExpurgada = 0;
+    let lucroExpurgado = 0;
+    itensExpurgo.forEach(item => {
+      vendaExpurgada += item.valor;
+      lucroExpurgado += (item.valor * (item.margem / 100));
+    });
 
-    // Venda computada para efeito da margem da seção
-    const vendaTotalBruta = vDia + vPontual;
-    const vendaTotalEfetiva = Math.max(0, vendaTotalBruta - totalExpurgado);
+    // 4. Margem Efetiva da Seção (Removendo os expurgos)
+    const vendaEfetiva = Math.max(0, vendaTotal - vendaExpurgada);
+    const lucroEfetivo = Math.max(0, lucroTotal - lucroExpurgado);
+    const margemEfetiva = vendaEfetiva > 0 ? (lucroEfetivo / vendaEfetiva) * 100 : 0;
 
-    let novaMargem = 0;
-    if (vendaTotalBruta > 0) {
-      // Ponderação da margem
-      novaMargem = ((lucroDia + lucroPontual) / vendaTotalBruta) * 100;
-    }
+    // 5. Consumo da Queima de 30%
+    const margemQueimada = Math.max(0, metaMSV - margemEfetiva);
+    const margemQueimaPermitida = metaMSV - msvDopping; // Amplitude exata dos 30%
 
-    // Exibição dos KPIs
-    document.getElementById('kpiNovaMargem').innerText = novaMargem.toFixed(2) + '%';
-    document.getElementById('kpiVendaTotal').innerText = formatarMoeda(vendaTotalBruta);
-    document.getElementById('kpiTotalExpurgado').innerText = formatarMoeda(totalExpurgado);
+    let consumoQueima = margemQueimaPermitida > 0 ? (margemQueimada / margemQueimaPermitida) * 100 : 0;
+    consumoQueima = Math.min(Math.max(consumoQueima, 0), 100);
 
-    // Verificação da Queima de Margem (Ex: perda percentual sobre a margem meta/original)
-    const perdaMargemPontos = Math.max(0, (mDia * 100) - novaMargem);
-    // Consumo relativo ao limite de 30% da margem
-    const limiteQueima = (mDia * 100) * 0.30; 
-    let percentualConsumido = limiteQueima > 0 ? (perdaMargemPontos / limiteQueima) * 100 : 0;
-    percentualConsumido = Math.min(Math.max(percentualConsumido, 0), 100);
+    // Atualização de tela
+    document.getElementById('kpiMargemEfetiva').innerText = margemEfetiva.toFixed(2) + '%';
+    document.getElementById('kpiMargemBruta').innerText = margemBruta.toFixed(2) + '%';
+    document.getElementById('kpiPiso').innerText = msvDopping.toFixed(2) + '%';
+    document.getElementById('kpiVendaEfetiva').innerText = formatarMoeda(vendaEfetiva);
+    document.getElementById('kpiTotalExpurgado').innerText = formatarMoeda(vendaExpurgada);
 
     const bar = document.getElementById('barQueima');
     const txt = document.getElementById('txtConsumoQueima');
     const alertBox = document.getElementById('alertaQueima');
 
-    bar.style.width = percentualConsumido + '%';
-    txt.innerText = percentualConsumido.toFixed(1) + '%';
+    bar.style.width = consumoQueima + '%';
+    txt.innerText = consumoQueima.toFixed(1) + '%';
 
-    if (percentualConsumido >= 100) {
+    if (margemEfetiva < msvDopping) {
       bar.style.backgroundColor = 'var(--lm-danger)';
       alertBox.className = 'status-alert burn-danger';
-      alertBox.innerText = 'ATENÇÃO: Limite de 30% de queima da seção ultrapassado!';
-    } else if (percentualConsumido > 70) {
+      alertBox.innerText = `ALERTA CRÍTICO: Margem abaixo do Dopping (${msvDopping.toFixed(2)}%)! Queima estourou os 30%.`;
+    } else if (consumoQueima > 75) {
       bar.style.backgroundColor = 'var(--lm-warning)';
       alertBox.className = 'status-alert burn-warning';
-      alertBox.innerText = 'Cuidado: Próximo do teto de queima da Bricolagem.';
+      alertBox.innerText = `ATENÇÃO: Queima em ${consumoQueima.toFixed(1)}%. Próxima do limite de dopping.`;
     } else {
       bar.style.backgroundColor = 'var(--lm-green)';
       alertBox.className = 'status-alert safe';
-      alertBox.innerText = 'Margem protegida dentro da faixa permitida.';
+      alertBox.innerText = `Margem aprovada dentro do teto de dopping (${msvDopping.toFixed(2)}%).`;
     }
   }
 
   function adicionarExpurgo() {
-    const desc = document.getElementById('expurgoDesc').value.trim();
+    const desc = document.getElementById('expurgoDesc').value.trim() || 'Item s/ desc';
     const val = parseFloat(document.getElementById('expurgoValor').value);
+    const margem = parseFloat(document.getElementById('expurgoMargem').value) || 0;
 
-    if (!desc || isNaN(val) || val <= 0) {
-      alert('Informe a descrição/SKU e um valor válido.');
+    if (isNaN(val) || val <= 0) {
+      alert('Informe um valor de venda válido.');
       return;
     }
 
-    itensExpurgo.push({ id: Date.now(), desc, valor: val });
+    itensExpurgo.push({ id: Date.now(), desc, valor: val, margem: margem });
     document.getElementById('expurgoDesc').value = '';
     document.getElementById('expurgoValor').value = '';
+    document.getElementById('expurgoMargem').value = '';
 
     renderizarExpurgos();
     calcular();
@@ -382,6 +537,7 @@
       tr.innerHTML = `
         <td>${item.desc}</td>
         <td>${formatarMoeda(item.valor)}</td>
+        <td>${item.margem.toFixed(1)}%</td>
         <td style="text-align: right;"><button class="btn-del" onclick="removerExpurgo(${item.id})">✕</button></td>
       `;
       tbody.appendChild(tr);
@@ -389,28 +545,32 @@
   }
 
   function copiarResumo() {
-    const vTotal = document.getElementById('kpiVendaTotal').innerText;
-    const margem = document.getElementById('kpiNovaMargem').innerText;
+    const secao = document.getElementById('selSecao').value;
+    const meta = document.getElementById('dspMetaMSV').innerText;
+    const dopping = document.getElementById('dspMsvDopping').innerText;
+    const margemEfetiva = document.getElementById('kpiMargemEfetiva').innerText;
+    const vendaEfetiva = document.getElementById('kpiVendaEfetiva').innerText;
     const expurgo = document.getElementById('kpiTotalExpurgado').innerText;
-    
-    const texto = `*Acompanhamento de Margem - Seção*\n` +
-      `• Venda Total: ${vTotal}\n` +
-      `• Nova Margem: ${margem}\n` +
-      `• Expurgos do Dia: ${expurgo}\n` +
-      `_Status: ${document.getElementById('alertaQueima').innerText}_`;
+    const status = document.getElementById('alertaQueima').innerText;
+
+    const texto = `*Acompanhamento Diário de Margem | ${secao}*\n` +
+      `• Meta MSV: ${meta} | MSV Dopping (-30%): ${dopping}\n` +
+      `• Margem Efetiva da Seção: *${margemEfetiva}*\n` +
+      `• Faturamento Válido: ${vendaEfetiva}\n` +
+      `• Expurgos Descontados: ${expurgo}\n` +
+      `_Status: ${status}_`;
 
     navigator.clipboard.writeText(texto).then(() => {
-      alert('Resumo copiado com sucesso!');
+      alert('Resumo copiado para a área de transferência!');
     });
   }
 
-  // Listeners para recálculo automático
   document.querySelectorAll('input').forEach(input => {
     input.addEventListener('input', calcular);
   });
 
-  // Executa no carregamento inicial
-  calcular();
+  // Inicialização
+  popularSecoes();
 </script>
 </body>
 </html>
