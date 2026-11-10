@@ -29,7 +29,6 @@
       min-height: 100vh;
     }
 
-    /* Faixa superior verde */
     .top-strip {
       background-color: var(--lm-green-header);
       height: 70px;
@@ -43,7 +42,6 @@
       padding: 0 16px;
     }
 
-    /* Header branco suspenso */
     header {
       background: #FFFFFF;
       border-radius: 8px;
@@ -65,7 +63,7 @@
     .logo-lm {
       height: 48px;
       width: auto;
-      object-fit: contain;
+      display: block;
     }
 
     .brand h1 {
@@ -92,7 +90,6 @@
       white-space: nowrap;
     }
 
-    /* Grid Layout */
     .grid-top {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
@@ -155,7 +152,6 @@
       border-color: var(--lm-green);
     }
 
-    /* Linhas de Tabela do Card "Dados da Seção" */
     .secao-stats-table {
       width: 100%;
       border-collapse: collapse;
@@ -180,7 +176,6 @@
       color: var(--lm-warning);
     }
 
-    /* Painel de Decisão & Margem */
     .painel-grid {
       display: grid;
       grid-template-columns: 1.8fr 1fr;
@@ -220,7 +215,6 @@
       color: #86efac;
     }
 
-    /* Caixa Lateral do Dopping */
     .dopping-box {
       background: var(--lm-card-inner);
       border: 1px solid #7c2d12;
@@ -250,7 +244,7 @@
 
     .dopping-status-text {
       font-size: 0.72rem;
-      color: #fca5a5;
+      color: #86efac;
       font-weight: 600;
       margin-bottom: 8px;
       text-align: center;
@@ -271,7 +265,6 @@
       transition: width 0.3s, background-color 0.3s;
     }
 
-    /* Sessão Inferior: Expurgos e Cópia */
     .btn-action {
       background: var(--lm-green);
       color: #FFFFFF;
@@ -287,7 +280,7 @@
 
     .btn-copy {
       background: #0284c7;
-      margin-top: 10px;
+      margin-top: 14px;
     }
     .btn-copy:hover { background: #0369a1; }
 
@@ -295,17 +288,17 @@
       width: 100%;
       border-collapse: collapse;
       font-size: 0.76rem;
-      margin-top: 10px;
+      margin-top: 12px;
     }
     .expurgo-table th {
       text-align: left;
-      padding: 5px;
+      padding: 6px 8px;
       border-bottom: 1px solid var(--lm-border-dark);
       color: var(--lm-text-muted);
       font-size: 0.68rem;
     }
     .expurgo-table td {
-      padding: 6px 5px;
+      padding: 6px 8px;
       border-bottom: 1px solid #28333c;
     }
     .btn-del {
@@ -314,6 +307,7 @@
       color: var(--lm-danger);
       font-weight: 800;
       cursor: pointer;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -324,7 +318,8 @@
   <div class="container">
     <header>
       <div class="header-left">
-        <img class="logo-lm" src="https://images.squarespace-cdn.com/content/v1/5beea1e025ec024c084f738e/1567114389028-UODCDK2W2Q2C9E457T03/lm+novo.png" alt="Leroy Merlin" />
+        <!-- Logo oficial embutido em Base64 para não quebrar -->
+        <img class="logo-lm" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 90'><polygon points='80,18 138,76 22,76' fill='%2378BE20'/><g transform='translate(45,50) rotate(-45)'><text x='0' y='0' font-family='Arial, sans-serif' font-weight='900' font-size='13.5' fill='%231E293B'>LEROY</text></g><g transform='translate(86,18) rotate(45)'><text x='0' y='0' font-family='Arial, sans-serif' font-weight='900' font-size='13.5' fill='%231E293B'>MERLIN</text></g></svg>" alt="Leroy Merlin" />
         <div class="brand">
           <h1>Calculadora de MSV Leroy Merlin</h1>
           <p>Calculadora de Margem & Negociação</p>
@@ -333,10 +328,9 @@
       <div class="badge-event">Festa da Bricolagem</div>
     </header>
 
-    <!-- Topo: Seleção e Dados da Seção lado a lado -->
     <div class="grid-top">
       
-      <!-- Card Esquerdo: Seletor e Inputs -->
+      <!-- Entrada de Dados da Seção -->
       <div class="card">
         <h2 class="card-title">Seção & Mês de Referência</h2>
         <div class="grid-2col">
@@ -377,7 +371,7 @@
         </div>
       </div>
 
-      <!-- Card Direito: Dados da Seção (Tabela com Metas) -->
+      <!-- Resumo da Seção -->
       <div class="card">
         <h2 class="card-title">Dados da Seção</h2>
         <table class="secao-stats-table">
@@ -406,15 +400,14 @@
 
     </div>
 
-    <!-- Bloco Principal: Painel de Decisão & Margem -->
+    <!-- Painel de Resultados -->
     <div class="card" style="margin-bottom: 18px;">
       <h2 class="card-title">Painel de Decisão & Margem</h2>
       
       <div class="painel-grid">
-        <!-- 4 Cards Verdes de Métricas -->
         <div class="kpi-row-grid">
           <div class="kpi-card-dark">
-            <div class="kpi-label">Margem Efetiva da Seção (s/ Expurgos)</div>
+            <div class="kpi-label">Margem Efetiva Seção (s/ Expurgos)</div>
             <div class="kpi-num" id="kpiMargemEfetiva">10,89%</div>
           </div>
           <div class="kpi-card-dark">
@@ -431,7 +424,6 @@
           </div>
         </div>
 
-        <!-- Box de Dopping & Queima -->
         <div class="dopping-box">
           <div class="dopping-head">
             <span>MSV Dopping Mínimo</span>
@@ -453,13 +445,13 @@
       </div>
     </div>
 
-    <!-- Bloco Inferior: Expurgos -->
+    <!-- Tabela de Expurgos -->
     <div class="card">
       <h2 class="card-title">Itens com Expurgo (Isentos da Seção)</h2>
       <div style="display: grid; grid-template-columns: 2fr 1.2fr 1fr 1.2fr; gap: 8px;">
         <input type="text" id="expurgoDesc" placeholder="Item / SKU">
         <input type="number" id="expurgoValor" placeholder="Venda R$" step="0.01">
-        <input type="number" id="expurgoMargem" placeholder="Margem %" step="0.01">
+        <input type="number" id="expurgoMargem" placeholder="Margem % (ex: -50, -300)" step="0.01">
         <button class="btn-action" onclick="adicionarExpurgo()">+ Lançar</button>
       </div>
 
@@ -501,6 +493,13 @@
 
     let itensExpurgo = [];
 
+    function parseValor(str) {
+      if (typeof str === 'number') return str;
+      if (!str) return 0;
+      let limpo = str.toString().replace(/\s/g, '').replace(/\./g, '').replace(',', '.');
+      return parseFloat(limpo) || 0;
+    }
+
     function formatarMoeda(val) {
       return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     }
@@ -540,16 +539,18 @@
       const metaMSV = dados.msv;
       const msvDopping = dados.dopping;
 
-      const vDia = parseFloat(document.getElementById('vendaDia').value) || 0;
-      const mDia = (parseFloat(document.getElementById('margemDia').value) || 0) / 100;
+      const vDia = parseValor(document.getElementById('vendaDia').value);
+      const mDia = parseValor(document.getElementById('margemDia').value) / 100;
 
-      const vPontual = parseFloat(document.getElementById('vendaPontual').value) || 0;
-      const mPontual = (parseFloat(document.getElementById('margemPontual').value) || 0) / 100;
+      const vPontual = parseValor(document.getElementById('vendaPontual').value);
+      const mPontual = parseValor(document.getElementById('margemPontual').value) / 100;
 
+      // Totais brutos gerados
       const vendaTotal = vDia + vPontual;
       const lucroTotal = (vDia * mDia) + (vPontual * mPontual);
       const margemBruta = vendaTotal > 0 ? (lucroTotal / vendaTotal) * 100 : 0;
 
+      // Soma dos itens de expurgo (aceita perfeitamente lucro negativo / prejuízo)
       let vendaExpurgada = 0;
       let lucroExpurgado = 0;
       itensExpurgo.forEach(item => {
@@ -557,17 +558,19 @@
         lucroExpurgado += (item.valor * (item.margem / 100));
       });
 
+      // Retira a venda e o resultado (lucro ou prejuízo) dos itens expurgados
       const vendaEfetiva = Math.max(0, vendaTotal - vendaExpurgada);
-      const lucroEfetivo = Math.max(0, lucroTotal - lucroExpurgado);
+      const lucroEfetivo = lucroTotal - lucroExpurgado;
       const margemEfetiva = vendaEfetiva > 0 ? (lucroEfetivo / vendaEfetiva) * 100 : 0;
 
+      // Cálculo de queima dos 30%
       const margemQueimada = Math.max(0, metaMSV - margemEfetiva);
       const margemQueimaPermitida = metaMSV - msvDopping;
 
       let consumoQueima = margemQueimaPermitida > 0 ? (margemQueimada / margemQueimaPermitida) * 100 : 0;
       consumoQueima = Math.min(Math.max(consumoQueima, 0), 100);
 
-      // Atualização dos elementos
+      // Renderização nos campos
       document.getElementById('kpiMargemEfetiva').innerText = margemEfetiva.toFixed(2) + '%';
       document.getElementById('kpiMargemBruta').innerText = margemBruta.toFixed(2) + '%';
       document.getElementById('kpiMargemSimulada').innerText = (mPontual * 100).toFixed(2) + '%';
@@ -600,11 +603,13 @@
 
     function adicionarExpurgo() {
       const desc = document.getElementById('expurgoDesc').value.trim() || 'Item s/ desc';
-      const val = parseFloat(document.getElementById('expurgoValor').value);
-      const margem = parseFloat(document.getElementById('expurgoMargem').value) || 0;
+      const val = parseValor(document.getElementById('expurgoValor').value);
+      // Pega qualquer valor de margem (inclusive números negativos como -300)
+      const margemInput = document.getElementById('expurgoMargem').value;
+      const margem = parseValor(margemInput);
 
       if (isNaN(val) || val <= 0) {
-        alert('Informe um valor de venda válido para o expurgo.');
+        alert('Informe um valor de venda válido para o item expurgado.');
         return;
       }
 
