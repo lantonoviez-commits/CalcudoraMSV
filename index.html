@@ -26,29 +26,45 @@
     header {
       background: var(--lm-card-bg);
       border-top: 6px solid var(--lm-green);
-      padding: 16px 20px;
+      padding: 16px 22px;
       border-radius: 8px;
       margin-bottom: 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      gap: 16px;
     }
-    .brand h1 { font-size: 1.3rem; font-weight: 800; color: var(--lm-dark); }
-    .brand p { font-size: 0.8rem; color: #64748B; }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .logo-lm {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+    .brand h1 { font-size: 1.25rem; font-weight: 800; color: var(--lm-dark); }
+    .brand p { font-size: 0.78rem; color: #64748B; }
     .badge-event {
       background: #EBF8E3;
       color: var(--lm-green-dark);
       font-weight: 700;
       font-size: 0.72rem;
-      padding: 5px 12px;
+      padding: 6px 14px;
       border-radius: 20px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      white-space: nowrap;
     }
 
     .dashboard-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 18px; }
-    @media (max-width: 800px) { .dashboard-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 800px) { 
+      .dashboard-grid { grid-template-columns: 1fr; }
+      header { flex-direction: column; align-items: flex-start; }
+      .badge-event { align-self: flex-start; }
+    }
 
     .card {
       background: var(--lm-card-bg);
@@ -182,9 +198,23 @@
 
 <div class="container">
   <header>
-    <div class="brand">
-      <h1>Calculadora de Margem & Negociação</h1>
-      <p>Gestão diária de margem da seção, expurgos e teto de queima de 30%</p>
+    <div class="header-left">
+      <!-- Imagem SVG integrada do triângulo clássico Leroy Merlin -->
+      <svg class="logo-lm" viewBox="0 0 160 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="80,20 135,78 25,78" fill="#78BE20"/>
+        <!-- LEROY -->
+        <g transform="translate(48, 52) rotate(-45)">
+          <text x="0" y="0" font-family="'Open Sans', sans-serif" font-weight="900" font-size="14.5" fill="#2F3538" letter-spacing="0.5">LEROY</text>
+        </g>
+        <!-- MERLIN -->
+        <g transform="translate(86, 17) rotate(45)">
+          <text x="0" y="0" font-family="'Open Sans', sans-serif" font-weight="900" font-size="14.5" fill="#2F3538" letter-spacing="0.5">MERLIN</text>
+        </g>
+      </svg>
+      <div class="brand">
+        <h1>Calculadora de Margem & Negociação</h1>
+        <p>Gestão diária de margem da seção, expurgos e teto de queima de 30%</p>
+      </div>
     </div>
     <div class="badge-event">Festa da Bricolagem</div>
   </header>
@@ -192,20 +222,20 @@
   <div class="dashboard-grid">
     <!-- Coluna 1: Entradas -->
     <div>
-      <!-- Parâmetros de Seção da Planilha -->
+      <!-- Parâmetros de Seção & Mês -->
       <div class="card">
-        <h2 class="card-title">1. Seleção da Seção & Mês de Referência</h2>
+        <h2 class="card-title">1. Seção & Mês de Referência</h2>
         <div class="grid-2col">
           <div class="field-group">
             <label for="selSecao">Seção</label>
             <select id="selSecao" onchange="atualizarMetasSecao()"></select>
           </div>
           <div class="field-group">
-            <label for="selPeriodo">Período / Mês</label>
+            <label for="selPeriodo">Mês</label>
             <select id="selPeriodo" onchange="atualizarMetasSecao()">
-              <option value="nov" selected>Novembro (Bricolagem)</option>
+              <option value="out">Outubro</option>
+              <option value="nov" selected>Novembro</option>
               <option value="dez">Dezembro</option>
-              <option value="out">Outubro (Abertura)</option>
             </select>
           </div>
         </div>
@@ -326,7 +356,7 @@
 </div>
 
 <script>
-  // Dados oficiais extraídos das abas da planilha
+  // Metas oficiais de todas as seções extraídas da planilha
   const tabelaSecoes = {
     "01 - Materiais": {
       out: { msv: 13.36, dopping: 9.4856 },
@@ -420,6 +450,7 @@
       opt.innerText = nome;
       sel.appendChild(opt);
     });
+
     atualizarMetasSecao();
   }
 
@@ -440,7 +471,7 @@
     const dados = tabelaSecoes[secao][periodo];
 
     const metaMSV = dados.msv;
-    const msvDopping = dados.dopping; // Piso de -30%
+    const msvDopping = dados.dopping;
 
     // 1. Apuração
     const vDia = parseFloat(document.getElementById('vendaDia').value) || 0;
@@ -470,7 +501,7 @@
 
     // 5. Consumo da Queima de 30%
     const margemQueimada = Math.max(0, metaMSV - margemEfetiva);
-    const margemQueimaPermitida = metaMSV - msvDopping; // Amplitude exata dos 30%
+    const margemQueimaPermitida = metaMSV - msvDopping;
 
     let consumoQueima = margemQueimaPermitida > 0 ? (margemQueimada / margemQueimaPermitida) * 100 : 0;
     consumoQueima = Math.min(Math.max(consumoQueima, 0), 100);
@@ -546,6 +577,8 @@
 
   function copiarResumo() {
     const secao = document.getElementById('selSecao').value;
+    const mesSelect = document.getElementById('selPeriodo');
+    const mesNome = mesSelect.options[mesSelect.selectedIndex].text;
     const meta = document.getElementById('dspMetaMSV').innerText;
     const dopping = document.getElementById('dspMsvDopping').innerText;
     const margemEfetiva = document.getElementById('kpiMargemEfetiva').innerText;
@@ -554,6 +587,7 @@
     const status = document.getElementById('alertaQueima').innerText;
 
     const texto = `*Acompanhamento Diário de Margem | ${secao}*\n` +
+      `• Mês de Referência: ${mesNome}\n` +
       `• Meta MSV: ${meta} | MSV Dopping (-30%): ${dopping}\n` +
       `• Margem Efetiva da Seção: *${margemEfetiva}*\n` +
       `• Faturamento Válido: ${vendaEfetiva}\n` +
@@ -569,7 +603,6 @@
     input.addEventListener('input', calcular);
   });
 
-  // Inicialização
   popularSecoes();
 </script>
 </body>
