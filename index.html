@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Margem & Bricolagem | Leroy Merlin</title>
+  <title>Calculadora de MSC | Leroy Merlin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -38,15 +38,15 @@
     .header-left {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 20px;
     }
     .logo-lm {
-      height: 48px;
+      height: 52px;
       width: auto;
       object-fit: contain;
     }
     .brand h1 { font-size: 1.25rem; font-weight: 800; color: var(--lm-dark); }
-    .brand p { font-size: 0.78rem; color: #64748B; }
+    .brand p { font-size: 0.78rem; color: #64748B; margin-top: 1px; }
     .badge-event {
       background: #EBF8E3;
       color: var(--lm-green-dark);
@@ -62,7 +62,8 @@
     .dashboard-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 18px; }
     @media (max-width: 800px) { 
       .dashboard-grid { grid-template-columns: 1fr; }
-      header { flex-direction: column; align-items: flex-start; }
+      header { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .header-left { flex-direction: row; gap: 14px; }
       .badge-event { align-self: flex-start; }
     }
 
@@ -199,20 +200,10 @@
 <div class="container">
   <header>
     <div class="header-left">
-      <!-- Imagem SVG integrada do triângulo clássico Leroy Merlin -->
-      <svg class="logo-lm" viewBox="0 0 160 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="80,20 135,78 25,78" fill="#78BE20"/>
-        <!-- LEROY -->
-        <g transform="translate(48, 52) rotate(-45)">
-          <text x="0" y="0" font-family="'Open Sans', sans-serif" font-weight="900" font-size="14.5" fill="#2F3538" letter-spacing="0.5">LEROY</text>
-        </g>
-        <!-- MERLIN -->
-        <g transform="translate(86, 17) rotate(45)">
-          <text x="0" y="0" font-family="'Open Sans', sans-serif" font-weight="900" font-size="14.5" fill="#2F3538" letter-spacing="0.5">MERLIN</text>
-        </g>
-      </svg>
+      <!-- Imagem oficial do Logo Leroy Merlin via CDN -->
+      <img class="logo-lm" src="https://images.squarespace-cdn.com/content/v1/5beea1e025ec024c084f738e/1567114389028-UODCDK2W2Q2C9E457T03/lm+novo.png" alt="Leroy Merlin" />
       <div class="brand">
-        <h1>Calculadora de Margem & Negociação</h1>
+        <h1>Calculadora de MSC Leroy Merlin</h1>
         <p>Gestão diária de margem da seção, expurgos e teto de queima de 30%</p>
       </div>
     </div>
