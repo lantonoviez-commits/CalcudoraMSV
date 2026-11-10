@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Margem & Bricolagem | Seção</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --lm-green: #78BE20;
+      --lm-green-dark: #589b14;
+      --lm-dark: #2F3538;
+      --lm-gray-bg: #F4F6F8;
+      --lm-card-bg: #FFFFFF;
+      --lm-border: #E2E8F0;
+      --lm-danger: #E53E3E;
+      --lm-warning: #DD6B20;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Open Sans', sans-serif; }
+    body { background-color: var(--lm-gray-bg); color: var(--lm-dark); padding: 24px 16px; }
+
+    .container { max-width: 980px; margin: 0 auto; }
+    
+    /* Header */
+    header {
+      background: var(--lm-card-bg);
+      border-top: 6px solid var(--lm-green);
+      padding: 20px 24px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    .brand h1 { font-size: 1.4rem; font-weight: 800; color: var(--lm-dark); }
+    .brand p { font-size: 0.85rem; color: #64748B; }
+    .badge-event {
+      background: #EBF8E3;
+      color: var(--lm-green-dark);
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 6px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Grid Layout */
+    .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 768px) { .dashboard-grid { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--lm-card-bg);
+      padding: 22px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      border: 1px solid var(--lm-border);
+      margin-bottom: 20px;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Form Elements */
+    .field-group { margin-bottom: 14px; }
+    label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; color: #475569; }
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--lm-border);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      color: var(--lm-dark);
+      outline: none;
+      transition: border 0.2s;
+    }
+    input:focus { border-color: var(--lm-green); }
+
+    /* Highlights & KPI */
+    .kpi-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .kpi-box {
+      background: #F8FAFC;
+      border: 1px solid var(--lm-border);
+      padding: 14px;
+      border-radius: 6px;
+      text-align: center;
+    }
+    .kpi-box.primary {
+      background: #F0FDF4;
+      border-color: #BBF7D0;
+      grid-column: span 2;
+    }
+    .kpi-label { font-size: 0.75rem; text-transform: uppercase; color: #64748B; font-weight: 600; }
+    .kpi-value { font-size: 1.5rem; font-weight: 800; margin-top: 4px; color: var(--lm-dark); }
+    .kpi-box.primary .kpi-value { color: var(--lm-green-dark); font-size: 1.9rem; }
+
+    /* Termômetro Bricolagem */
+    .brico-bar-bg {
+      background: #E2E8F0;
+      height: 14px;
+      border-radius: 7px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .brico-bar-fill {
+      height: 100%;
+      background: var(--lm-green);
+      width: 0%;
+      transition: width 0.3s, background-color 0.3s;
+    }
+    .status-alert {
+      margin-top: 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 6px;
+      display: none;
+    }
+    .status-alert.safe { background: #EBF8E3; color: var(--lm-green-dark); display: block; }
+    .status-alert.burn-warning { background: #FEF3C7; color: var(--lm-warning); display: block; }
+    .status-alert.burn-danger { background: #FEE2E2; color: var(--lm-danger); display: block; }
+
+    /* Tabela de Expurgos */
+    .expurgo-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin-top: 10px;
+    }
+    .expurgo-table th {
+      background: #F8FAFC;
+      text-align: left;
+      padding: 8px;
+      border-bottom: 2px solid var(--lm-border);
+      color: #64748B;
+    }
+    .expurgo-table td {
+      padding: 8px;
+      border-bottom: 1px solid var(--lm-border);
+    }
+    .btn-del {
+      background: transparent;
+      border: none;
+      color: var(--lm-danger);
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-add {
+      background: var(--lm-green);
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 8px;
+    }
+    .btn-add:hover { background: var(--lm-green-dark); }
+
+    .btn-copy {
+      background: #0284C7;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .btn-copy:hover { background: #0369A1; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="brand">
+      <h1>Calculadora de Margem & Negociação</h1>
+      <p>Gestão diária de margem e expurgo | Seção</p>
+    </div>
+    <div class="badge-event">Festa da Bricolagem</div>
+  </header>
+
+  <div class="dashboard-grid">
+    <!-- Coluna 1: Entradas -->
+    <div>
+      <div class="card">
+        <h2 class="card-title">1. Dados do Dia (Acumulado)</h2>
+        <div class="field-group">
+          <label for="vendaDia">Venda Acumulada no Dia (R$)</label>
+          <input type="number" id="vendaDia" value="8337" step="0.01">
+        </div>
+        <div class="field-group">
+          <label for="margemDia">Margem Média Atual (%)</label>
+          <input type="number" id="margemDia" value="15" step="0.1">
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card-title">2. Simulação de Venda Pontual</h2>
+        <div class="field-group">
+          <label for="vendaPontual">Valor da Nova Venda / Orçamento (R$)</label>
+          <input type="number" id="vendaPontual" value="468" step="0.01">
+        </div>
+        <div class="field-group">
+          <label for="margemPontual">Margem Aplicada na Venda (%)</label>
+          <input type="number" id="margemPontual" value="10" step="0.1">
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card-title">3. Itens com Expurgo (Isentos da Seção)</h2>
+        <p style="font-size: 0.78rem; color: #64748B; margin-bottom: 8px;">
+          Valores subsidiados ou pontas de estoque autorizadas para não penalizar a margem da seção.
+        </p>
+        <div style="display: flex; gap: 8px;">
+          <input type="text" id="expurgoDesc" placeholder="Descrição / SKU" style="flex: 2;">
+          <input type="number" id="expurgoValor" placeholder="R$" style="flex: 1;" step="0.01">
+        </div>
+        <button class="btn-add" onclick="adicionarExpurgo()">+ Lançar Item Expurgado</button>
+
+        <table class="expurgo-table" id="tabelaExpurgos">
+          <thead>
+            <tr>
+              <th>Item / SKU</th>
+              <th>Valor (R$)</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Coluna 2: Resultados e Indicadores -->
+    <div>
+      <div class="card">
+        <h2 class="card-title">Resultado Consolidado</h2>
+        
+        <div class="kpi-container">
+          <div class="kpi-box primary">
+            <div class="kpi-label">Nova Margem Ponderada</div>
+            <div class="kpi-value" id="kpiNovaMargem">0,0%</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-label">Venda Total Computada</div>
+            <div class="kpi-value" id="kpiVendaTotal" style="font-size: 1.2rem;">R$ 0,00</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-label">Total Expurgado</div>
+            <div class="kpi-value" id="kpiTotalExpurgado" style="font-size: 1.2rem; color: var(--lm-warning);">R$ 0,00</div>
+          </div>
+        </div>
+
+        <!-- Termômetro de Queima de Margem -->
+        <div style="margin-top: 18px;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700;">
+            <span>Consumo do Teto de Queima (Limite: 30%)</span>
+            <span id="txtConsumoQueima">0%</span>
+          </div>
+          <div class="brico-bar-bg">
+            <div class="brico-bar-fill" id="barQueima"></div>
+          </div>
+          <div id="alertaQueima" class="status-alert"></div>
+        </div>
+
+        <button class="btn-copy" onclick="copiarResumo()">Copiar Resumo p/ WhatsApp</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let itensExpurgo = [];
+
+  function formatarMoeda(val) {
+    return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  }
+
+  function calcular() {
+    const vDia = parseFloat(document.getElementById('vendaDia').value) || 0;
+    const mDia = (parseFloat(document.getElementById('margemDia').value) || 0) / 100;
+
+    const vPontual = parseFloat(document.getElementById('vendaPontual').value) || 0;
+    const mPontual = (parseFloat(document.getElementById('margemPontual').value) || 0) / 100;
+
+    const totalExpurgado = itensExpurgo.reduce((acc, item) => acc + item.valor, 0);
+
+    // Lucro bruto gerado no dia
+    const lucroDia = vDia * mDia;
+    const lucroPontual = vPontual * mPontual;
+
+    // Venda computada para efeito da margem da seção
+    const vendaTotalBruta = vDia + vPontual;
+    const vendaTotalEfetiva = Math.max(0, vendaTotalBruta - totalExpurgado);
+
+    let novaMargem = 0;
+    if (vendaTotalBruta > 0) {
+      // Ponderação da margem
+      novaMargem = ((lucroDia + lucroPontual) / vendaTotalBruta) * 100;
+    }
+
+    // Exibição dos KPIs
+    document.getElementById('kpiNovaMargem').innerText = novaMargem.toFixed(2) + '%';
+    document.getElementById('kpiVendaTotal').innerText = formatarMoeda(vendaTotalBruta);
+    document.getElementById('kpiTotalExpurgado').innerText = formatarMoeda(totalExpurgado);
+
+    // Verificação da Queima de Margem (Ex: perda percentual sobre a margem meta/original)
+    const perdaMargemPontos = Math.max(0, (mDia * 100) - novaMargem);
+    // Consumo relativo ao limite de 30% da margem
+    const limiteQueima = (mDia * 100) * 0.30; 
+    let percentualConsumido = limiteQueima > 0 ? (perdaMargemPontos / limiteQueima) * 100 : 0;
+    percentualConsumido = Math.min(Math.max(percentualConsumido, 0), 100);
+
+    const bar = document.getElementById('barQueima');
+    const txt = document.getElementById('txtConsumoQueima');
+    const alertBox = document.getElementById('alertaQueima');
+
+    bar.style.width = percentualConsumido + '%';
+    txt.innerText = percentualConsumido.toFixed(1) + '%';
+
+    if (percentualConsumido >= 100) {
+      bar.style.backgroundColor = 'var(--lm-danger)';
+      alertBox.className = 'status-alert burn-danger';
+      alertBox.innerText = 'ATENÇÃO: Limite de 30% de queima da seção ultrapassado!';
+    } else if (percentualConsumido > 70) {
+      bar.style.backgroundColor = 'var(--lm-warning)';
+      alertBox.className = 'status-alert burn-warning';
+      alertBox.innerText = 'Cuidado: Próximo do teto de queima da Bricolagem.';
+    } else {
+      bar.style.backgroundColor = 'var(--lm-green)';
+      alertBox.className = 'status-alert safe';
+      alertBox.innerText = 'Margem protegida dentro da faixa permitida.';
+    }
+  }
+
+  function adicionarExpurgo() {
+    const desc = document.getElementById('expurgoDesc').value.trim();
+    const val = parseFloat(document.getElementById('expurgoValor').value);
+
+    if (!desc || isNaN(val) || val <= 0) {
+      alert('Informe a descrição/SKU e um valor válido.');
+      return;
+    }
+
+    itensExpurgo.push({ id: Date.now(), desc, valor: val });
+    document.getElementById('expurgoDesc').value = '';
+    document.getElementById('expurgoValor').value = '';
+
+    renderizarExpurgos();
+    calcular();
+  }
+
+  function removerExpurgo(id) {
+    itensExpurgo = itensExpurgo.filter(item => item.id !== id);
+    renderizarExpurgos();
+    calcular();
+  }
+
+  function renderizarExpurgos() {
+    const tbody = document.querySelector('#tabelaExpurgos tbody');
+    tbody.innerHTML = '';
+    itensExpurgo.forEach(item => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${item.desc}</td>
+        <td>${formatarMoeda(item.valor)}</td>
+        <td style="text-align: right;"><button class="btn-del" onclick="removerExpurgo(${item.id})">✕</button></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function copiarResumo() {
+    const vTotal = document.getElementById('kpiVendaTotal').innerText;
+    const margem = document.getElementById('kpiNovaMargem').innerText;
+    const expurgo = document.getElementById('kpiTotalExpurgado').innerText;
+    
+    const texto = `*Acompanhamento de Margem - Seção*\n` +
+      `• Venda Total: ${vTotal}\n` +
+      `• Nova Margem: ${margem}\n` +
+      `• Expurgos do Dia: ${expurgo}\n` +
+      `_Status: ${document.getElementById('alertaQueima').innerText}_`;
+
+    navigator.clipboard.writeText(texto).then(() => {
+      alert('Resumo copiado com sucesso!');
+    });
+  }
+
+  // Listeners para recálculo automático
+  document.querySelectorAll('input').forEach(input => {
+    input.addEventListener('input', calcular);
+  });
+
+  // Executa no carregamento inicial
+  calcular();
+</script>
+</body>
+</html>
