@@ -318,7 +318,6 @@
   <div class="container">
     <header>
       <div class="header-left">
-        <!-- Logo oficial embutido em Base64 para não quebrar -->
         <img class="logo-lm" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 90'><polygon points='80,18 138,76 22,76' fill='%2378BE20'/><g transform='translate(45,50) rotate(-45)'><text x='0' y='0' font-family='Arial, sans-serif' font-weight='900' font-size='13.5' fill='%231E293B'>LEROY</text></g><g transform='translate(86,18) rotate(45)'><text x='0' y='0' font-family='Arial, sans-serif' font-weight='900' font-size='13.5' fill='%231E293B'>MERLIN</text></g></svg>" alt="Leroy Merlin" />
         <div class="brand">
           <h1>Calculadora de MSV Leroy Merlin</h1>
@@ -351,22 +350,22 @@
         <div class="grid-2col" style="margin-top: 8px;">
           <div class="field-group">
             <label for="vendaDia">Venda Acumulada Dia (R$)</label>
-            <input type="number" id="vendaDia" value="17629" step="0.01">
+            <input type="text" inputmode="decimal" id="vendaDia" value="17629" oninput="calcular()">
           </div>
           <div class="field-group">
             <label for="margemDia">Margem Atual Dia (%)</label>
-            <input type="number" id="margemDia" value="10.89" step="0.01">
+            <input type="text" inputmode="decimal" id="margemDia" value="10.89" oninput="calcular()">
           </div>
         </div>
 
         <div class="grid-2col" style="margin-top: 4px;">
           <div class="field-group">
             <label for="vendaPontual">Cotação / Negociação (R$)</label>
-            <input type="number" id="vendaPontual" value="0" step="0.01">
+            <input type="text" inputmode="decimal" id="vendaPontual" value="0" oninput="calcular()">
           </div>
           <div class="field-group">
             <label for="margemPontual">Margem da Cotação (%)</label>
-            <input type="number" id="margemPontual" value="0" step="0.01">
+            <input type="text" inputmode="decimal" id="margemPontual" value="0" oninput="calcular()">
           </div>
         </div>
       </div>
@@ -450,8 +449,8 @@
       <h2 class="card-title">Itens com Expurgo (Isentos da Seção)</h2>
       <div style="display: grid; grid-template-columns: 2fr 1.2fr 1fr 1.2fr; gap: 8px;">
         <input type="text" id="expurgoDesc" placeholder="Item / SKU">
-        <input type="number" id="expurgoValor" placeholder="Venda R$" step="0.01">
-        <input type="number" id="expurgoMargem" placeholder="Margem % (ex: -50, -300)" step="0.01">
+        <input type="text" inputmode="decimal" id="expurgoValor" placeholder="Venda R$">
+        <input type="text" inputmode="decimal" id="expurgoMargem" placeholder="Margem % (ex: -50, -300)">
         <button class="btn-action" onclick="adicionarExpurgo()">+ Lançar</button>
       </div>
 
@@ -493,11 +492,21 @@
 
     let itensExpurgo = [];
 
+    // Tratamento universal de números: aceita ponto ou vírgula
     function parseValor(str) {
       if (typeof str === 'number') return str;
       if (!str) return 0;
-      let limpo = str.toString().replace(/\s/g, '').replace(/\./g, '').replace(',', '.');
-      return parseFloat(limpo) || 0;
+      let s = str.toString().trim();
+
+      // Caso tenha ponto de milhar e vírgula decimal (ex: 394.587,50)
+      if (s.includes('.') && s.includes(',')) {
+        s = s.replace(/\./g, '').replace(',', '.');
+      } else {
+        // Se usar apenas vírgula decimal (ex: 17,7)
+        s = s.replace(',', '.');
+      }
+
+      return parseFloat(s) || 0;
     }
 
     function formatarMoeda(val) {
@@ -545,12 +554,10 @@
       const vPontual = parseValor(document.getElementById('vendaPontual').value);
       const mPontual = parseValor(document.getElementById('margemPontual').value) / 100;
 
-      // Totais brutos gerados
       const vendaTotal = vDia + vPontual;
       const lucroTotal = (vDia * mDia) + (vPontual * mPontual);
       const margemBruta = vendaTotal > 0 ? (lucroTotal / vendaTotal) * 100 : 0;
 
-      // Soma dos itens de expurgo (aceita perfeitamente lucro negativo / prejuízo)
       let vendaExpurgada = 0;
       let lucroExpurgado = 0;
       itensExpurgo.forEach(item => {
@@ -558,19 +565,16 @@
         lucroExpurgado += (item.valor * (item.margem / 100));
       });
 
-      // Retira a venda e o resultado (lucro ou prejuízo) dos itens expurgados
       const vendaEfetiva = Math.max(0, vendaTotal - vendaExpurgada);
       const lucroEfetivo = lucroTotal - lucroExpurgado;
       const margemEfetiva = vendaEfetiva > 0 ? (lucroEfetivo / vendaEfetiva) * 100 : 0;
 
-      // Cálculo de queima dos 30%
       const margemQueimada = Math.max(0, metaMSV - margemEfetiva);
       const margemQueimaPermitida = metaMSV - msvDopping;
 
       let consumoQueima = margemQueimaPermitida > 0 ? (margemQueimada / margemQueimaPermitida) * 100 : 0;
       consumoQueima = Math.min(Math.max(consumoQueima, 0), 100);
 
-      // Renderização nos campos
       document.getElementById('kpiMargemEfetiva').innerText = margemEfetiva.toFixed(2) + '%';
       document.getElementById('kpiMargemBruta').innerText = margemBruta.toFixed(2) + '%';
       document.getElementById('kpiMargemSimulada').innerText = (mPontual * 100).toFixed(2) + '%';
@@ -604,9 +608,7 @@
     function adicionarExpurgo() {
       const desc = document.getElementById('expurgoDesc').value.trim() || 'Item s/ desc';
       const val = parseValor(document.getElementById('expurgoValor').value);
-      // Pega qualquer valor de margem (inclusive números negativos como -300)
-      const margemInput = document.getElementById('expurgoMargem').value;
-      const margem = parseValor(margemInput);
+      const margem = parseValor(document.getElementById('expurgoMargem').value);
 
       if (isNaN(val) || val <= 0) {
         alert('Informe um valor de venda válido para o item expurgado.');
@@ -636,7 +638,7 @@
         tr.innerHTML = `
           <td style="color: #FFFFFF;">${item.desc}</td>
           <td>${formatarMoeda(item.valor)}</td>
-          <td style="color: ${item.margem < 0 ? '#ef4444' : '#86efac'}; font-weight: 700;">${item.margem.toFixed(1)}%</td>
+          <td style="color: ${item.margem < 0 ? '#ef4444' : '#86efac'}; font-weight: 700;">${item.margem.toFixed(2)}%</td>
           <td style="text-align: right;"><button class="btn-del" onclick="removerExpurgo(${item.id})">✕</button></td>
         `;
         tbody.appendChild(tr);
@@ -665,10 +667,6 @@
         alert('Resumo copiado com sucesso!');
       });
     }
-
-    document.querySelectorAll('input').forEach(input => {
-      input.addEventListener('input', calcular);
-    });
 
     popularSecoes();
   </script>
