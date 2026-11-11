@@ -350,7 +350,7 @@
         <div class="grid-2col" style="margin-top: 8px;">
           <div class="field-group">
             <label for="vendaDia">Venda Acumulada Dia (R$)</label>
-            <input type="text" inputmode="decimal" id="vendaDia" value="17629" oninput="calcular()">
+            <input type="text" inputmode="numeric" id="vendaDia" value="17.629" oninput="aplicarMascara(this); calcular();">
           </div>
           <div class="field-group">
             <label for="margemDia">Margem Atual Dia (%)</label>
@@ -361,7 +361,7 @@
         <div class="grid-2col" style="margin-top: 4px;">
           <div class="field-group">
             <label for="vendaPontual">Cotação / Negociação (R$)</label>
-            <input type="text" inputmode="decimal" id="vendaPontual" value="0" oninput="calcular()">
+            <input type="text" inputmode="numeric" id="vendaPontual" value="0" oninput="aplicarMascara(this); calcular();">
           </div>
           <div class="field-group">
             <label for="margemPontual">Margem da Cotação (%)</label>
@@ -449,7 +449,7 @@
       <h2 class="card-title">Itens com Expurgo (Isentos da Seção)</h2>
       <div style="display: grid; grid-template-columns: 2fr 1.2fr 1fr 1.2fr; gap: 8px;">
         <input type="text" id="expurgoDesc" placeholder="Item / SKU">
-        <input type="text" inputmode="decimal" id="expurgoValor" placeholder="Venda R$">
+        <input type="text" inputmode="numeric" id="expurgoValor" placeholder="Venda R$" oninput="aplicarMascara(this)">
         <input type="text" inputmode="decimal" id="expurgoMargem" placeholder="Margem % (ex: -50, -300)">
         <button class="btn-action" onclick="adicionarExpurgo()">+ Lançar</button>
       </div>
@@ -492,18 +492,32 @@
 
     let itensExpurgo = [];
 
-    // Tratamento universal de números: aceita ponto ou vírgula
+    // Formata o número com pontos de milhar em tempo real enquanto digita
+    function aplicarMascara(input) {
+      let valor = input.value.replace(/\D/g, '');
+      if (valor === '') {
+        input.value = '';
+        return;
+      }
+      input.value = Number(valor).toLocaleString('pt-BR');
+    }
+
+    // Lê o valor formatado com pontos e converte para número de cálculo
     function parseValor(str) {
       if (typeof str === 'number') return str;
       if (!str) return 0;
       let s = str.toString().trim();
 
-      // Caso tenha ponto de milhar e vírgula decimal (ex: 394.587,50)
       if (s.includes('.') && s.includes(',')) {
         s = s.replace(/\./g, '').replace(',', '.');
-      } else {
-        // Se usar apenas vírgula decimal (ex: 17,7)
+      } else if (s.includes(',')) {
         s = s.replace(',', '.');
+      } else if (s.includes('.')) {
+        // Se foi formatado pela máscara de milhar (ex: 800.000 ou 61.252), remove o ponto
+        let partes = s.split('.');
+        if (partes.length > 1 && partes[partes.length - 1].length === 3) {
+          s = s.replace(/\./g, '');
+        }
       }
 
       return parseFloat(s) || 0;
