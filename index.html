@@ -3,31 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculadora de MSV Leroy Merlin - Novembro</title>
+  <title>Calculadora de MSV Leroy Merlin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
+      --bg-body: #11181c;
+      --bg-card: #1f292e;
+      --bg-card-inner: #182226;
+      --border-card: #2c3a42;
+      --border-green-subtle: #244736;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
       --lm-green: #78BE20;
-      --lm-green-dark: #5e9915;
-      --lm-green-light: #f0f9e6;
-      --slate-900: #0f172a;
-      --slate-800: #1e293b;
-      --slate-700: #334155;
-      --slate-600: #475569;
-      --slate-500: #64748b;
-      --slate-300: #cbd5e1;
-      --slate-200: #e2e8f0;
-      --slate-100: #f1f5f9;
-      --slate-50: #f8fafc;
-      --red-600: #dc2626;
-      --red-50: #fef2f2;
-      --red-200: #fecaca;
-      --amber-600: #d97706;
-      --amber-50: #fffbeb;
-      --emerald-600: #059669;
-      --emerald-50: #ecfdf5;
-      --emerald-200: #a7f3d0;
+      --lm-green-bright: #4ade80;
+      --lm-green-btn: #76b900;
+      --lm-green-btn-hover: #659e00;
+      --amber: #f59e0b;
+      --amber-bg: #261e12;
+      --amber-border: #664411;
+      --red: #ef4444;
+      --red-bg: #2a1618;
+      --red-border: #7f1d1d;
+      --blue-btn: #0284c7;
+      --blue-btn-hover: #0369a1;
     }
 
     * {
@@ -38,35 +37,29 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--slate-100);
-      color: var(--slate-800);
-      line-height: 1.5;
-      padding-bottom: 3rem;
-    }
-
-    .top-bar {
-      height: 6px;
-      background: linear-gradient(90deg, var(--lm-green) 0%, #5a9e10 100%);
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.45;
+      padding: 1.25rem 1rem 3rem;
     }
 
     .container {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 1.5rem 1rem;
     }
 
+    /* Header */
     header {
-      background: #ffffff;
-      border-radius: 14px;
-      padding: 1.25rem 1.75rem;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 1rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-      border: 1px solid var(--slate-200);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .brand {
@@ -76,79 +69,74 @@
     }
 
     .brand img {
-      height: 52px;
+      height: 48px;
       width: auto;
     }
 
     .brand h1 {
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       font-weight: 800;
-      color: var(--slate-900);
-      letter-spacing: -0.02em;
+      color: #ffffff;
     }
 
     .brand p {
-      font-size: 0.875rem;
-      color: var(--slate-500);
-      font-weight: 500;
+      font-size: 0.82rem;
+      color: var(--text-muted);
     }
 
     .campaign-badge {
-      background: var(--lm-green-light);
-      color: var(--lm-green-dark);
-      border: 1px solid #cce8a8;
+      background: rgba(120, 190, 32, 0.15);
+      color: var(--lm-green);
+      border: 1px solid rgba(120, 190, 32, 0.4);
       font-weight: 700;
-      font-size: 0.85rem;
-      padding: 0.45rem 1rem;
+      font-size: 0.82rem;
+      padding: 0.4rem 0.9rem;
       border-radius: 999px;
-      letter-spacing: 0.01em;
     }
 
-    .grid-2 {
+    /* Grid Top */
+    .top-grid {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
     }
 
-    @media (max-width: 860px) {
-      .grid-2 {
+    @media (max-width: 850px) {
+      .top-grid {
         grid-template-columns: 1fr;
       }
     }
 
     .card {
-      background: #ffffff;
-      border-radius: 14px;
-      padding: 1.5rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-      border: 1px solid var(--slate-200);
-      margin-bottom: 1.5rem;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 10px;
+      padding: 1.35rem 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
-    .grid-2 .card {
+    .top-grid .card {
       margin-bottom: 0;
     }
 
     h2 {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 700;
-      color: var(--slate-900);
-      margin-bottom: 1.1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
     }
 
+    /* Form Inputs (White inputs inside Dark Card like screenshot) */
     .form-group {
-      margin-bottom: 1rem;
+      margin-bottom: 0.95rem;
     }
 
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.95rem;
     }
 
     @media (max-width: 540px) {
@@ -160,40 +148,38 @@
     label {
       display: block;
       font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--slate-600);
+      font-weight: 500;
+      color: var(--text-muted);
       margin-bottom: 0.35rem;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
     }
 
-    input, select {
+    .input-white {
       width: 100%;
-      padding: 0.62rem 0.85rem;
-      border: 1px solid var(--slate-300);
-      border-radius: 8px;
+      padding: 0.65rem 0.85rem;
+      background-color: #ffffff;
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
       font-size: 0.92rem;
+      font-weight: 600;
       font-family: inherit;
-      color: var(--slate-900);
-      background: #fff;
-      transition: border-color 0.15s, box-shadow 0.15s;
     }
 
-    input:focus, select:focus {
+    .input-white:focus {
       outline: none;
-      border-color: var(--lm-green);
-      box-shadow: 0 0 0 3px rgba(120, 190, 32, 0.18);
+      box-shadow: 0 0 0 3px rgba(120, 190, 32, 0.35);
     }
 
+    /* Dados da Seção Table */
     .info-table {
       width: 100%;
       border-collapse: collapse;
     }
 
     .info-table td {
-      padding: 0.68rem 0.5rem;
-      border-bottom: 1px solid var(--slate-100);
-      font-size: 0.9rem;
+      padding: 0.65rem 0;
+      font-size: 0.88rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .info-table tr:last-child td {
@@ -201,29 +187,24 @@
     }
 
     .info-table td:first-child {
-      color: var(--slate-600);
-      font-weight: 500;
+      color: var(--text-muted);
     }
 
     .info-table td:last-child {
       text-align: right;
       font-weight: 700;
-      color: var(--slate-900);
+      color: #ffffff;
     }
 
-    .highlight-red {
-      color: var(--red-600) !important;
+    .text-amber {
+      color: var(--amber) !important;
     }
 
-    .highlight-green {
-      color: var(--emerald-600) !important;
-    }
-
-    /* KPI Decision Panel */
+    /* Painel de Decisão & Margem */
     .decision-grid {
       display: grid;
-      grid-template-columns: 1.6fr 1fr;
-      gap: 1.25rem;
+      grid-template-columns: 1.85fr 1fr;
+      gap: 1rem;
     }
 
     @media (max-width: 820px) {
@@ -232,130 +213,150 @@
       }
     }
 
-    .kpi-boxes {
+    .kpi-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.9rem;
+      gap: 0.85rem;
+    }
+
+    @media (max-width: 520px) {
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .kpi-box {
-      background: var(--slate-50);
-      border: 1px solid var(--slate-200);
-      border-radius: 10px;
-      padding: 1rem;
-    }
-
-    .kpi-box.primary {
-      background: var(--lm-green-light);
-      border-color: #bfe096;
+      background-color: var(--bg-card-inner);
+      border: 1px solid var(--border-green-subtle);
+      border-radius: 8px;
+      padding: 1.05rem 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .kpi-title {
       font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--slate-600);
-      margin-bottom: 0.35rem;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
     }
 
     .kpi-value {
-      font-size: 1.45rem;
+      font-size: 1.55rem;
       font-weight: 800;
-      color: var(--slate-900);
+      color: var(--lm-green-bright);
     }
 
-    .status-panel {
-      border-radius: 12px;
-      padding: 1.25rem;
-      border: 1px solid var(--slate-200);
-      background: var(--slate-50);
+    .kpi-value.white {
+      color: #ffffff;
+    }
+
+    /* Status Box Right */
+    .status-box {
+      background-color: var(--bg-card-inner);
+      border: 1px solid var(--border-green-subtle);
+      border-radius: 8px;
+      padding: 1.15rem 1.25rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: all 0.2s ease;
     }
 
-    .status-panel.safe {
-      background: var(--emerald-50);
-      border-color: var(--emerald-200);
+    .status-box.dopping {
+      background-color: #261b18;
+      border-color: #9a3412;
     }
 
-    .status-panel.danger {
-      background: var(--red-50);
-      border-color: var(--red-200);
-    }
-
-    .status-header {
+    .status-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 0.82rem;
       font-weight: 700;
-      text-transform: uppercase;
-      color: var(--slate-600);
+      color: var(--text-muted);
+    }
+
+    .status-center {
+      text-align: center;
+      margin: 0.6rem 0;
     }
 
     .status-big {
-      font-size: 1.75rem;
+      font-size: 1.85rem;
       font-weight: 800;
-      margin: 0.35rem 0;
-      color: var(--slate-900);
+      color: var(--amber);
+      line-height: 1.15;
     }
 
-    .status-label {
-      font-size: 0.9rem;
+    .status-sub {
+      font-size: 0.82rem;
       font-weight: 700;
-      margin-bottom: 0.85rem;
+      margin-top: 0.35rem;
+      color: var(--lm-green-bright);
     }
 
-    .progress-header {
+    .status-box.dopping .status-sub {
+      color: var(--red);
+    }
+
+    .queima-row {
       display: flex;
       justify-content: space-between;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--slate-600);
+      font-size: 0.75rem;
+      color: var(--text-muted);
       margin-bottom: 0.35rem;
     }
 
-    .progress-track {
-      height: 10px;
-      background: rgba(0, 0, 0, 0.08);
+    .queima-track {
+      height: 8px;
+      background: #2c3a42;
       border-radius: 999px;
       overflow: hidden;
     }
 
-    .progress-fill {
+    .queima-fill {
       height: 100%;
       width: 0%;
-      background: var(--lm-green);
+      background: var(--lm-green-bright);
       transition: width 0.25s ease, background-color 0.25s ease;
     }
 
-    /* Recovery Simulator */
+    /* Simulador de Recuperação (Estilo Âmbar Escuro igual ao print) */
     .recovery-card {
-      border-left: 5px solid var(--red-600);
-      background: #fffafa;
+      background-color: var(--amber-bg);
+      border: 1px solid var(--amber-border);
+      border-radius: 10px;
+      padding: 1.35rem 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .recovery-card.hidden {
       display: none;
     }
 
-    .recovery-header {
-      font-size: 1.05rem;
+    .recovery-title {
+      font-size: 1.02rem;
       font-weight: 800;
-      color: var(--red-600);
-      margin-bottom: 0.5rem;
+      color: var(--amber);
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
     }
 
     .recovery-desc {
-      font-size: 0.92rem;
-      color: var(--slate-700);
-      margin-bottom: 1.15rem;
+      font-size: 0.86rem;
+      color: #e2e8f0;
+      margin-bottom: 1.1rem;
     }
 
     .recovery-grid {
       display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 1.25rem;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 1.5rem;
+      align-items: start;
     }
 
     @media (max-width: 780px) {
@@ -364,202 +365,251 @@
       }
     }
 
-    .sim-box {
-      background: #fff;
-      border: 1px solid var(--slate-200);
-      border-radius: 10px;
-      padding: 1rem;
+    .rec-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.9rem;
     }
 
-    .sim-results {
+    .input-dark {
+      width: 110px;
+      padding: 0.55rem 0.75rem;
+      background-color: #2c241b;
+      border: 1px solid var(--amber-border);
+      border-radius: 6px;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: inherit;
+    }
+
+    .rec-boxes {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0.75rem;
-      margin-top: 0.85rem;
     }
 
-    .sim-metric span {
-      font-size: 0.75rem;
-      color: var(--slate-500);
-      font-weight: 600;
+    .rec-box {
+      background-color: #1f1912;
+      border: 1px solid #4a3518;
+      border-radius: 8px;
+      padding: 0.9rem 0.75rem;
+      text-align: center;
     }
 
-    .sim-metric div {
-      font-size: 1.05rem;
+    .rec-box span {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .rec-box div {
+      font-size: 1.2rem;
       font-weight: 800;
-      color: var(--slate-900);
+      color: #fcd34d;
     }
 
-    /* Expurgos Section */
-    .rule-banner {
-      background: var(--amber-50);
-      border: 1px solid #fde68a;
-      border-radius: 10px;
-      padding: 0.85rem 1rem;
+    .cenarios-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.6rem;
+    }
+
+    .cenarios-table {
+      width: 100%;
+      border-collapse: collapse;
       font-size: 0.85rem;
-      color: #92400e;
-      margin-bottom: 1.15rem;
+    }
+
+    .cenarios-table th {
+      text-align: left;
+      padding: 0.45rem 0.35rem;
+      color: var(--amber);
+      font-weight: 700;
+      border-bottom: 1px solid var(--amber-border);
+    }
+
+    .cenarios-table td {
+      padding: 0.5rem 0.35rem;
+      color: #f8fafc;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .cenarios-table td:first-child {
+      font-weight: 700;
+    }
+
+    /* Itens com Expurgo */
+    .expurgo-header-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 0.5rem;
+      margin-bottom: 0.9rem;
     }
 
-    .expurgo-form {
+    .expurgo-form-row {
       display: grid;
-      grid-template-columns: 1.2fr 1fr 0.9fr auto;
-      gap: 0.85rem;
-      align-items: end;
-      margin-bottom: 0.85rem;
+      grid-template-columns: 1.5fr 1fr 1fr 0.85fr;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
     }
 
-    @media (max-width: 760px) {
-      .expurgo-form {
+    @media (max-width: 720px) {
+      .expurgo-form-row {
         grid-template-columns: 1fr;
       }
     }
 
-    .btn {
-      padding: 0.65rem 1.2rem;
+    .btn-lancar {
+      background-color: var(--lm-green-btn);
+      color: #ffffff;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       cursor: pointer;
-      transition: all 0.15s;
+      padding: 0.65rem 1rem;
+      transition: background-color 0.15s, opacity 0.15s;
       font-family: inherit;
     }
 
-    .btn-primary {
-      background: var(--lm-green);
-      color: #fff;
+    .btn-lancar:hover:not(:disabled) {
+      background-color: var(--lm-green-btn-hover);
     }
 
-    .btn-primary:hover:not(:disabled) {
-      background: var(--lm-green-dark);
-    }
-
-    .btn-primary:disabled {
-      background: var(--slate-300);
-      color: var(--slate-500);
+    .btn-lancar:disabled {
+      background-color: #334155;
+      color: #64748b;
       cursor: not-allowed;
     }
 
-    .btn-secondary {
-      background: var(--slate-100);
-      color: var(--slate-700);
-      border: 1px solid var(--slate-300);
-      font-size: 0.8rem;
-      padding: 0.4rem 0.75rem;
-    }
-
-    .btn-secondary:hover {
-      background: var(--slate-200);
-    }
-
-    .btn-danger-sm {
-      background: var(--red-50);
-      color: var(--red-600);
-      border: 1px solid var(--red-200);
-      padding: 0.3rem 0.6rem;
-      border-radius: 6px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .btn-danger-sm:hover {
-      background: #fee2e2;
-    }
-
-    /* Visual Validation Alert */
-    .lm-status-alert {
-      border-radius: 10px;
-      padding: 0.85rem 1rem;
-      margin-bottom: 1.15rem;
-      font-size: 0.88rem;
+    /* Alerta Visual de Validação LM (Dark Theme Friendly) */
+    .lm-alert {
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.85rem;
       display: none;
       align-items: flex-start;
-      gap: 0.75rem;
-      animation: fadeIn 0.18s ease-in-out;
+      gap: 0.65rem;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .lm-status-alert.valid {
+    .lm-alert.valid {
       display: flex;
-      background: var(--emerald-50);
-      border: 1.5px solid #34d399;
-      color: #065f46;
+      background-color: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.45);
+      color: #a7f3d0;
     }
 
-    .lm-status-alert.invalid {
+    .lm-alert.invalid {
       display: flex;
-      background: var(--red-50);
-      border: 1.5px solid #f87171;
-      color: #991b1b;
+      background-color: rgba(239, 68, 68, 0.14);
+      border: 1px solid rgba(248, 113, 113, 0.55);
+      color: #fecaca;
     }
 
-    .lm-status-icon {
-      font-size: 1.25rem;
+    .lm-alert-icon {
+      font-size: 1.15rem;
       line-height: 1.2;
     }
 
-    .lm-status-details strong {
+    .lm-alert strong {
       display: block;
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       margin-bottom: 0.15rem;
     }
 
-    .badge-secao {
-      display: inline-block;
-      background: rgba(6, 95, 70, 0.12);
-      color: #065f46;
-      font-weight: 700;
-      font-size: 0.75rem;
-      padding: 0.15rem 0.5rem;
-      border-radius: 6px;
-      margin-top: 0.25rem;
+    .lm-alert.valid strong {
+      color: #34d399;
     }
 
-    .data-table {
+    .lm-alert.invalid strong {
+      color: #f87171;
+    }
+
+    .expurgo-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.88rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
     }
 
-    .data-table th {
+    .expurgo-table th {
       text-align: left;
-      padding: 0.65rem 0.75rem;
-      background: var(--slate-50);
-      color: var(--slate-600);
-      font-size: 0.75rem;
+      padding: 0.55rem 0.35rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
-      border-bottom: 1px solid var(--slate-200);
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-card);
     }
 
-    .data-table td {
-      padding: 0.7rem 0.75rem;
-      border-bottom: 1px solid var(--slate-100);
-      color: var(--slate-800);
+    .expurgo-table td {
+      padding: 0.65rem 0.35rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: #f1f5f9;
     }
 
-    .empty-state {
-      text-align: center;
-      padding: 1.5rem;
-      color: var(--slate-400);
-      font-size: 0.88rem;
+    .btn-remove-x {
+      background: transparent;
+      border: none;
+      color: var(--red);
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0.2rem 0.45rem;
     }
 
-    /* Modal Lista Oficial */
+    .btn-remove-x:hover {
+      color: #f87171;
+    }
+
+    .btn-whatsapp {
+      width: 100%;
+      padding: 0.72rem 1rem;
+      background-color: var(--blue-btn);
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background-color 0.15s;
+      font-family: inherit;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: var(--blue-btn-hover);
+    }
+
+    .btn-consulta {
+      background-color: var(--bg-card-inner);
+      color: var(--text-main);
+      border: 1px solid var(--border-card);
+      border-radius: 6px;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-consulta:hover {
+      border-color: var(--lm-green);
+      color: var(--lm-green);
+    }
+
+    /* Modal Dark */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(15, 23, 42, 0.55);
+      background: rgba(0, 0, 0, 0.72);
       display: none;
       align-items: center;
       justify-content: center;
@@ -572,26 +622,26 @@
     }
 
     .modal-box {
-      background: #fff;
-      border-radius: 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 10px;
       max-width: 780px;
       width: 100%;
       max-height: 85vh;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
     }
 
     .modal-header {
-      padding: 1.15rem 1.5rem;
-      border-bottom: 1px solid var(--slate-200);
+      padding: 1rem 1.35rem;
+      border-bottom: 1px solid var(--border-card);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .modal-body {
-      padding: 1.25rem 1.5rem;
+      padding: 1.15rem 1.35rem;
       overflow-y: auto;
     }
 
@@ -610,8 +660,6 @@
   </style>
 </head>
 <body>
-  <div class="top-bar"></div>
-
   <div class="container">
     <header>
       <div class="brand">
@@ -624,39 +672,38 @@
       <div class="campaign-badge">Festa da Bricolagem</div>
     </header>
 
-    <div class="grid-2">
-      <!-- Seção & Dados do Dia -->
+    <!-- Linha Superior: Seção & Dados do Dia + Dados da Seção -->
+    <div class="top-grid">
       <div class="card">
         <h2>Seção &amp; Dados do Dia</h2>
         <div class="form-group">
-          <label for="secaoSelect">Selecione a Seção</label>
-          <select id="secaoSelect"></select>
+          <label for="secaoSelect">Seção</label>
+          <select id="secaoSelect" class="input-white"></select>
         </div>
 
         <div class="form-row">
           <div>
-            <label for="faturamentoInput">Faturamento Atual Seção (R$)</label>
-            <input type="number" id="faturamentoInput" placeholder="Ex: 150000.00" step="0.01" min="0" />
+            <label for="faturamentoInput">Venda Acumulada Dia (R$)</label>
+            <input type="number" id="faturamentoInput" class="input-white" placeholder="0" step="0.01" min="0" />
           </div>
           <div>
-            <label for="margemAtualInput">Margem Atual Realizada (%)</label>
-            <input type="number" id="margemAtualInput" placeholder="Ex: 10.01" step="0.01" value="10.01" />
+            <label for="margemAtualInput">Margem Atual Dia (%)</label>
+            <input type="number" id="margemAtualInput" class="input-white" placeholder="10.01" step="0.01" value="10.01" />
           </div>
         </div>
 
         <div class="form-row" style="margin-bottom: 0;">
           <div>
-            <label for="simVendaInput">Simular Nova Venda / Negociação (R$)</label>
-            <input type="number" id="simVendaInput" placeholder="Opcional: Ex: 5000.00" step="0.01" min="0" />
+            <label for="simVendaInput">Cotação / Negociação (R$)</label>
+            <input type="number" id="simVendaInput" class="input-white" placeholder="0" step="0.01" min="0" value="0" />
           </div>
           <div>
-            <label for="simMargemInput">Margem da Negociação (%)</label>
-            <input type="number" id="simMargemInput" placeholder="Opcional: Ex: 8.50" step="0.01" />
+            <label for="simMargemInput">Margem da Cotação (%)</label>
+            <input type="number" id="simMargemInput" class="input-white" placeholder="0" step="0.01" value="0" />
           </div>
         </div>
       </div>
 
-      <!-- Dados da Seção -->
       <div class="card">
         <h2>Dados da Seção (Novembro)</h2>
         <table class="info-table">
@@ -671,15 +718,15 @@
             </tr>
             <tr>
               <td>MSV DOPPING (-30%)</td>
-              <td id="doppingPisoDisplay">9,9820%</td>
+              <td id="doppingPisoDisplay" class="text-amber">9,9820%</td>
             </tr>
             <tr>
-              <td>Faturamento Válido Seção (s/ Expurgos)</td>
+              <td>Faturamento Válido Seção</td>
               <td id="fatValidoDisplay">R$ 0,00</td>
             </tr>
             <tr>
-              <td>Expurgos Descontados (Cód. 12 / Markdown)</td>
-              <td id="expurgosTotalDisplay" class="highlight-green">R$ 0,00</td>
+              <td>Expurgos Descontados</td>
+              <td id="expurgosTotalDisplay" class="text-amber">R$ 0,00</td>
             </tr>
           </tbody>
         </table>
@@ -690,8 +737,8 @@
     <div class="card">
       <h2>Painel de Decisão &amp; Margem</h2>
       <div class="decision-grid">
-        <div class="kpi-boxes">
-          <div class="kpi-box primary">
+        <div class="kpi-grid">
+          <div class="kpi-box">
             <div class="kpi-title">Margem Efetiva Seção (s/ Expurgos)</div>
             <div class="kpi-value" id="margemEfetivaDisplay">10,01%</div>
           </div>
@@ -705,59 +752,62 @@
           </div>
           <div class="kpi-box">
             <div class="kpi-title">Venda Total Computada</div>
-            <div class="kpi-value" id="vendaTotalDisplay">R$ 0,00</div>
+            <div class="kpi-value white" id="vendaTotalDisplay">R$ 0,00</div>
           </div>
         </div>
 
-        <div class="status-panel safe" id="statusPanel">
-          <div>
-            <div class="status-header">
-              <span>MSV Dopping Mínimo</span>
-              <span id="statusIcon">✅</span>
-            </div>
-            <div class="status-big" id="pisoCardDisplay">9,9820%</div>
-            <div class="status-label" id="statusLabel">Margem sob controle</div>
+        <div class="status-box" id="statusBox">
+          <div class="status-top">
+            <span>MSV Dopping Mínimo</span>
+            <span id="statusIcon">⚠️</span>
           </div>
-
+          <div class="status-center">
+            <div class="status-big" id="pisoCardDisplay">9,9820%</div>
+            <div class="status-sub" id="statusLabel">Margem sob controle</div>
+          </div>
           <div>
-            <div class="progress-header">
+            <div class="queima-row">
               <span>Consumo do Teto de Queima</span>
-              <span id="queimaPctDisplay">0%</span>
+              <span id="queimaPctDisplay">0.0%</span>
             </div>
-            <div class="progress-track">
-              <div class="progress-fill" id="queimaBar"></div>
+            <div class="queima-track">
+              <div class="queima-fill" id="queimaBar"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Simulador de Recuperação -->
-    <div class="card recovery-card hidden" id="recoveryCard">
-      <div class="recovery-header">🚨 Simulador de Recuperação: Como Sair do Dopping</div>
+    <!-- Simulador de Recuperação: Como Sair do Dopping -->
+    <div class="recovery-card hidden" id="recoveryCard">
+      <div class="recovery-title">🚨 Simulador de Recuperação: Como Sair do Dopping</div>
       <p class="recovery-desc" id="recoveryText">
         Sua seção está dopando. Faltam <strong>R$ 0,00</strong> de lucro para atingir o piso de <strong>9,9820%</strong>. Veja quanto precisa faturar:
       </p>
 
       <div class="recovery-grid">
-        <div class="sim-box">
-          <label for="margemOfertadaInput">Margem Ofertada na Recuperação (%)</label>
-          <input type="number" id="margemOfertadaInput" value="25" step="0.5" min="0.1" />
-          <div class="sim-results">
-            <div class="sim-metric">
+        <div>
+          <label for="margemOfertadaInput" style="color: #cbd5e1; margin-bottom: 0.45rem;">Se você vender com esta margem (%):</label>
+          <div class="rec-input-wrap">
+            <input type="number" id="margemOfertadaInput" class="input-dark" value="25" step="0.5" min="0.1" />
+            <span style="font-weight: 800; color: #f8fafc;">%</span>
+          </div>
+
+          <div class="rec-boxes">
+            <div class="rec-box">
               <span>Venda Necessária</span>
               <div id="vendaNecessariaDisplay">R$ 0,00</div>
             </div>
-            <div class="sim-metric">
+            <div class="rec-box">
               <span>Custo da Compra</span>
               <div id="custoCompraDisplay">R$ 0,00</div>
             </div>
           </div>
         </div>
 
-        <div class="sim-box">
-          <label style="margin-bottom: 0.5rem;">Cenários Prontos para Sair do Dopping:</label>
-          <table class="data-table">
+        <div>
+          <div class="cenarios-title">Cenários prontos para sair do dopping:</div>
+          <table class="cenarios-table">
             <thead>
               <tr>
                 <th>Margem Ofertada</th>
@@ -771,60 +821,39 @@
       </div>
     </div>
 
-    <!-- Itens com Expurgo (Regra 4.1 - Código 12 / Markdown) -->
+    <!-- Itens com Expurgo (Isentos da Seção) -->
     <div class="card">
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+      <div class="expurgo-header-row">
         <h2 style="margin-bottom: 0;">Itens com Expurgo (Isentos da Seção — Cód. 12 / Markdown)</h2>
-        <button type="button" class="btn btn-secondary" id="openModalBtn">📋 Consultar Lista Oficial (960 LMs)</button>
+        <button type="button" class="btn-consulta" id="openModalBtn">📋 Consultar Lista Oficial (960 LMs)</button>
       </div>
 
-      <div class="rule-banner">
-        <span><strong>Regra 4.1 Exceção do Doping:</strong> Somente itens promocionados (Cód. 12 / Markdown) constantes na relação oficial podem ser expurgados da margem real da seção.</span>
+      <div class="expurgo-form-row">
+        <input type="text" id="expurgoLmInput" class="input-white" placeholder="Item / LM (ex: 86789262)" maxlength="12" inputmode="numeric" />
+        <input type="number" id="expurgoVendaInput" class="input-white" placeholder="Venda R$" step="0.01" min="0.01" />
+        <input type="number" id="expurgoMargemInput" class="input-white" placeholder="Margem % (ex: -50, -300)" step="0.01" />
+        <button type="button" class="btn-lancar" id="addExpurgoBtn" disabled>+ Lançar</button>
       </div>
 
-      <div class="expurgo-form">
-        <div>
-          <label for="expurgoLmInput">Código LM (8 dígitos)</label>
-          <input type="text" id="expurgoLmInput" placeholder="Digite o LM (ex: 86789262)" maxlength="12" inputmode="numeric" />
-        </div>
-        <div>
-          <label for="expurgoVendaInput">Valor da Venda (R$)</label>
-          <input type="number" id="expurgoVendaInput" placeholder="Ex: 1250.00" step="0.01" min="0.01" />
-        </div>
-        <div>
-          <label for="expurgoMargemInput">Margem Praticada (%)</label>
-          <input type="number" id="expurgoMargemInput" placeholder="Ex: -2.50 ou 3.00" step="0.01" />
-        </div>
-        <div>
-          <button type="button" class="btn btn-primary" id="addExpurgoBtn" disabled>+ Adicionar Expurgo</button>
-        </div>
+      <!-- Alerta Visual de Validação (Regra 4.1) -->
+      <div class="lm-alert" id="lmAlertBox">
+        <div class="lm-alert-icon" id="lmAlertIcon"></div>
+        <div id="lmAlertText"></div>
       </div>
 
-      <!-- Alerta Visual de Validação do LM -->
-      <div class="lm-status-alert" id="lmAlertBox">
-        <div class="lm-status-icon" id="lmAlertIcon"></div>
-        <div class="lm-status-details" id="lmAlertText"></div>
-      </div>
+      <table class="expurgo-table">
+        <thead>
+          <tr>
+            <th>ITEM / SKU</th>
+            <th>VENDA (R$)</th>
+            <th>MARGEM</th>
+            <th style="text-align: right;"></th>
+          </tr>
+        </thead>
+        <tbody id="expurgosTableBody"></tbody>
+      </table>
 
-      <div style="overflow-x: auto;">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>LM</th>
-              <th>DESCRIÇÃO / SEÇÃO</th>
-              <th>VENDA (R$)</th>
-              <th>MARGEM</th>
-              <th>LUCRO RETIRADO</th>
-              <th style="text-align: right;">AÇÃO</th>
-            </tr>
-          </thead>
-          <tbody id="expurgosTableBody">
-            <tr>
-              <td colspan="6" class="empty-state">Nenhum item expurgado lançado até o momento.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <button type="button" class="btn-whatsapp" id="copyWhatsappBtn">Copiar Status p/ WhatsApp</button>
     </div>
   </div>
 
@@ -832,23 +861,23 @@
   <div class="modal-backdrop" id="lmModal">
     <div class="modal-box">
       <div class="modal-header">
-        <h2 style="margin-bottom: 0;">Relação Oficial de LMs em Exceção de Doping (960 itens)</h2>
-        <button type="button" class="btn btn-secondary" id="closeModalBtn">✕ Fechar</button>
+        <h2 style="margin-bottom: 0;">Lista Oficial de LMs em Exceção de Doping (960 itens)</h2>
+        <button type="button" class="btn-consulta" id="closeModalBtn">✕ Fechar</button>
       </div>
       <div class="modal-body">
         <div class="modal-filters">
-          <input type="text" id="modalSearchInput" placeholder="Buscar por código LM ou descrição do produto..." />
-          <select id="modalSecaoFilter">
+          <input type="text" id="modalSearchInput" class="input-white" placeholder="Buscar por código LM ou descrição..." />
+          <select id="modalSecaoFilter" class="input-white">
             <option value="">Todas as Seções</option>
           </select>
         </div>
-        <table class="data-table">
+        <table class="expurgo-table">
           <thead>
             <tr>
               <th>LM</th>
               <th>Seção</th>
               <th>Descrição</th>
-              <th>Ação</th>
+              <th></th>
             </tr>
           </thead>
           <tbody id="modalTableBody"></tbody>
@@ -858,19 +887,19 @@
   </div>
 
   <script>
-    // Base Oficial de 960 LMs Únicos em Exceção de Doping (Cód. 12 / Markdown)
+    // Base Oficial de 960 LMs Únicos (Regra 4.1 - Código 12 / Markdown)
     const LM_EXCEPTIONS = {"86789262":{"s":"01-Materiais","d":"*PARAF C/VEDAÇÃO  5/16X180 KIT C/10UN UX"},"87458462":{"s":"01-Materiais","d":"*GANCHO P/ESTRURURA METAL.S140 KIT10PÇ U"},"87784536":{"s":"01-Materiais","d":"KIT CONCERTINA SIMPLES 30 CM Ø - ROLO 5M"},"89158860":{"s":"01-Materiais","d":"CHAPA OSB TAPUME 12X1220X2200"},"89159511":{"s":"01-Materiais","d":"*KIT FIX P/TELHAS ONDUCLAIR C/14"},"89341616":{"s":"01-Materiais","d":"TELHA PVC PLAN 2,42X0,88M MARF PRECON"},"89618375":{"s":"01-Materiais","d":"*KIT DE CONCERTINA CLIPADA DE Ø45 10M"},"89856921":{"s":"01-Materiais","d":"*PARAF AUTBROC SEXTAV 1 1/2 25MM 100UN A"},"90211940":{"s":"01-Materiais","d":"*PARAF PA DRYWALL TTPC25 CX1000 PLACO"},"90651120":{"s":"01-Materiais","d":"Sarrafo de 5 eucalito bruto"},"90957160":{"s":"01-Materiais","d":"*cj4 pçs suporte 35x25x2mm minu"},"90957174":{"s":"01-Materiais","d":"*cj8 pçs suporte 20x20x15x1,8mm minu"},"90957181":{"s":"01-Materiais","d":"*cj4 pçs suporte ajust 30x20x20x2mm minu"},"90957195":{"s":"01-Materiais","d":"*cj4 pçs junç dobra 40x20x1mm minu"},"90957202":{"s":"01-Materiais","d":"*cj2 pçs junç reta 30x60x2mm minu"},"90957216":{"s":"01-Materiais","d":"*cj2 pçs suporte ajust 40x30mm minu"},"90957223":{"s":"01-Materiais","d":"*cj2 pçs suporte ajust 60x30mm minu"},"90957230":{"s":"01-Materiais","d":"*cj2 pçs junç reta ajust 20x150mm minu"},"90957244":{"s":"01-Materiais","d":"*cj2 pçs junç dobra 20x50x50x2,5mm minu"},"90957265":{"s":"01-Materiais","d":"*junç angular reforçada 20x100x2mm minu"},"90957272":{"s":"01-Materiais","d":"*cj2 pçs junç cantoneira 30x30x2mm minu"},"90957286":{"s":"01-Materiais","d":"*junç reta pesada 40x90x2,5mm minu"},"90957293":{"s":"01-Materiais","d":"*cj2 pçs junç cantoneira 40x45x2,5mm min"},"90957391":{"s":"01-Materiais","d":"*junç reta 40x180x2,5mm minu"},"90957426":{"s":"01-Materiais","d":"*junç dobra perfu 20x100x4mm minu"},"90957440":{"s":"01-Materiais","d":"*junç reta pesada 130x55x2,5 mm minu"},"90957454":{"s":"01-Materiais","d":"*junç dobra pesada 65x 55x2,5 mm minu"},"90957461":{"s":"01-Materiais","d":"*junç reta euca 85x85x65 mm minu"},"90957475":{"s":"01-Materiais","d":"*junç dobra euca 85x 85x65mm minu"},"90957496":{"s":"01-Materiais","d":"*junç moldada euca 85x85x65mm minu"},"90957503":{"s":"01-Materiais","d":"*junç moldada/plana euca 85x85x65mm minu"},"91802011":{"s":"01-Materiais","d":"*conect anti-racha quad 6x5cm minu"},"91802032":{"s":"01-Materiais","d":"*conect anti-racha quad 10x10cm minu"},"91833630":{"s":"01-Materiais","d":"*LONA MULTIUSO PE VD 240G 6X10M COM ILHÓ"},"91843346":{"s":"01-Materiais","d":"MINI BIGBAG ENTULHO 50 KG"},"91843353":{"s":"01-Materiais","d":"BIGBAG P 400 KG"},"91843360":{"s":"01-Materiais","d":"BIGBAG G 1 TON"},"92194760":{"s":"01-Materiais","d":"Painel acústico scure 1m² cinza db"},"92194774":{"s":"01-Materiais","d":"Painel acustico scure 1m² preto db"},"92194781":{"s":"01-Materiais","d":"Painel acustico scure 1m² bege db"},"92324134":{"s":"01-Materiais","d":"REBOTECFLEX 20KG PISCINA E TANQUE"},"92324155":{"s":"01-Materiais","d":"*ARGAMASSA SUPERLEVE 10KG"},"87198265":{"s":"02-Carpintaria e Madeiras","d":"*GUARNICAO ALUM PA BCO 216X78X4"},"87198272":{"s":"02-Carpintaria e Madeiras","d":"*GUARNICAO ALUM PA BCO 216X88X4"},"87203116":{"s":"02-Carpintaria e Madeiras","d":"*GUARNICAO ALUM JVC/JC BCO 100X150"},"87203130":{"s":"02-Carpintaria e Madeiras","d":"*GUARNICAO AL BC JVC/JC 120X150"},"87203151":{"s":"02-Carpintaria e Madeiras","d":"*GUARNICAO ALUM JVC/JC BCO 120X200"},"87203200":{"s":"02-Carpintaria e Madeiras","d":"*GUARNICAO ALUM PTA COR PC BCO 218X160"},"87204845":{"s":"02-Carpintaria e Madeiras","d":"*GUARNICAO ALU JVC/JC BCO100X120 120X100"},"87204866":{"s":"02-Carpintaria e Madeiras","d":"*GUARNICAO ALUM JVC/JC BCO 100X200"},"87205062":{"s":"02-Carpintaria e Madeiras","d":"*GUARNICAO ALUM PTA COR PC BCO 218X200"},"87752483":{"s":"02-Carpintaria e Madeiras","d":"*GUARNICAO ALUM BCO 217X98"},"88152841":{"s":"02-Carpintaria e Madeiras","d":"*GUARNIÇÃO P/PIVOTANTE MAD 223,5X126,2X1"},"88152904":{"s":"02-Carpintaria e Madeiras","d":"*GUARNIÇÃO P/ PIVOTANTE BR 223,5X126,2X1"},"89176262":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA BALCÃO 2F VD C/FEC 215X200."},"89176283":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA BALCÃO 2F VD C/FEC 215X150"},"89176325":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA BALCÃO 4F VD S/FEC 215X300"},"89176416":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA BALCÃO 3F VEN C/FEC 215X200"},"89176423":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA BALCÃO 3F VEN C/FEC 215X150"},"89176430":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA BALCÃO 3F VEN C/FEC 215X120"},"89176724":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA BALCÃO 3F VD C/FEC 215X200"},"89177536":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE JANELA IDEA 120X200 BC"},"89177543":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE JANELA IDEA 120X150 BC"},"89177564":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE JANELA IDEA 100X200 BC"},"89177585":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE JANELA IDEA 100X150 BC"},"89177592":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE JANELA IDEA 100X120 BC"},"89177634":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE PORTA CORRER IDEA 215X200 BC"},"89177641":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE PORTA CORRER IDEA 215X150 BC"},"89177662":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE PORTA IDEA 215X88 BC"},"89177795":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE MAXIM-AR IDEA 100X80 BC"},"89177830":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE MAXIM-AR IDEA 60X120 BC"},"89296333":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA INGRESSO 1F VD BOR 215X88 DIR"},"89296340":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA INGRESSO 1F VD BOR 215X88 ESQ"},"89302934":{"s":"02-Carpintaria e Madeiras","d":"*PTA HOME 1F VENEZIANA VENT 210X70D"},"89302941":{"s":"02-Carpintaria e Madeiras","d":"*PTA HOME 1F VENEZIANA VENT 210X60D"},"89302962":{"s":"02-Carpintaria e Madeiras","d":"*PTA HOME 1F VENEZIANA VENT 210X80E"},"89302976":{"s":"02-Carpintaria e Madeiras","d":"*PTA HOME 1F VENEZIANA VENT 210X70E"},"89302983":{"s":"02-Carpintaria e Madeiras","d":"*PTA HOME 1F VENEZIANA VENT 210X60E"},"89303004":{"s":"02-Carpintaria e Madeiras","d":"*PTA HOME 1F LAMBRI 210X70D"},"89303025":{"s":"02-Carpintaria e Madeiras","d":"*PTA HOME 1F LAMBRI 210X70E"},"89303032":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA LAMBRI 1F 215X88 DIR"},"89303046":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA LAMBRI 1F 215X88 ESQ"},"89303053":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA LAMBRI 1F PUX 215X98 DIR"},"89303060":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA LAMBRI 1F PUX 215X98 ESQ"},"89303116":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA INGRESSO 1F VD INC  215X88 DIR"},"89303123":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA INGRESSO 1F VD INC  215X88 ESQ"},"89341175":{"s":"02-Carpintaria e Madeiras","d":"*PTA INTEGRADA VEN ACUST 110V3F240X200X1"},"89341182":{"s":"02-Carpintaria e Madeiras","d":"*PTA INT VEN ACUST AL BCO 220V 3F 240X16"},"89341196":{"s":"02-Carpintaria e Madeiras","d":"*PTA INT VEN ACUST AL BCO 220V 3F 240X20"},"89341210":{"s":"02-Carpintaria e Madeiras","d":"*PTA CORRER ACUSTICA 2F 220X160X11"},"89341224":{"s":"02-Carpintaria e Madeiras","d":"*PTA CORRER ACUSTICA 2F 220X200X11"},"89361006":{"s":"02-Carpintaria e Madeiras","d":"*PTA HOME 1F POSTIGO 210X80D"},"89361013":{"s":"02-Carpintaria e Madeiras","d":"*PTA HOME 1F POSTIGO 210X80E"},"89361020":{"s":"02-Carpintaria e Madeiras","d":"*PTA HOME 1F BASCULANTE 210X86D"},"89361055":{"s":"02-Carpintaria e Madeiras","d":"*PTA HOME 1F BASCULANTE 210X80E"},"89382300":{"s":"02-Carpintaria e Madeiras","d":"*PTA INTEG VEN ALFORT VTI 3F BCO 237X150"},"89481861":{"s":"02-Carpintaria e Madeiras","d":"*PTA INTERNA ALM BCO 215X88X10D"},"89481903":{"s":"02-Carpintaria e Madeiras","d":"*PTA INTERNA ALM BCO 215X88X14D"},"89481910":{"s":"02-Carpintaria e Madeiras","d":"*PTA INTERNA ALM BCO 215X88X14E"},"89481952":{"s":"02-Carpintaria e Madeiras","d":"*PTA INTERNA ALM MOG 215X88X10E"},"89505801":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE PORTA IDEA 215X98 BC"},"89505815":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE  PORTA CAMARÃO IDEA 215X88 BC"},"89505864":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE  JANELA VENEZA 120X200 BC"},"89505871":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE  JANELA VENEZA 120X150 PT"},"89505885":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE JANELA VENEZA 120X150 BC"},"89505913":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE JANELA VENEZA 100X150 PT"},"89505920":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE  JANELA VENEZA 100X150 BC"},"89505962":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE PORTA CORRER VENEZA 235X150 BC"},"89505976":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE PORTA CORRER VENEZA 215X200 PT"},"89505990":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE PORTA CORRER VENEZA 215X200 PT"},"89506004":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE PORTA CORRER VENEZA 215X200 BC"},"89506011":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE PORTA CORRER VENEZA 215X150 BC"},"89506046":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA BALCÃO 3F VD S/FEC 215X200"},"89830790":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA BALCÃO 4F VD C/FEC 215X150"},"90944315":{"s":"02-Carpintaria e Madeiras","d":"*TOLDO CALIMA MANUAL 3X2M LISTRADO CX BC"},"90948270":{"s":"02-Carpintaria e Madeiras","d":"*TOLDO ZEFIR MOTOR 2.95X2.5M BG CX BCA"},"90948291":{"s":"02-Carpintaria e Madeiras","d":"*TOLDO BALCONY MANUAL 2.5X2.5M BEGE BCO"},"90969830":{"s":"02-Carpintaria e Madeiras","d":"*GUA PORTA DE CORRER -220X160X4 ALUM BCO"},"90969865":{"s":"02-Carpintaria e Madeiras","d":"*GUA JANELA DE CORRER -140X200X4 ALUM BC"},"90969872":{"s":"02-Carpintaria e Madeiras","d":"*GUA PORTA INT -240,5X160X4 ALUM BCO"},"90969900":{"s":"02-Carpintaria e Madeiras","d":"*GUA JANELA VEN INTEGRADA-140,5X200X4 AL"},"90969914":{"s":"02-Carpintaria e Madeiras","d":"*GUA JANELA DE CORRER -120X150X4 ALUM BC"},"90969921":{"s":"02-Carpintaria e Madeiras","d":"*GUA JANELA DE CORRER -120X200X4 ALUM BC"},"91003920":{"s":"02-Carpintaria e Madeiras","d":"VEN 3F VIVACE BCO 100X120"},"91003934":{"s":"02-Carpintaria e Madeiras","d":"VEN 3F VIVACE BCO 100X150"},"91089810":{"s":"02-Carpintaria e Madeiras","d":"*PTA PIV MPONTO SOCIALE BCO 270X120 D"},"91089824":{"s":"02-Carpintaria e Madeiras","d":"*PTA PIV MPONTO SOCIALE BCO 270X120 E"},"91089831":{"s":"02-Carpintaria e Madeiras","d":"*PTA PIV MPONTO SOCIALE BCO 235X120 D"},"91807835":{"s":"02-Carpintaria e Madeiras","d":"*PTA HOME BALCÃO 2F VD C/FEC 150X210 3A"},"91863800":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA BALCÃO 2F VD C/FEC PTO 215X150"},"91863856":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA BALCÃO 3F VD C/FEC PTO 215X200"},"92095703":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE MAXIM-AR VENEZA 1F BCO 60X80"},"92095885":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE PORTA SOCIALE MAD 120X215"},"92096011":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE JANELA VENEZA MAD 120X150"},"92096046":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE PORTA CORRER VENEZA BCO 215X15"},"92096060":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE PORTA CORRER VENEZA MAD 235X15"},"92132033":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA GIARDINO CORRER 3F CZ 215X150"},"92132054":{"s":"02-Carpintaria e Madeiras","d":"*PTA IDEA LAMBRI 1F PUX CZ 215X98 DIR"},"92132110":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE JANELA IDEA 120X120 CZ"},"92132215":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE PORTA CORRER IDEA 215X150 CZ"},"92132243":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE PORTA IDEA 215X98 CZ"},"92132376":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE JANELA IDEA 100X150 PT"},"92132383":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE JANELA IDEA 100X200 PT"},"92132432":{"s":"02-Carpintaria e Madeiras","d":"*ARREMATE MAXIM-AR IDEA 60X60 PT"},"91912324":{"s":"03-Eletricidade","d":"Vent turbo force 2 em 1 40cm 127v arno"},"91912331":{"s":"03-Eletricidade","d":"Vent turbo force 2 em 1 40cm 220v arno"},"92291500":{"s":"03-Eletricidade","d":"Evap eco dream inv 9k fr h.wall wifi 220"},"92291514":{"s":"03-Eletricidade","d":"Cond eco dream inv 9k fr h.wall wifi 220"},"92361514":{"s":"03-Eletricidade","d":"Evap split eco inverter 9k frio 220v"},"92361521":{"s":"03-Eletricidade","d":"Cond split eco inverter 9k frio 220v"},"92416345":{"s":"03-Eletricidade","d":"Evap inverter ecomaster midea 9k frio"},"92416352":{"s":"03-Eletricidade","d":"COND INVERTER 9K FRIO MIDEA"},"92416366":{"s":"03-Eletricidade","d":"Evap inverter ecomaster midea 9k q/f"},"92416373":{"s":"03-Eletricidade","d":"Cond inverter ecomaster midea 9k q/f"},"92416380":{"s":"03-Eletricidade","d":"Evap inverter ecomaster midea 12k frio"},"92416394":{"s":"03-Eletricidade","d":"Cond inverter ecomaster midea 12k frio"},"92416401":{"s":"03-Eletricidade","d":"Evap inverter ecomaster midea 12k q/f"},"92416415":{"s":"03-Eletricidade","d":"Cond inverter ecomaster midea 12k q/f"},"92416464":{"s":"03-Eletricidade","d":"Evap inverter ecomaster midea 24k frio"},"92416471":{"s":"03-Eletricidade","d":"Cond inverter ecomaster midea 24k frio"},"92416485":{"s":"03-Eletricidade","d":"Evap inverter ecomaster midea 24 q/f"},"92416492":{"s":"03-Eletricidade","d":"Cond inverter ecomaster midea 24kq/f"},"92468341":{"s":"03-Eletricidade","d":"Cond split 9k btus airvolution f midea"},"92468355":{"s":"03-Eletricidade","d":"Evap split 9k btus airvolution f midea"},"92468362":{"s":"03-Eletricidade","d":"Cond split 12k btus airvolution f midea"},"92468376":{"s":"03-Eletricidade","d":"Evap split 12k btus airvolution f midea"},"92468383":{"s":"03-Eletricidade","d":"Cond split 18k btus airvolution f midea"},"92468390":{"s":"03-Eletricidade","d":"Evap split 18k btus airvolution f midea"},"92468404":{"s":"03-Eletricidade","d":"Cond split 22k btus airvolution f midea"},"92468411":{"s":"03-Eletricidade","d":"Evap split 22k btus airvolution f midea"},"92468425":{"s":"03-Eletricidade","d":"Cond split 9kbtus ai airvolution f midea"},"92468432":{"s":"03-Eletricidade","d":"Evap split 9kbtus ai airvolution f midea"},"92468446":{"s":"03-Eletricidade","d":"Cond split 12kbtu ai airvolution f midea"},"92468453":{"s":"03-Eletricidade","d":"Evap split 12kbtu ai airvolution f midea"},"92472772":{"s":"03-Eletricidade","d":"Evap eco inv iii wifi 9kbtus f 220v"},"92472786":{"s":"03-Eletricidade","d":"Cond eco inv iii wifi 9kbtus f 220v"},"92473773":{"s":"03-Eletricidade","d":"Evap eco inv iii wifi 9k btus q/f 220v"},"92473780":{"s":"03-Eletricidade","d":"Cond eco inv iii wifi 9k btus q/f 220v"},"92474564":{"s":"03-Eletricidade","d":"Condensador aiwa aws-c-9f 220v"},"92474571":{"s":"03-Eletricidade","d":"Evaporador aiwa aws-ev-9f 220v"},"92474585":{"s":"03-Eletricidade","d":"Condensador aiwa aws-c-9qf 220v"},"92474592":{"s":"03-Eletricidade","d":"Evaporador aiwa aws-ev-9qf 220v"},"92474606":{"s":"03-Eletricidade","d":"Condensador aiwa aws-c-12f 220v"},"92474613":{"s":"03-Eletricidade","d":"Evaporador aiwa aws-ev-12f 220v"},"92474620":{"s":"03-Eletricidade","d":"Condensador aiwa aws-c-12qf 220v"},"92474634":{"s":"03-Eletricidade","d":"Evaporador aiwa aws-ev-12qf 220v"},"92474641":{"s":"03-Eletricidade","d":"Condensador aiwa aws-c-18f 220v"},"92474655":{"s":"03-Eletricidade","d":"Evaporador aiwa aws-ev-18f 220v"},"92474683":{"s":"03-Eletricidade","d":"Condensador aiwa aws-c-24f 220v"},"92474690":{"s":"03-Eletricidade","d":"Evaporador aiwa aws-ev-24f 220v"},"92531922":{"s":"03-Eletricidade","d":"Evap split 9k btus airvolution f midea"},"92531936":{"s":"03-Eletricidade","d":"Cond split 9k btus airvolution f midea"},"92532006":{"s":"03-Eletricidade","d":"Evap split 9k ai airvolution frio midea"},"92532013":{"s":"03-Eletricidade","d":"Cond split 9k ai airvolution frio midea"},"92532020":{"s":"03-Eletricidade","d":"Evap split 12k ai airvolution frio midea"},"92532034":{"s":"03-Eletricidade","d":"Cond split 12k ai airvolution frio midea"},"92532083":{"s":"03-Eletricidade","d":"Evap midea ai ecomaster 9k frio"},"92532090":{"s":"03-Eletricidade","d":"Cond midea ai ecomaster 9k frio"},"92532125":{"s":"03-Eletricidade","d":"Evap midea ai ecomaster 12k frio"},"92532132":{"s":"03-Eletricidade","d":"Cond midea ai ecomaster 12k frio"},"87445190":{"s":"04-Ferramentas","d":"*jogo ferramentas mayle 110 pcs"},"89716060":{"s":"04-Ferramentas","d":"*kit ferr banc 111pç crv c/maleta dexter"},"89716123":{"s":"04-Ferramentas","d":"*kit ferr banc 108pç crv c/maleta dexter"},"89856312":{"s":"04-Ferramentas","d":"*kit ferramentas drywall 16 peças dexter"},"89995605":{"s":"04-Ferramentas","d":"*martelo unha 23mm cabo metalico vonder"},"89995633":{"s":"04-Ferramentas","d":"*martelo unha 20mm cabo fibra vonder"},"90345220":{"s":"04-Ferramentas","d":"*alicate universal 8\" tramontina"},"90363525":{"s":"04-Ferramentas","d":"*carrinho para caixa modular dexter pro"},"90391070":{"s":"04-Ferramentas","d":"*maq corte plasma cpv40 vonder"},"90651533":{"s":"04-Ferramentas","d":"*caixa plastica injetada 17 tram"},"90749232":{"s":"04-Ferramentas","d":"*mascara face shield mod light displays"},"91006034":{"s":"04-Ferramentas","d":"*inversora solda lhn 162i  110/220v"},"91080920":{"s":"04-Ferramentas","d":"*cortador infinity p/ g format cortag"},"91711872":{"s":"04-Ferramentas","d":"*bot elast bid bq/plast flex 43"},"91719663":{"s":"04-Ferramentas","d":"*bot elast bid bq/plast flex 37"},"91719670":{"s":"04-Ferramentas","d":"*bot elast bid bq/plast flex 38"},"91719684":{"s":"04-Ferramentas","d":"*bot elast bid bq/plast flex 39"},"91719691":{"s":"04-Ferramentas","d":"*bot elast bid bq/plast flex 40"},"91719705":{"s":"04-Ferramentas","d":"*bot elast bid bq/plast flex 41"},"91719712":{"s":"04-Ferramentas","d":"*bot elast bid bq/plast flex 42"},"91801682":{"s":"04-Ferramentas","d":"*curvador tubo 8x10mm dexter"},"91905695":{"s":"04-Ferramentas","d":"*kit ferr banc 110pç crv c/maleta vonder"},"92108331":{"s":"04-Ferramentas","d":"*maq solda invers awt mma-120ep mono 127"},"92108345":{"s":"04-Ferramentas","d":"*maq solda invers awt mma-120ep mono 220"},"92191022":{"s":"04-Ferramentas","d":"*maq. solda awt invers. mig-220pro"},"92198190":{"s":"04-Ferramentas","d":"*kit ferr banc 110pç aço c/maleta nove54"},"92200514":{"s":"04-Ferramentas","d":"*kit ferr banc 141pç aço c/maleta mp"},"92203482":{"s":"04-Ferramentas","d":"*marreta 500 g c/ cabo fsc"},"92203524":{"s":"04-Ferramentas","d":"*cabo de martelo madeirite 35cm fsc"},"92203944":{"s":"04-Ferramentas","d":"*marreta 1 kg c/ cabo fsc"},"92203951":{"s":"04-Ferramentas","d":"*marreta 1,5 kg c/ cabo fsc"},"92203972":{"s":"04-Ferramentas","d":"*martelo aço polido 29mm cb mad naval fs"},"92204000":{"s":"04-Ferramentas","d":"*martelo prof tamboreado n.20 fsc"},"92204014":{"s":"04-Ferramentas","d":"*martelo prof tamboreado n.23 fsc"},"92204021":{"s":"04-Ferramentas","d":"*martelo prof tamboreado n.25 fsc"},"92215683":{"s":"04-Ferramentas","d":"*bot elast bid bq/plast flex 44"},"92278452":{"s":"04-Ferramentas","d":"*jg de ferramentas 85 pc robust"},"92432655":{"s":"04-Ferramentas","d":"Paraf/furad imp 1/2\"20v/1bate119aces"},"92457673":{"s":"04-Ferramentas","d":"Jogo ferr 94pç c/ maleta dexter"},"92494024":{"s":"04-Ferramentas","d":"Paraf/furad imp 1/2\"20v/1bate119aces"},"92496922":{"s":"04-Ferramentas","d":"*kit ferr banc 110pç crv c/maleta wap"},"91700441":{"s":"06-Cerâmica","d":"PISO ES BR BLD IN61,5X61,5 MONTRL M2 AR"},"91869792":{"s":"06-Cerâmica","d":"PORC ES PO RT IN 62x121 CALACATA M2"},"91874006":{"s":"06-Cerâmica","d":"PORC ES AC RT EX 80X80 LUNAR GREY M2"},"92031114":{"s":"06-Cerâmica","d":"PORC PO RT IN71X71 P71251 M O ORO M2ART"},"92250081":{"s":"06-Cerâmica","d":"PORC RET EXT ST 120X120 OASI ROCCIA M2"},"92250221":{"s":"06-Cerâmica","d":"PORC POL RET INT 90X90 STRATUM GRISEO M"},"92280874":{"s":"06-Cerâmica","d":"*PISO ES AC RET 86X86 RT86081 M2"},"92309105":{"s":"06-Cerâmica","d":"PORC POL RET INT 90X90 CHARLESTON M2"},"92343496":{"s":"06-Cerâmica","d":"PISO AC BO RT IN 81X81 CLEA GREY M2"},"92413076":{"s":"06-Cerâmica","d":"PORC AC RT EXT 80X80 HANGAR CHICAGO M²"},"92413090":{"s":"06-Cerâmica","d":"PORC ACT RT INT 80X80 HANGAR TORONTO M²"},"92493380":{"s":"06-Cerâmica","d":"PISO EX ACAPULCO SIL GRA1,97RT 81X81 M2"},"89185124":{"s":"07-Sanitários","d":"*saboneteira metal/vidro cr quartzo fani"},"89185271":{"s":"07-Sanitários","d":"*port toal rosto 35,5cm metal cr quartzo"},"89224310":{"s":"07-Sanitários","d":"Box front comum 8mm inc 100x190 kit br"},"89224324":{"s":"07-Sanitários","d":"Box front comum 8mm inc 110x190 kit br"},"89224331":{"s":"07-Sanitários","d":"Box front comum 8mm inc 120x190 kit br"},"89224380":{"s":"07-Sanitários","d":"Box front comum 8mm inc 100x190 kit crf"},"89224590":{"s":"07-Sanitários","d":"Box front comum 8mm fum 100x190 kit pt"},"89224604":{"s":"07-Sanitários","d":"Box front comum 8mm fum 110x190 kit pt"},"89557314":{"s":"07-Sanitários","d":"*porta sab rose gold quartzo/prima fani"},"89557321":{"s":"07-Sanitários","d":"*papeleira rose gold quartzo/prima fani"},"89557335":{"s":"07-Sanitários","d":"*pap c/tpa rsgold quartzo/prima fani"},"89557342":{"s":"07-Sanitários","d":"*porttoal 60cm rsgold quartzo/prima"},"89557356":{"s":"07-Sanitários","d":"*porttoal 30cm rsgold quartzo/prima fani"},"89557363":{"s":"07-Sanitários","d":"*porttoal 46,9cm rs gold quartzo/prima"},"89557370":{"s":"07-Sanitários","d":"*cabide quartzo rose gold/prima"},"89557384":{"s":"07-Sanitários","d":"*portsham quartzo rosegold/prima"},"89557391":{"s":"07-Sanitários","d":"*porttoal dp quartzo rose gold/prima"},"89557573":{"s":"07-Sanitários","d":"*porta sabonete quartzo gold/prima fani"},"89557580":{"s":"07-Sanitários","d":"*papeleira quartzo gold/prima fani"},"89557594":{"s":"07-Sanitários","d":"*papeleira c/tampa gold/prima fani"},"89557601":{"s":"07-Sanitários","d":"*port toalha 60cm quartzo gold/prima fan"},"89557615":{"s":"07-Sanitários","d":"*porta toalha 30cm quartzo gold/prima"},"89557622":{"s":"07-Sanitários","d":"*porttoal 45cm quartzo gold/prima fani"},"89557636":{"s":"07-Sanitários","d":"*cabide quartzo gold/prima fani"},"89557643":{"s":"07-Sanitários","d":"*porta shampo quartzo gold/prima fani"},"89557650":{"s":"07-Sanitários","d":"*porta toalha dp quartzo gold/prima fani"},"89704825":{"s":"07-Sanitários","d":"*box abrir camarao 8mm inc 90x185 kit cr"},"89704846":{"s":"07-Sanitários","d":"Box abrir camarao 8mm inc 95x185 kit cr"},"89704860":{"s":"07-Sanitários","d":"Box abrir camarao 8mm inc 100x185 kit cr"},"89704895":{"s":"07-Sanitários","d":"Box abrir camarao 8mm inc 105x185 kit cr"},"89704923":{"s":"07-Sanitários","d":"Box abrir camarao 8mm inc 110x185 kit cr"},"89745243":{"s":"07-Sanitários","d":"*port toal banho 45cmmet quartzo/primapt"},"89770506":{"s":"07-Sanitários","d":"Toalheiro term 127v br 36x56 fio d flape"},"89770513":{"s":"07-Sanitários","d":"Toalheiro term 127v cr 36x56 fio d flape"},"89770520":{"s":"07-Sanitários","d":"Toalheiro term 127v br 78x56 fio d flape"},"89770534":{"s":"07-Sanitários","d":"Toalheiro term 127v cr 78x56 fio d flape"},"89841864":{"s":"07-Sanitários","d":"Toalheiro term 220v br 36x56 fio d flape"},"89841885":{"s":"07-Sanitários","d":"Toalheiro term 220v cr 36x56 fio d flape"},"89841906":{"s":"07-Sanitários","d":"Toalheiro term 220v br 78x56 fio d flape"},"89841913":{"s":"07-Sanitários","d":"Toalheiro term 220v cr 78x56 fio d flape"},"89941635":{"s":"07-Sanitários","d":"*port toa banh dp met quartzo/prim ptbri"},"89941642":{"s":"07-Sanitários","d":"*porta shampo metal quartzo/prima ptbri"},"89941663":{"s":"07-Sanitários","d":"*cabide metal quartzo/prima ptbrilho"},"89941670":{"s":"07-Sanitários","d":"*pta toal ban 51met quartzo/prima ptbril"},"89941684":{"s":"07-Sanitários","d":"*port toal ros 35met quartzo/prima ptbri"},"89941691":{"s":"07-Sanitários","d":"*port toal ban 67met quartzo/prima ptbri"},"89941705":{"s":"07-Sanitários","d":"*porta papel met quartzo/prima pt brilho"},"89941712":{"s":"07-Sanitários","d":"*port pap s/cob met quartzo/prima ptbril"},"89941726":{"s":"07-Sanitários","d":"*saboneteira met quartzo/prima ptbril"},"90038501":{"s":"07-Sanitários","d":"Toalheiro term 127v br 36x56 fio e flape"},"90092695":{"s":"07-Sanitários","d":"*porta papel hig metal cr quartzo fani"},"90092730":{"s":"07-Sanitários","d":"*cabide simples metal quartzo fani"},"90092744":{"s":"07-Sanitários","d":"*porta shampo metal/vidro quartzo cr fan"},"90377742":{"s":"07-Sanitários","d":"Espelho led tracks 70x50cm vbcristais"},"90401143":{"s":"07-Sanitários","d":"*espe iron l55xa64 cm dr venturi"},"90738452":{"s":"07-Sanitários","d":"Toalheiro term 127v pf 36x56 fio d flape"},"90738466":{"s":"07-Sanitários","d":"Toalheiro term 127v pf 78x56 fio d flape"},"90738473":{"s":"07-Sanitários","d":"Toalheiro term 220v pf 36x56 fio d flape"},"90738480":{"s":"07-Sanitários","d":"Toalheiro term 220v pf 78x56 fio d flape"},"90774404":{"s":"07-Sanitários","d":"Espelho led gota 100x75cm vbcristais"},"91012383":{"s":"07-Sanitários","d":"Box front comum 6mm inc 110x190 kit br"},"91012390":{"s":"07-Sanitários","d":"Box front comum 6mm inc 120x190 kit br"},"91012404":{"s":"07-Sanitários","d":"Box front comum 6mm inc 130x190 kit br"},"91012411":{"s":"07-Sanitários","d":"Box front comum 6mm inc 140x190 kit br"},"91015792":{"s":"07-Sanitários","d":"Box p/ducha flex 8mm inc 70x190 kit pt"},"91015806":{"s":"07-Sanitários","d":"Box front comum 6mm inc 100x190 kit br"},"91036743":{"s":"07-Sanitários","d":"Box front comum 6mm inc 100x190 kit pt"},"91036750":{"s":"07-Sanitários","d":"Box front comum 6mm inc 110x190 kit pt"},"91036764":{"s":"07-Sanitários","d":"Box front comum 6mm inc 120x190 kit pt"},"91036771":{"s":"07-Sanitários","d":"Box front comum 6mm inc 130x190 kit pt"},"91036785":{"s":"07-Sanitários","d":"Box front comum 6mm inc 140x190 kit pt"},"91036792":{"s":"07-Sanitários","d":"Box front duosafe 6mm inc 100x200 kit br"},"91036813":{"s":"07-Sanitários","d":"Box front duosafe 6mm inc 120x200 kit br"},"91036855":{"s":"07-Sanitários","d":"Box front duosafe 6mm inc 100x200 kit cr"},"91036862":{"s":"07-Sanitários","d":"Box front duosafe 6mm inc 110x200 kit cr"},"91036876":{"s":"07-Sanitários","d":"Box front duosafe 6mm inc 120x200 kit cr"},"91036883":{"s":"07-Sanitários","d":"Box front duosafe 6mm inc 130x200 kit cr"},"91036911":{"s":"07-Sanitários","d":"Box front duosafe 6mm inc 100x200 kit pt"},"91036925":{"s":"07-Sanitários","d":"Box front duosafe 6mm inc 110x200 kit pt"},"91036932":{"s":"07-Sanitários","d":"Box front duosafe 6mm inc 120x200 kit pt"},"91037436":{"s":"07-Sanitários","d":"Box front duosafe 6mm inc 130x200 kit pt"},"91037443":{"s":"07-Sanitários","d":"Box front duosafe 6mm inc 140x200 kit pt"},"91080374":{"s":"07-Sanitários","d":"Box abrir camarao 8mm inc 100x185 kit pt"},"91080395":{"s":"07-Sanitários","d":"Box abrir camarao 8mm inc 110x185 kit pt"},"91843556":{"s":"07-Sanitários","d":"*porta toalha banho ronda black"},"91843563":{"s":"07-Sanitários","d":"*porta toalha rosto ronda black"},"91843570":{"s":"07-Sanitários","d":"*porta papel higiênico ronda black"},"91843584":{"s":"07-Sanitários","d":"*cabide ronda black"},"91843591":{"s":"07-Sanitários","d":"*saboneteira ronda black"},"91843605":{"s":"07-Sanitários","d":"*porta toalha banho ronda blush"},"91843612":{"s":"07-Sanitários","d":"*porta toalha rosto ronda blush"},"91843626":{"s":"07-Sanitários","d":"*porta papel higiênico ronda blush"},"91843633":{"s":"07-Sanitários","d":"*cabide ronda blush"},"91843640":{"s":"07-Sanitários","d":"*saboneteira ronda blush"},"91939323":{"s":"07-Sanitários","d":"Espelho led fabi pto 96x56 agardi"},"91948605":{"s":"07-Sanitários","d":"Espelho led com moldura serena pto 40x40"},"91948612":{"s":"07-Sanitários","d":"Espelho led com moldura serena bra 40x40"},"91948626":{"s":"07-Sanitários","d":"*espelho led com moldura serena dou 40x4"},"91948633":{"s":"07-Sanitários","d":"*espelho led com moldura serena pto 40x6"},"91948640":{"s":"07-Sanitários","d":"*espelho led com moldura serena bra 40x6"},"91948654":{"s":"07-Sanitários","d":"*espelho led com moldura serena dou 40x6"},"91948661":{"s":"07-Sanitários","d":"Espelho led com moldura serena pto 60x60"},"91948675":{"s":"07-Sanitários","d":"*espelho led com moldura serena bra 60x6"},"91948682":{"s":"07-Sanitários","d":"*espelho led com moldura serena dou 60x6"},"91956781":{"s":"07-Sanitários","d":"Espelho led couro 60cm cobre 18/36w dna"},"91956795":{"s":"07-Sanitários","d":"Espelho led couro 60cm preto 18/36w dna"},"91956802":{"s":"07-Sanitários","d":"Espelho led couro 80cm preto 27/54w dna"},"91956816":{"s":"07-Sanitários","d":"Espelho led couro 80cm cobre 27/54w dna"},"91956823":{"s":"07-Sanitários","d":"Espelho led couro 80cm marrom 27/54w dna"},"91956830":{"s":"07-Sanitários","d":"Espelho led couro 100cm cobre 38/76w dna"},"91956844":{"s":"07-Sanitários","d":"Espelho led couro 100cm preto 38/76w dna"},"91956956":{"s":"07-Sanitários","d":"Espelho led 80cm camellia 36/72w dna"},"92101954":{"s":"07-Sanitários","d":"Monoc lav ba mes level pf-deca"},"92101975":{"s":"07-Sanitários","d":"Monoc lav bm mes level pf-deca"},"92233351":{"s":"07-Sanitários","d":"*gabinete democratic branco venturi"},"92251152":{"s":"07-Sanitários","d":"*espelho led c/moldura couro preto 80 vb"},"92251166":{"s":"07-Sanitários","d":"Espelho led c/moldura couro preto 60 vb"},"92251180":{"s":"07-Sanitários","d":"Espelho led c/moldura couro carame 60 vb"},"92251201":{"s":"07-Sanitários","d":"Espelho red led c/moldura couro pt 60 vb"},"92304926":{"s":"07-Sanitários","d":"Monoc lav ba mes neo cb-sensea"},"92304933":{"s":"07-Sanitários","d":"Monoc lav ba mes neo pf-sensea"},"92304940":{"s":"07-Sanitários","d":"Monoc lav bb mes neo pf-sensea"},"92304961":{"s":"07-Sanitários","d":"Monoc lav bb mes neo cb-sensea"},"92380204":{"s":"07-Sanitários","d":"Gabinete júlia 80 rip semiencaixe cinza"},"92380211":{"s":"07-Sanitários","d":"Gabinete júlia 80 rip semiencaixe mad"},"92399265":{"s":"07-Sanitários","d":"Bancada vidro clara 80 branca c/led 6mm"},"92402051":{"s":"07-Sanitários","d":"Gabinete isa 66cm branco astral"},"92420195":{"s":"07-Sanitários","d":"Monoc lav ba mes hao pf-sensea"},"92420202":{"s":"07-Sanitários","d":"Monoc lav bb mes hao cr-sensea"},"92420216":{"s":"07-Sanitários","d":"Monoc lav bb mes hao pf-sensea"},"92432081":{"s":"07-Sanitários","d":"Gab c/cuba emb lateral 60cm mila mad"},"92432095":{"s":"07-Sanitários","d":"Gab c/cuba emb lateral 60cm mila branco"},"92432102":{"s":"07-Sanitários","d":"Kit bancada porc c/cuba emb 40cm ana br"},"92432116":{"s":"07-Sanitários","d":"Kit bancada porc c/cuba emb 40cm ana cz"},"92457260":{"s":"07-Sanitários","d":"Kit bancada porc c/cuba emb 40cm ana mad"},"92486604":{"s":"07-Sanitários","d":"Kit gab ariana  63cm madeirado astral"},"92503012":{"s":"07-Sanitários","d":"Kit gab mavie 60 madeirado agardi"},"92503026":{"s":"07-Sanitários","d":"Kit gab mavie 60 branco agardi"},"86868565":{"s":"09-Jardim","d":"*avs- sabre 30cm p/ ms 210"},"87839626":{"s":"09-Jardim","d":"*cabeçote de corte trimcut c 32-2"},"87839640":{"s":"09-Jardim","d":"*carretel fio nylon autocut 25 2,4mm 8m"},"87839731":{"s":"09-Jardim","d":"*implemento roçadeira 4fcs 230-km gas"},"87839752":{"s":"09-Jardim","d":"*implemento cult solo bf p/motor km stih"},"87839773":{"s":"09-Jardim","d":"*carretel fio nylon c5-2 2mm 10m"},"87839780":{"s":"09-Jardim","d":"*lâmina para roçadeira 2 facas"},"87839794":{"s":"09-Jardim","d":"*lâmina roçadeira 3 facas"},"87839836":{"s":"09-Jardim","d":"*roçadeira fs38 gas 0,8hp"},"87839892":{"s":"09-Jardim","d":"*roçadeira fse60 600w 127v"},"87839934":{"s":"09-Jardim","d":"*roçadeira fse60 600w 220v"},"87839941":{"s":"09-Jardim","d":"*aparador cerca viva hs45 gas 1hp"},"87839990":{"s":"09-Jardim","d":"*sabre 30cm 1,1mm p/ ht75/ms170"},"87840004":{"s":"09-Jardim","d":"*sabre 30cm 1,3mm p/ ms170/180/210/250"},"87840011":{"s":"09-Jardim","d":"*sabre 35cm 1,3mm p/ ms210/250"},"87840025":{"s":"09-Jardim","d":"*soprador gas bg86ce 1,09hp"},"87840102":{"s":"09-Jardim","d":"*ms 210 3/8\"p p motosserra,30cm/12\"63pmc"},"87840116":{"s":"09-Jardim","d":"*ms 210 3/8\"p p motosserra,35cm/14\"63pmc"},"87944346":{"s":"09-Jardim","d":"*aparador cerca viva hse61 500w 127v"},"87948035":{"s":"09-Jardim","d":"*aparador grama fse41 400w 127v"},"87948056":{"s":"09-Jardim","d":"*soprador elet bge 71 1000w 127 v"},"87948070":{"s":"09-Jardim","d":"*aparador grama fse41 400w 220v"},"87948084":{"s":"09-Jardim","d":"*aparador cerca viva hse61 500w 220v"},"88094622":{"s":"09-Jardim","d":"* implemento aparador canto gas fcb-km"},"88094636":{"s":"09-Jardim","d":"*jogo dispositivo aspiracao bg-86"},"88094986":{"s":"09-Jardim","d":"*dispositivo de succao bge 71"},"88095070":{"s":"09-Jardim","d":"*implemento soprador axial bg km"},"88322920":{"s":"09-Jardim","d":"*ms 250 3/8\"p p motosserra,40cm/16\"63pmc"},"88329822":{"s":"09-Jardim","d":"*lavad alta pressao re143 2175 lbs 220v"},"88361784":{"s":"09-Jardim","d":"*carregador de bateria al300 127v"},"88361791":{"s":"09-Jardim","d":"*carregador de bateria al300 220v"},"88361805":{"s":"09-Jardim","d":"*cortador grama rma-370 bateria 36v"},"88361826":{"s":"09-Jardim","d":"*aparad cer viva bateria hsa65 s/bat 36v"},"88361854":{"s":"09-Jardim","d":"*roçadeira fs55r gas 1hp"},"88361861":{"s":"09-Jardim","d":"*serra circular para roçadeira fs85"},"89263405":{"s":"09-Jardim","d":"*misturador de combustível 1l"},"89335372":{"s":"09-Jardim","d":"*lavad alta pres re 109 1740lbs 220v"},"89354566":{"s":"09-Jardim","d":"*ms 230 3/8\"\"p spur motosserra,35cm/14\""},"89354580":{"s":"09-Jardim","d":"*motosserra elet ms 170c 30cm 127v"},"89354594":{"s":"09-Jardim","d":"*motosserra elet ms 170c 30cm 220v"},"89354776":{"s":"09-Jardim","d":"*jogo de afiação 1/4\", 3/8\""},"89354944":{"s":"09-Jardim","d":"*tampa para compartimento bateria"},"89360243":{"s":"09-Jardim","d":"*sabre motosserra s 50cm"},"89360250":{"s":"09-Jardim","d":"*corrente 36 rm 50 cm"},"89360320":{"s":"09-Jardim","d":"*corrente 71 pm3 35 cm"},"89360453":{"s":"09-Jardim","d":"*implemento aparad cantos km85r gas 1,3h"},"89389083":{"s":"09-Jardim","d":"*motosserra gas ms170 30cm 1,8hp 2t"},"89568122":{"s":"09-Jardim","d":"*podador de arbustos a bateria hsa 25"},"89568136":{"s":"09-Jardim","d":"*implemento fs-km gsb 230-4"},"89608141":{"s":"09-Jardim","d":"*implemento podador hl 135º gas"},"89608925":{"s":"09-Jardim","d":"*desentupidor de tubulaæo 15m stihl"},"89608946":{"s":"09-Jardim","d":"*mangueira de alta pressão 6,9m stihl"},"89608960":{"s":"09-Jardim","d":"*lança angular 47cm stihl"},"89608974":{"s":"09-Jardim","d":"*aplicador de detergente stihl"},"89608981":{"s":"09-Jardim","d":"*extensão da lança stihl"},"89608995":{"s":"09-Jardim","d":"*mangueira de alta pressão 6,7m stihl"},"89628924":{"s":"09-Jardim","d":"*soprador elétrico bge 71 1000w 220v"},"89655944":{"s":"09-Jardim","d":"*kit de sucção bge-71 stihl"},"89702753":{"s":"09-Jardim","d":"*cortador grama rma 510 bateria"},"89702774":{"s":"09-Jardim","d":"*roçadeira fsa 56 autocut bateria 127v"},"89702781":{"s":"09-Jardim","d":"*roçadeira fsa 56 autocut bateria 220v"},"89702816":{"s":"09-Jardim","d":"*bateria ak 10 36v"},"89702844":{"s":"09-Jardim","d":"*ak 20 bateria"},"89702872":{"s":"09-Jardim","d":"*carregador bateria al 101 127v"},"89702886":{"s":"09-Jardim","d":"*carregador bateria al 101 220v"},"89703033":{"s":"09-Jardim","d":"*cala de jardinagem laranja tam.gg"},"89703040":{"s":"09-Jardim","d":"*aparad cerca viva hsa 56 bateria 127v"},"89703054":{"s":"09-Jardim","d":"*aparad cerca viva hsa 56 bateria 220v"},"89703075":{"s":"09-Jardim","d":"*motosserra msa 120 c-bq bateria 220v"},"89703082":{"s":"09-Jardim","d":"*aparad cerca viva hse 52 460w 127v"},"89703096":{"s":"09-Jardim","d":"*aparad cerca viva hse 52 460w 220v"},"89703103":{"s":"09-Jardim","d":"*soprador bga 56 bateria 127v"},"89703124":{"s":"09-Jardim","d":"*soprador bg 50 gasolina"},"89750850":{"s":"09-Jardim","d":"*roçadeira fs85 3 facas gas 1,3hp"},"89750871":{"s":"09-Jardim","d":"*roçadeira fs80 3 facas gas 1,3hp"},"89750885":{"s":"09-Jardim","d":"*roçadeira fs80 2 facas gas 1,3hp"},"89787726":{"s":"09-Jardim","d":"*roçadeira fs55 gas 1hp"},"89836740":{"s":"09-Jardim","d":"*roçadeira fs120 3 facas gas 1,8hp"},"89836754":{"s":"09-Jardim","d":"*roçadeira fs120 gas 1,8hp."},"89836761":{"s":"09-Jardim","d":"*roçadeira fsa 45 a bateria"},"89836775":{"s":"09-Jardim","d":"*podador hsa 45 a bateria"},"89836782":{"s":"09-Jardim","d":"*lamina p/cort grama rma370"},"89836796":{"s":"09-Jardim","d":"*lamina p/ cort grama rma510"},"89836803":{"s":"09-Jardim","d":"*capacete florestal c/abafador cinza"},"89836810":{"s":"09-Jardim","d":"*soprador bga 45 a bateria"},"89899033":{"s":"09-Jardim","d":"*fio de nylon 1,4mm 16m trs"},"89899040":{"s":"09-Jardim","d":"*fio de nylon 1,4mm 20m az"},"89899082":{"s":"09-Jardim","d":"*fio de nylon 2mm 123m vd"},"89899096":{"s":"09-Jardim","d":"*fio de nylon 2,4mm 15,3m lrj"},"89899131":{"s":"09-Jardim","d":"*motosserra mse 141 c-q eletr 127v"},"89899145":{"s":"09-Jardim","d":"*motosserra mse 141 c-q eletr 220v"},"89957042":{"s":"09-Jardim","d":"*filtro para agua de reuso stihl"},"89957084":{"s":"09-Jardim","d":"*lavad alta pres re232 220v"},"90083294":{"s":"09-Jardim","d":"Mesa aço flora origami 70x70 bg naterial"},"90144733":{"s":"09-Jardim","d":"*vaso res cone riscato 38x55cm terrac"},"90220382":{"s":"09-Jardim","d":"*lavadora de alta pressão re90 127v"},"90220396":{"s":"09-Jardim","d":"*lavadora de alta pressão re90 220v"},"90220410":{"s":"09-Jardim","d":"*lavadora de alta pressão re95  220v"},"90280071":{"s":"09-Jardim","d":"*roçadeira fs 131 a combustao"},"90311991":{"s":"09-Jardim","d":"Escada p pisc degrau removível 52' 132cm"},"90431432":{"s":"09-Jardim","d":"*soprador gas bg86ce 1,09hp"},"90542571":{"s":"09-Jardim","d":"*pulverizador manual sg31"},"90542585":{"s":"09-Jardim","d":"*pulverizador manual costal sg71"},"90542592":{"s":"09-Jardim","d":"*pulverizador manual costal sg20"},"90560435":{"s":"09-Jardim","d":"Poltrona al/mad oris cz esc naterial"},"90602855":{"s":"09-Jardim","d":"*cobertura alu ysis taupe 3x3m naterial"},"90602876":{"s":"09-Jardim","d":"*cortina alu ysis cort taupe 3x3m nat"},"90660654":{"s":"09-Jardim","d":"Conjunto aço kangfu 6 peças bege"},"90724025":{"s":"09-Jardim","d":"*cadeira solaris"},"90725306":{"s":"09-Jardim","d":"Valvula seletora 6 funcoes topo veico 1½"},"90735134":{"s":"09-Jardim","d":"*tecido p/ omb sonora 290x290 br nateria"},"90775370":{"s":"09-Jardim","d":"*cobertura p churras 70x70 naterial"},"90859153":{"s":"09-Jardim","d":"*podador gta26set bateria 127v stihl"},"90859160":{"s":"09-Jardim","d":"*podador gta26set bateria 220v stihl"},"91002520":{"s":"09-Jardim","d":"*kit deck 3,5m2 atlas naterial plastico"},"91043890":{"s":"09-Jardim","d":"*mesa jantar alu odyssea ii 100x240cm bc"},"91043904":{"s":"09-Jardim","d":"*mesa jantar alu odyssea ii 100x240cm mr"},"91043911":{"s":"09-Jardim","d":"*mesa jantar alu odyssea ii 100x320cm cz"},"91043932":{"s":"09-Jardim","d":"*mesa ext alu odyssea ii 100x240cm bc"},"91050141":{"s":"09-Jardim","d":"*luva de proteção premium pp"},"91050155":{"s":"09-Jardim","d":"*luva de proteção premium p"},"91050162":{"s":"09-Jardim","d":"*luva de proteção premium m"},"91050176":{"s":"09-Jardim","d":"*luva de proteção premium g"},"91058016":{"s":"09-Jardim","d":"*banqueta mad yumi c/persi 0,72m nat"},"91058142":{"s":"09-Jardim","d":"*kit limpeza de piscina 3 pç naterial"},"91096460":{"s":"09-Jardim","d":"*v.flora plás.alto27 33x32 pt már nateri"},"91853965":{"s":"09-Jardim","d":"*vaso circular eco bali 58x80cm jeans"},"91868630":{"s":"09-Jardim","d":"*capa p balanço prisma 203x274 cinza nat"},"91871612":{"s":"09-Jardim","d":"*pergolado alu odyssea 319x380 cinza nat"},"91941241":{"s":"09-Jardim","d":"Cercado ocult vime 1x3m marrom nat"},"91942802":{"s":"09-Jardim","d":"*lavadora ap re80 127v stihl"},"91942816":{"s":"09-Jardim","d":"*lavadora ap re80 220v stihl"},"91942823":{"s":"09-Jardim","d":"*lavadora ap re90 plus 127v stihl"},"91942830":{"s":"09-Jardim","d":"*lavadora ap re90 plus 220v stihl"},"91977312":{"s":"09-Jardim","d":"*corrente pm 3,8 1,3mm 35cm p ms210/250"},"91977326":{"s":"09-Jardim","d":"*corrente 36 rm 50 cm"},"91977396":{"s":"09-Jardim","d":"*motosserra gas ms210 35cm 2,2hp 2t"},"91977403":{"s":"09-Jardim","d":"*motosserra gas ms230 35cm 2,7hp 2t"},"91977410":{"s":"09-Jardim","d":"*motosserra gas  ms250 40cm 3,1hp 2t"},"91977424":{"s":"09-Jardim","d":"*motosserra gas  ms310 50cm 4,4hp 2t"},"91990206":{"s":"09-Jardim","d":"Mesa aço flora ii origami 70x70 az nat"},"91990213":{"s":"09-Jardim","d":"Mesa aço flora ii origami 70x70 lrj nat"},"91990325":{"s":"09-Jardim","d":"*cadeira alu odyssea cz nat"},"91990500":{"s":"09-Jardim","d":"*conj sofa alu odyssea 4l cz/branco nat"},"92074360":{"s":"09-Jardim","d":"Banco de 3 lugares yumi naterial"},"92074395":{"s":"09-Jardim","d":"Mesa redonda yumi naterial"},"92074416":{"s":"09-Jardim","d":"*colchão espreguiçadeira yumi naterial"},"92074430":{"s":"09-Jardim","d":"*mesa auxiliar 55x55 yumi naterial"},"92074465":{"s":"09-Jardim","d":"Sofá 3 lugares yumi naterial"},"92074493":{"s":"09-Jardim","d":"*sofá módulo esquerdo yumi naterial"},"92074521":{"s":"09-Jardim","d":"Mesa auxiliar 80x80 yumi naterial"},"92080044":{"s":"09-Jardim","d":"*gazebo oxia alu/aço 4x3x4 na/cl nt"},"92080114":{"s":"09-Jardim","d":"*mesa lagos 280x106x75alu fsc bco/natu n"},"92080121":{"s":"09-Jardim","d":"*mesa bermeo 210x100x78 alu fsc nate"},"92080135":{"s":"09-Jardim","d":"*mesa bermeo 4p 130x75x107alu fsc natu n"},"92080142":{"s":"09-Jardim","d":"*mesa baixa griffin 5p alu fsc bege nate"},"92080156":{"s":"09-Jardim","d":"*cj mesa bx baelo 4p fsc teca mad natura"},"92080163":{"s":"09-Jardim","d":"*mesa quadra. 5p alu fsc natural nateria"},"92080170":{"s":"09-Jardim","d":"*mesa surrey 5p alu fsc naterial"},"92080275":{"s":"09-Jardim","d":"*cj mesa canto memphis 4p alu fsc bco nt"},"92080303":{"s":"09-Jardim","d":"*cj sofa 3p canto surrey 5palu fsc bco n"},"92080310":{"s":"09-Jardim","d":"*cj sofa 2p canto surrey 5palu fsc bco n"},"92080324":{"s":"09-Jardim","d":"*cj sofa 2p esquerdo memphis4p alu bco n"},"92080331":{"s":"09-Jardim","d":"*cj sofa 2p direito memphis 4p alu bca n"},"92080352":{"s":"09-Jardim","d":"*cj banco/mesa calisto 4p alu fsc bege n"},"92080366":{"s":"09-Jardim","d":"*sofa 3p canto griffin 5palu fsc beige n"},"92080380":{"s":"09-Jardim","d":"*cj sofa 1p calisto 4p alu fsc beige nt"},"92080394":{"s":"09-Jardim","d":"*cj sofá 2p calisto 4p alu fsc beige nt"},"92080401":{"s":"09-Jardim","d":"*cj sofa 2p baelo 4p fsc cz/natu nateria"},"92080415":{"s":"09-Jardim","d":"*poltrona baelo 4p fsc teca cz/natu nate"},"92080520":{"s":"09-Jardim","d":"*banco alto bermeo alu fsc natural nt"},"92080541":{"s":"09-Jardim","d":"*poltrona ribeira fsc teca 57x55x84 nate"},"92080555":{"s":"09-Jardim","d":"*cadeira ribeira fsc teca 47x55x84 nate"},"92081955":{"s":"09-Jardim","d":"*vaso vietnamita 70 preto absoluto"},"92082312":{"s":"09-Jardim","d":"Mesa cento athena 130x68,5 bco naterial"},"92082340":{"s":"09-Jardim","d":"Mesa apoio athena alu branco naterial"},"92082424":{"s":"09-Jardim","d":"Cj 2 poltronas athena alu bco nate"},"92082522":{"s":"09-Jardim","d":"*sofa esq 2p athena corner alu bco nater"},"92082543":{"s":"09-Jardim","d":"Sofa 2p athena alu bco naterial"},"92082746":{"s":"09-Jardim","d":"*mesa apoio athena alu bco nt"},"92082753":{"s":"09-Jardim","d":"*modulo athena alu bco naterial"},"92082802":{"s":"09-Jardim","d":"Espreguicadeira athena alu bco naterial"},"92082942":{"s":"09-Jardim","d":"*sofa direito 2p athena corner alu bco n"},"92083026":{"s":"09-Jardim","d":"Sofa 3p athena alu bco naterial"},"92083040":{"s":"09-Jardim","d":"Poltrona athena alu bco naterial"},"92083054":{"s":"09-Jardim","d":"*modulo canto athena alu bco naterial"},"92083075":{"s":"09-Jardim","d":"*modulo meio athena 1p alu bco naterial"},"92127686":{"s":"09-Jardim","d":"*churrasqueira parrilla preta"},"92185562":{"s":"09-Jardim","d":"*vaso bola 2 beje mescla 40x44x32"},"92201935":{"s":"09-Jardim","d":"*cj de canto odyssea 7p alu bco nate"},"92202033":{"s":"09-Jardim","d":"*mesa baixa lita 140x70x35 fsc teca nate"},"92202110":{"s":"09-Jardim","d":"*mesa baixa neptune 91,5x91,5x44 alu nat"},"92202152":{"s":"09-Jardim","d":"*mesa neptune 6p 200x100 branca nate"},"92202236":{"s":"09-Jardim","d":"*cobertura neptune alu 213x173x200 nate"},"92202250":{"s":"09-Jardim","d":"*poltrona neptune alu bco/cza naterial"},"92202292":{"s":"09-Jardim","d":"*módulo canto únic neptune alu/acri nate"},"92202355":{"s":"09-Jardim","d":"*módulo único neptune 1p alu/acrili nate"},"92202404":{"s":"09-Jardim","d":"*modulo de canto athena alu cza esc nate"},"92207192":{"s":"09-Jardim","d":"*capa de proteção espreguiçadeira yumi"},"92232812":{"s":"09-Jardim","d":"*podador a bateria hsa 50.0 set, 127v"},"92232840":{"s":"09-Jardim","d":"*motocultivador mh 610.0 (br)"},"92232861":{"s":"09-Jardim","d":"*lavadora de alta-pressão re 145 127 v"},"92232875":{"s":"09-Jardim","d":"*lavadora de alta-pressão re 145 220 v"},"92232882":{"s":"09-Jardim","d":"*bomba de água wp 900.0"},"92232896":{"s":"09-Jardim","d":"*podador de arbustos bate hsa 26set 127v"},"92232903":{"s":"09-Jardim","d":"*podador de arbustos bate hsa 26set 220v"},"92232910":{"s":"09-Jardim","d":"*motosserra bate msa 60.0c-b 1/4pset 220"},"92232924":{"s":"09-Jardim","d":"*motosserra bate msa 60.0 cb 1/4pset 127"},"92232952":{"s":"09-Jardim","d":"*sabre r 40cm/16\" 1,3mm/0.050\"3/8\"p ms25"},"92232966":{"s":"09-Jardim","d":"*sabre s 40cm/16\" 1,6mm/0.063\" 3/8\" ms31"},"92232973":{"s":"09-Jardim","d":"*corrente 36 rm rapid micro - ms310"},"92232980":{"s":"09-Jardim","d":"*sabre r 35cm/14\" 1,1mm/0.043\" - ms180c"},"92232994":{"s":"09-Jardim","d":"*corrente 61 pmm3 picco micro mini ms180"},"92233001":{"s":"09-Jardim","d":"*corrente 63 pm picco micro corrent ms25"},"92233022":{"s":"09-Jardim","d":"*bateria ak 20"},"92233036":{"s":"09-Jardim","d":"*podador elétrico hse 52, 127v, 500mm/20"},"92233043":{"s":"09-Jardim","d":"*podador elétrico hse 52, 220v, 500mm/20"},"92233050":{"s":"09-Jardim","d":"*carregador rápido de bat al 301, 127 v"},"92233064":{"s":"09-Jardim","d":"*carregador rápido de bat al 301, 220 v"},"92261715":{"s":"09-Jardim","d":"Carrinho jardim mad solarium euca nat"},"92261722":{"s":"09-Jardim","d":"Espreguiçadeira solarium eucalipto nat"},"92275106":{"s":"09-Jardim","d":"Robo limpador automatico cosmy 200"},"92276681":{"s":"09-Jardim","d":"*vaso atenas cilindrico 44 chumbo"},"92278144":{"s":"09-Jardim","d":"Grama sintétic 30mm 1x5 abrol sporty nat"},"92278200":{"s":"09-Jardim","d":"Grama sintétic 30mm 2x5 abrol sporty nat"},"92283303":{"s":"09-Jardim","d":"Cadeira s brac alu lyra beta bc 2x2 nat"},"92324456":{"s":"09-Jardim","d":"*mangueira kit jardim tranç verde 15m"},"92324463":{"s":"09-Jardim","d":"*mangueira kit jardim tranç verde 20m"},"92324470":{"s":"09-Jardim","d":"*mangueira kit jardim tranç verde 30m"},"92324484":{"s":"09-Jardim","d":"*mangueira kit jardim lisa verde 15m"},"92324680":{"s":"09-Jardim","d":"*ms 172 motosserra,35cm/14\",61pmm3"},"92324694":{"s":"09-Jardim","d":"*ms 172 c-be motosserra,35cm/14\",61pmm3"},"92324701":{"s":"09-Jardim","d":"*ms 182 motosserra,40cm/16\",63pm3"},"92324715":{"s":"09-Jardim","d":"*ms 212 motosserra,45cm/18\",63pm3"},"92324722":{"s":"09-Jardim","d":"*ms 162 motosserra,61pmm3"},"92324736":{"s":"09-Jardim","d":"*fs 55 roçadeira,autocut c 26-2"},"92324750":{"s":"09-Jardim","d":"*hs 45 podador,450mm/18\""},"92324764":{"s":"09-Jardim","d":"*hsa 50.1 set podador a bateria, 220v,"},"92324771":{"s":"09-Jardim","d":"*hsa 50.1 set podador a bateria, 127v,"},"92324785":{"s":"09-Jardim","d":"*fsa 57 set roçadeir bateria autocut 220"},"92324792":{"s":"09-Jardim","d":"*fsa 57 set roçadeir bateria autocut 127"},"92324834":{"s":"09-Jardim","d":"*fsa 30.0 set roçadeira a bateria 127v"},"92324841":{"s":"09-Jardim","d":"*fsa 30.0 set roçadeira a bateria 220v"},"92324862":{"s":"09-Jardim","d":"*hsa 40.0 set podador a bateria, 220v,"},"92324876":{"s":"09-Jardim","d":"*hsa 40.0 set podador a bateria, 127v,"},"92324904":{"s":"09-Jardim","d":"*fs 38 roçadeira,autocut c6-2"},"92325555":{"s":"09-Jardim","d":"Corrimão paraty"},"92328054":{"s":"09-Jardim","d":"Deck varanda 15x122cm com base injetada"},"92334781":{"s":"09-Jardim","d":"Conj:faca 8+chaira+garfo trinchante nat"},"92361710":{"s":"09-Jardim","d":"Vaso liso conico 53 cimento queimado"},"92361731":{"s":"09-Jardim","d":"Vaso liso conico 53 macchiato"},"92361745":{"s":"09-Jardim","d":"Vaso liso redondo 33 preto ardosia"},"92380134":{"s":"09-Jardim","d":"*mangueira kit jardim tranç verde 10m"},"92401225":{"s":"09-Jardim","d":"Mini deck 30x30 ripa 4 eucalipto natural"},"92404746":{"s":"09-Jardim","d":"Poltrona  alumí champ manu aqua 67x70x86"},"92404753":{"s":"09-Jardim","d":"Sofá 2 alumí champ manu aquap 127x70x86"},"92404760":{"s":"09-Jardim","d":"Mesa ctr alumí champ manu aquap 60x45x45"},"92443624":{"s":"09-Jardim","d":"*vaso cer espanhol 70x47cm perola"},"87134250":{"s":"10-Ferragens","d":"Espelho de Segurança 23cm Alumínio 601 Vision"},"87134313":{"s":"10-Ferragens","d":"Espelho de Segurança 30cm Alumínio 602 Vision"},"87134362":{"s":"10-Ferragens","d":"Espelho de Segurança 40cm Alumínio 603 Vision"},"87134404":{"s":"10-Ferragens","d":"Espelho de Segurança 60cm Alumínio 605 Vision"},"88041926":{"s":"10-Ferragens","d":"Caixa de Correio para Muro Alumínio Dourado 15x35x36cm"},"89459111":{"s":"10-Ferragens","d":"Espelho de Segurança Retangular 40x25cm Borracha 1201 Vision"},"91715540":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Cobre Cobre 128mm"},"92007692":{"s":"10-Ferragens","d":"Carrinho de Carga Dobrável Degraus 70kg Standers"},"92305430":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Rosa 40mm 3 Peças Let Ago Inox"},"92305444":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Azul 40mm 3 Peças Let Ago Inox"},"92305451":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Amarelo 40mm 3 Peças Let Ago Inox"},"92305486":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Amarelo 250mm 2 Peças Cubbo Ago Inox"},"92305493":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Rosa 60mm 3 Peças Ylly Ago Inox"},"92305500":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Azul 60mm 3 Peças Ylly Ago Inox"},"92305514":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Amarelo 60mm 1 Peça Ylly Ago Inox"},"92305521":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Rosa 110mm 3 Peças Zetta Ago Inox"},"92305535":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Azul 110mm 3 Peças Zetta Ago Inox"},"92305542":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Amarelo 110mm 3 Peças Zetta Ago Inox"},"92305556":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Rosa 140mm 1 Peça Onda Ago Inox"},"92305563":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Azul 140mm 3 Peças Onda Ago Inox"},"92305570":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Amarelo 140mm 3 Peças Onda Ago Inox"},"92305584":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Rosa 125mm 3 Peças Hiti Ago Inox"},"92305591":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Amarelo 125mm 3 Peças Hiti Ago Inox"},"92305605":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Azul 125mm 3 Peças Hiti Ago Inox"},"92305612":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Rosa 115mm 3 Peças Lynus Ago Inox"},"92305626":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Amarelo 115mm 3 Peças Lynus Ago Inox"},"92305633":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Azul 115mm 3 Peças Lynus Ago Inox"},"92305640":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Rosa 840mm 1 Peça Luna Ago Inox"},"92305654":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Amarelo 840mm 3 Peças Luna Ago Inox"},"92305661":{"s":"10-Ferragens","d":"Puxador para Móveis Zamac Azul 840mm 3 Peças Luna Ago Inox"},"92492106":{"s":"10-Ferragens","d":"FECHADURA BIOMÉT INTELIG WIFI - SHFB700"},"89082336":{"s":"11-Pintura","d":"BASE P ACRÍLICO SEDA CORAL 0,81 L"},"89082343":{"s":"11-Pintura","d":"BASE T ACRILICO SEDA CORAL 0,8 L"},"89082371":{"s":"11-Pintura","d":"BASE P ACRILICO SEDA CORAL 3,24 L"},"89082385":{"s":"11-Pintura","d":"BASE T ACRILICO SEDA CORAL 3,24 L"},"89082413":{"s":"11-Pintura","d":"BASE P ACRILICO SEDA CORAL 16,2 L"},"89082420":{"s":"11-Pintura","d":"BASE T ACRILICO SEDA CORAL 16,2 L"},"89372703":{"s":"11-Pintura","d":"Base p acril fo decora 0,8l"},"89372710":{"s":"11-Pintura","d":"Base p acril fo decora 3,2l"},"89372724":{"s":"11-Pintura","d":"Base p acril fo decora 16l"},"89372780":{"s":"11-Pintura","d":"Base t acril fo decora 3,2l"},"89372794":{"s":"11-Pintura","d":"Base t acril fo decora 0,8l"},"89372801":{"s":"11-Pintura","d":"Base t acril fo decora 16l"},"89594323":{"s":"11-Pintura","d":"Base p super lavavel 16,2l"},"89594330":{"s":"11-Pintura","d":"Base p super lavavel 3,2l"},"89594344":{"s":"11-Pintura","d":"Base p super lavavel 0,8l"},"89594351":{"s":"11-Pintura","d":"Base mf super lavavel 16,2l"},"89594386":{"s":"11-Pintura","d":"Base mf super lavavel 3,2l"},"89594393":{"s":"11-Pintura","d":"Base t super lavavel 3,2l"},"89594400":{"s":"11-Pintura","d":"Base mf super lavavel 0,8l"},"89594414":{"s":"11-Pintura","d":"Base t super lavavel 0,8l"},"89594421":{"s":"11-Pintura","d":"Base t super lavavel 16,2l"},"90263516":{"s":"11-Pintura","d":"Tinta stand fo bra 20l rend/cobr suvinil"},"90658162":{"s":"11-Pintura","d":"Massa corrida 25kg suvinil balde"},"90658176":{"s":"11-Pintura","d":"Massa acrilica 25kg suvinil"},"91934871":{"s":"11-Pintura","d":"*tinta acril stan rend mto pérola 16l"},"91935060":{"s":"11-Pintura","d":"*tinta acril stan rend mto sino 16l"},"91935081":{"s":"11-Pintura","d":"*tinta acril stan rend mto cromo suv 16l"},"92258775":{"s":"11-Pintura","d":"*tinta pre int/ext f compl n int 18l suv"},"92258796":{"s":"11-Pintura","d":"*tinta pre int/ext f compl rio pa 18l su"},"92258915":{"s":"11-Pintura","d":"*tinta std int/ext fos rcm n inte 18l su"},"92259083":{"s":"11-Pintura","d":"*tinta pre int/ext f compl allure 18l su"},"92259202":{"s":"11-Pintura","d":"*tinta pre it/et t brilho elefan 18l suv"},"92259223":{"s":"11-Pintura","d":"*tinta pre fachada p branca 18l suv"},"92259412":{"s":"11-Pintura","d":"Base toque f compl a2 16l suvinil"},"92259426":{"s":"11-Pintura","d":"Base toque f compl a2 3,2l suvinil"},"92259433":{"s":"11-Pintura","d":"Base toque f compl a2 0,8l suvinil"},"92259503":{"s":"11-Pintura","d":"Base sempre limpo a2 16l suvinil"},"92259510":{"s":"11-Pintura","d":"Base sempre limpo a2 3,2l suvinil"},"92259524":{"s":"11-Pintura","d":"Base sempre limpo a2 0,8l suvinil"},"92259531":{"s":"11-Pintura","d":"Base sempre limpo b2 16l suvinil"},"92259545":{"s":"11-Pintura","d":"Base sempre limpo b2 3,2l suvinil"},"92259552":{"s":"11-Pintura","d":"Base sempre limpo b2 0,8l suvinil"},"92259566":{"s":"11-Pintura","d":"Base sempre limpo c2 16l suvinil"},"92259573":{"s":"11-Pintura","d":"Base sempre limpo c2 3,2l suvinil"},"92259580":{"s":"11-Pintura","d":"Base sempre limpo c2 0,8l suvinil"},"92259594":{"s":"11-Pintura","d":"Base toque seda a2 16l suvinil"},"92259601":{"s":"11-Pintura","d":"Base toque seda a2 3,2l suvinil"},"92259615":{"s":"11-Pintura","d":"Base toque seda a2 0,8l suvinil"},"92315111":{"s":"11-Pintura","d":"*tinta prem master int fos palha 18lcora"},"92335502":{"s":"11-Pintura","d":"Massa corrida 25kg suvinil balde"},"92427034":{"s":"11-Pintura","d":"DECORA MATTE EXTRA FOSCO BASE MF16L"},"92427041":{"s":"11-Pintura","d":"DECORA MATTE EXTRA FOSCO BASE MF 3.2L"},"92427055":{"s":"11-Pintura","d":"DECORA MATTE EXTRA FOSCO BASE MF 800ML"},"92427125":{"s":"11-Pintura","d":"CR DECORA SEDA AC BASE MF 0.8L"},"92427132":{"s":"11-Pintura","d":"CR DECORA SEDA AC BASE MF 16L"},"92427146":{"s":"11-Pintura","d":"CR DECORA SEDA AC BASE MF 3.2L"},"90229251":{"s":"12-Decoração","d":"*tap pe 140x200 melody mf"},"90229265":{"s":"12-Decoração","d":"*tap pe 47x90 melody mf"},"90229272":{"s":"12-Decoração","d":"*tap pe 35x65 melody mf"},"90229293":{"s":"12-Decoração","d":"*tap pe 140x200 melody rs"},"90229300":{"s":"12-Decoração","d":"*tap pe 47x90 melody rs"},"90229314":{"s":"12-Decoração","d":"*tap pe 35x65 melody rs"},"90229321":{"s":"12-Decoração","d":"*tap pe 100x140 melody bg"},"90229342":{"s":"12-Decoração","d":"*tap pe 100x140 melody cz"},"90229356":{"s":"12-Decoração","d":"*tap pe 140x200 melody bg"},"90229370":{"s":"12-Decoração","d":"*tap pe 140x200 melody cz"},"90229384":{"s":"12-Decoração","d":"*tap pe 47x90 melody bg"},"90229412":{"s":"12-Decoração","d":"*tap pe 35x65 melody bg"},"90229433":{"s":"12-Decoração","d":"*tap pe 35x65 melody cz"},"90708142":{"s":"12-Decoração","d":"*tap 47x90 melody formato cz"},"90708163":{"s":"12-Decoração","d":"*tap 47x90 melody formato mf"},"91061425":{"s":"12-Decoração","d":"*tap 140 diam melody cz"},"91075201":{"s":"12-Decoração","d":"*tap 47x90 melody formato bg"},"92036420":{"s":"12-Decoração","d":"*GRAVURAS PAPEL 50X70 MATISSE PT"},"92036490":{"s":"12-Decoração","d":"*GRAVURAS 50X70 MATISSE CORPOS"},"92036525":{"s":"12-Decoração","d":"*GRAVURAS 50X70 MATISSE MULHER PT"},"92140685":{"s":"12-Decoração","d":"ESPELHO NORD PRATELEIRA MAD 56CM INSPIR"},"92168916":{"s":"12-Decoração","d":"PORTA RETRATO 13X18 INDUSTRIAL WAL INSP"},"92216740":{"s":"12-Decoração","d":"Persiana DoubleVision Dual 180X220 cm Bg"},"92216873":{"s":"12-Decoração","d":"Persiana DoubleVision Dual 120X160 cm Br"},"92216894":{"s":"12-Decoração","d":"Persiana Filtering Visio 140x160 cm Br"},"92216971":{"s":"12-Decoração","d":"Persiana Filtering Visio 120x160 cm Br"},"92216992":{"s":"12-Decoração","d":"Persiana DoubleVision Dual 200X220 cm Bg"},"92217013":{"s":"12-Decoração","d":"Persiana DoubleVision Dual200x220 cm Cz"},"92217090":{"s":"12-Decoração","d":"Persiana Filtering Visio 120x160 cm Cz"},"92217125":{"s":"12-Decoração","d":"Persiana DoubleVision Dual 140X160 cm Br"},"92217153":{"s":"12-Decoração","d":"Persiana DoubleVision Dual 140X160 cm Bg"},"92217174":{"s":"12-Decoração","d":"Persiana Filtering Visio 160x160 cm Br"},"92217195":{"s":"12-Decoração","d":"Persiana DoubleVision Dual 160X160 cm Cz"},"92217321":{"s":"12-Decoração","d":"Persiana DoubleVision Dual 160X160 cm Br"},"92217370":{"s":"12-Decoração","d":"Persiana DoubleVision Dual 160x220 cm Bg"},"92217426":{"s":"12-Decoração","d":"Persiana Filtering Visio 140x160 cm Cz"},"92217454":{"s":"12-Decoração","d":"Persiana DoubleVision Dual 120X160 cm Bg"},"92218665":{"s":"12-Decoração","d":"Persiana Filtering Visio 160x160 cm Cz"},"92222641":{"s":"12-Decoração","d":"*ESP INFANTIL MOLD DECOR PETELAS RATTAN"},"92244341":{"s":"12-Decoração","d":"*papel parede dan beg 053x10.5 inspire"},"92298892":{"s":"12-Decoração","d":"PAPEL PAREDE 0,53 X 10M TNT - PALHA"},"92335285":{"s":"12-Decoração","d":"*revest adesivo contact 45cmx2m amarelo"},"92357055":{"s":"12-Decoração","d":"*tapete 50 x 90 cm vip palha"},"92357062":{"s":"12-Decoração","d":"*tapete 100x140 cm vip palha"},"92357076":{"s":"12-Decoração","d":"*tapete 140x200 cm vip palha"},"92357090":{"s":"12-Decoração","d":"*tapete vip 150x150 cm palha"},"92357104":{"s":"12-Decoração","d":"*tapete vip 200x250 cm palha"},"92357146":{"s":"12-Decoração","d":"*tapete vip 100x140 cm fendi"},"92357153":{"s":"12-Decoração","d":"*tapete vip 140x200 cm fendi"},"92357174":{"s":"12-Decoração","d":"*tapete vip 150x150 cm fendi"},"92357181":{"s":"12-Decoração","d":"*tapete vip 200x250 cm fendi"},"92357244":{"s":"12-Decoração","d":"*tapete vip 66x180 cm caqui"},"92357251":{"s":"12-Decoração","d":"*tapete vip 150x150 cm caqui"},"92357293":{"s":"12-Decoração","d":"*tapetes vip 50x90 cm rose"},"92357300":{"s":"12-Decoração","d":"*tapete vip 100x140 cm rose"},"92357335":{"s":"12-Decoração","d":"*tapete vip 150x150 cm rose"},"92357356":{"s":"12-Decoração","d":"*tapete vip 50x120 cm rose"},"92467235":{"s":"12-Decoração","d":"*papel de parede tnt luxe verde 50x10m"},"92467242":{"s":"12-Decoração","d":"*papel de parede tnt luxe bege 50x10m"},"92467263":{"s":"12-Decoração","d":"*papel de parede tnt luxe vinho 50x10m"},"89398106":{"s":"13-Iluminação","d":"*pend first 1l e27 vidro bronzearte"},"89691000":{"s":"13-Iluminação","d":"*spot emb led red 3w am inspire"},"89691014":{"s":"13-Iluminação","d":"*spot emb led quad 3w am inspire"},"89691021":{"s":"13-Iluminação","d":"*spot emb led red 3w br inspire"},"89691042":{"s":"13-Iluminação","d":"*spot emb led quad 3w br inspire"},"89691070":{"s":"13-Iluminação","d":"*spot emb led red 5w l.br inspire"},"89691084":{"s":"13-Iluminação","d":"*spot emb led quad 5w l.br inspire"},"90436192":{"s":"13-Iluminação","d":"*pend e27 vidro cobre 1l first bronzeart"},"90436206":{"s":"13-Iluminação","d":"*pend e27 vidro crom 1l first bronzearte"},"90436213":{"s":"13-Iluminação","d":"*pend e27 vidro cobre 2l first bronzeart"},"90436220":{"s":"13-Iluminação","d":"*pend e27 vidro crom 2l first bronzearte"},"90436234":{"s":"13-Iluminação","d":"*pend e27 vidro cobre 3l first bronzeart"},"90436241":{"s":"13-Iluminação","d":"*pend e27 vidro crom 3l first bronzearte"},"91037156":{"s":"13-Iluminação","d":"*kit 4 x spot emb led quad 3w l br inspi"},"91037240":{"s":"13-Iluminação","d":"*spot emb led red 3w l nt inspire"},"91037254":{"s":"13-Iluminação","d":"*spot emb led quad 3w l nt inspire"},"91064505":{"s":"13-Iluminação","d":"*pend first 2l e27 vidro bronzearte"},"91071295":{"s":"13-Iluminação","d":"*painel led sob red 5w l.am inspire"},"91071302":{"s":"13-Iluminação","d":"*painel led sob red 5w l.br inspire"},"91071330":{"s":"13-Iluminação","d":"*painel led sob red 15w l.am inspire"},"91071344":{"s":"13-Iluminação","d":"*painel led sob red 15w l.br inspire"},"91071351":{"s":"13-Iluminação","d":"*painel led sob red 20w l.am inspire"},"91071365":{"s":"13-Iluminação","d":"*painel led sob red 20w l.br inspire"},"91071533":{"s":"13-Iluminação","d":"*painel led sob quad 15w l.am inspire"},"91071540":{"s":"13-Iluminação","d":"*painel led sob quad 15w l.br inspire"},"91071554":{"s":"13-Iluminação","d":"*painel led sob quad 20w l.am inspire"},"91071561":{"s":"13-Iluminação","d":"*painel led sob quad 20w l.br inspire"},"91071610":{"s":"13-Iluminação","d":"*painel led emb red 15w l.am inspire"},"91071624":{"s":"13-Iluminação","d":"*painel led emb red 15w l.br inspire"},"91071631":{"s":"13-Iluminação","d":"*painel led emb red 20w l.am inspire"},"91071645":{"s":"13-Iluminação","d":"*painel led emb red 20w l.br inspire"},"91071694":{"s":"13-Iluminação","d":"*painel led emb quad 15w l.am inspire"},"91071701":{"s":"13-Iluminação","d":"*painel led emb quad 15w l.br inspire"},"91071715":{"s":"13-Iluminação","d":"*painel led emb quad 20w l.am inspire"},"91071736":{"s":"13-Iluminação","d":"*painel led emb quad 20w l.br inspire"},"91811713":{"s":"13-Iluminação","d":"*PLAFON LED ALUM QUAD CASE 2 PT L.AM"},"91915082":{"s":"13-Iluminação","d":"*PEND SPACE COUNTOUR PTO 50WL.AM 54X100C"},"91915173":{"s":"13-Iluminação","d":"*PEND SPAC COUNT PLUS DOU50WL.AM 60X100C"},"91915180":{"s":"13-Iluminação","d":"*PEND SPAC COUNT PLUS PTO50WL.AM 60X100C"},"91920024":{"s":"13-Iluminação","d":"*ARAND EFEITO MINI BOLL 8W PTL.AM"},"92020145":{"s":"13-Iluminação","d":"*PEND OVAL RATTAN E27 30CM OIKOS"},"92056293":{"s":"13-Iluminação","d":"*pendente cosmos br 3 aros led 113w gmh"},"92056300":{"s":"13-Iluminação","d":"Pend cosmos 5 halos 40cm branco gmh"},"92083691":{"s":"13-Iluminação","d":"*LUM LED 15 SPOTS EMB 30W AM PT DOT LIGH"},"92328502":{"s":"13-Iluminação","d":"*PENDENTE SITIO 1XE27 D38CM PTO INSPIRE"},"92328523":{"s":"13-Iluminação","d":"*ARANDELA SITIO 1XE27 D28CM PTO INSPIRE"},"92328530":{"s":"13-Iluminação","d":"*PLAFON SITIO 1XE27 D38CM PTO INSPIRE"},"92328544":{"s":"13-Iluminação","d":"*PENDENTE CARMID 2XE27 D80CM PTO INSPIRE"},"92352015":{"s":"13-Iluminação","d":"*pendente cosmos sil 3 aros led 113w gmh"},"92352022":{"s":"13-Iluminação","d":"Pend cosmos 5 halos 40cm silver gmh"},"92411200":{"s":"13-Iluminação","d":"*PENDENTE SPACE RAIL 30W 3CCT PT BI"},"92411214":{"s":"13-Iluminação","d":"*PENDENTE SPACE RAIL 30W 3CCT GD BI"},"92411221":{"s":"13-Iluminação","d":"*PENDENTE LED PTO INFINITY 32W 3CCT"},"89566533":{"s":"15-Cozinhas","d":"Purificador S/Refrig Exclusivo Br Consul"},"89566540":{"s":"15-Cozinhas","d":"Purificador S/Refrig Exclusivo Cz Consul"},"89820773":{"s":"15-Cozinhas","d":"Purif Refrig Pla CPB 34 Biv Br Consul"},"91071925":{"s":"15-Cozinhas","d":"*Forno Emb Gas 220v 78L Brastemp"},"91710444":{"s":"15-Cozinhas","d":"Purificador Refrig PE12G bivolt Grafite"},"91710451":{"s":"15-Cozinhas","d":"Purificador Refrig PE12B Bivolt Br"},"91824726":{"s":"15-Cozinhas","d":"Microondas Branco 32L 127v Brastemp"},"91824733":{"s":"15-Cozinhas","d":"Microondas Branco 32L 220v Brastemp"},"91824740":{"s":"15-Cozinhas","d":"Microondas Espelhado 32L 127v Brastemp"},"91824754":{"s":"15-Cozinhas","d":"Microondas Espelhado 32L 220v Brastemp"},"91824761":{"s":"15-Cozinhas","d":"Microondas Branco 32L 127v Consul"},"91824775":{"s":"15-Cozinhas","d":"Microondas Branco 32L 220v Consul"},"91946603":{"s":"15-Cozinhas","d":"Cooktop 4B Inducao Oster 220v"},"91961464":{"s":"15-Cozinhas","d":"Microondas Branco 23L 127v Electrolux"},"91961471":{"s":"15-Cozinhas","d":"Microondas Branco 23L 220v Electrolux"},"91961506":{"s":"15-Cozinhas","d":"Microondas inox 23l 127v electrolux"},"91961513":{"s":"15-Cozinhas","d":"Microondas Inox 23L 220v Electrolux"},"91961520":{"s":"15-Cozinhas","d":"Microondas Inox 36L 127v Electrolux"},"91961534":{"s":"15-Cozinhas","d":"Microondas Inox 36L 220v Electrolux"},"91978810":{"s":"15-Cozinhas","d":"Lava loucas compacta 8 servicos br 127v"},"91978824":{"s":"15-Cozinhas","d":"Lava Loucas Compacta 8 Servicos Br 220v"},"91980630":{"s":"15-Cozinhas","d":"Lava loucas compacta 8 servico inox 127"},"91980644":{"s":"15-Cozinhas","d":"Lava Loucas Compacta 8 Servico Inox 220v"},"92051673":{"s":"15-Cozinhas","d":"Microondas midea prata 20l 110v"},"92051680":{"s":"15-Cozinhas","d":"Microondas Midea Prata 20L 220v"},"92081052":{"s":"15-Cozinhas","d":"Lava loucas midea 14 servicos br 127v"},"92081066":{"s":"15-Cozinhas","d":"Lava Loucas Midea 14 Servicos Br 220v"},"92081073":{"s":"15-Cozinhas","d":"Lava loucas midea 14 servicos pr 127v"},"92081080":{"s":"15-Cozinhas","d":"Lava Loucas Midea 14 Servicos Pr 220v"},"92085210":{"s":"15-Cozinhas","d":"*Adega 29 garrafas 127v WDF29 Electrolux"},"92085224":{"s":"15-Cozinhas","d":"*Adega 29 garrafas 220v WDF29 Electrolux"},"92085231":{"s":"15-Cozinhas","d":"Adega 34 garrafas 127v WSF34 Electrolux"},"92085245":{"s":"15-Cozinhas","d":"*Adega 34 garrafas 220v WSF34 Electrolux"},"92166144":{"s":"15-Cozinhas","d":"Pote Transparente Empilhável 1L Delinia"},"92166263":{"s":"15-Cozinhas","d":"Fruteira de Acacia 15,5x17,5x13 Delinia"},"92166326":{"s":"15-Cozinhas","d":"Bandeja Giratória de 2 Níveis Delinia"},"92166340":{"s":"15-Cozinhas","d":"Suporte para Garrafas Delinia Sem Tensão Elétrica"},"92166431":{"s":"15-Cozinhas","d":"Kit 4 Potes Vidro Transparente com Tampa de Madeira Delinia"},"92166466":{"s":"15-Cozinhas","d":"Kit 6 Tampas Expansíveis de Silicone Delinia"},"92166620":{"s":"15-Cozinhas","d":"Organizador expans panela e tamp delinia"},"92275736":{"s":"15-Cozinhas","d":"Purificador de água pc01x 127v"},"92275743":{"s":"15-Cozinhas","d":"Purificador De Água PC01X 220V"},"92302462":{"s":"15-Cozinhas","d":"* Frigobar retro 127v classic whit 76l"},"92302476":{"s":"15-Cozinhas","d":"*Frigobar retro 127v marsala wine 76l"},"92302560":{"s":"15-Cozinhas","d":"*Frigobar retro 127v midnight blu 76l"},"92312801":{"s":"15-Cozinhas","d":"Gancho de Porta Aço 6,34x53cm Branco Delinia"},"92313921":{"s":"15-Cozinhas","d":"*Frigobar Consul 45L Br 127V"},"92313935":{"s":"15-Cozinhas","d":"*Frigobar Consul 45L Br 220V"},"92313942":{"s":"15-Cozinhas","d":"*Frigobar Consul 45L Pt 127V"},"92313956":{"s":"15-Cozinhas","d":"*Frigobar Consul 45L Pt 220V"},"92316322":{"s":"15-Cozinhas","d":"Organizador de Geladeira Transparente 10x17,4x32,1cm Delinia"},"92316336":{"s":"15-Cozinhas","d":"Tapete Antiderrapante para Gaveta de Borracha 150x50cm Cinza Escuro Delinia"},"92351175":{"s":"15-Cozinhas","d":"Cooktop 4B indução Brast c Funções Esp"},"92354731":{"s":"15-Cozinhas","d":"Cooktop indu built in freezone 2b 220v"},"92369046":{"s":"15-Cozinhas","d":"Cooktop Fischer 4Q FIT LINE Gás PTO"},"92376564":{"s":"15-Cozinhas","d":"Forno de Emb elétrico Consul 47L 220v"},"92376571":{"s":"15-Cozinhas","d":"Forno de Emb elétrico Consul 47L 110v"},"92376585":{"s":"15-Cozinhas","d":"Forno de Emb elétrico Consul 84L 220v"},"92376592":{"s":"15-Cozinhas","d":"Forno de Emb elétrico Consul 84L 110v"},"92376606":{"s":"15-Cozinhas","d":"Forno de Emb a gás Consul 78L COA84CE"},"92391243":{"s":"15-Cozinhas","d":"Lava-louça inox ls14e 110v"},"92391250":{"s":"15-Cozinhas","d":"Lava-Louça Inox LS14E 220v"},"92415120":{"s":"15-Cozinhas","d":"Micro-ondas new vbl branco 20l 127v"},"92415134":{"s":"15-Cozinhas","d":"Micro-ondas new vbl branco 20l 220v"},"92422414":{"s":"15-Cozinhas","d":"Purificador de agua slimpure br bivolt"},"92422421":{"s":"15-Cozinhas","d":"Purificador de agua slimpure cz bivolt"},"92422435":{"s":"15-Cozinhas","d":"ADEGA PRETA 12G BIV"},"92422442":{"s":"15-Cozinhas","d":"Cervejeira frost free preta 82l 127v"},"92430954":{"s":"15-Cozinhas","d":"Forno embut elétrico 80l experience 220v"},"92431892":{"s":"15-Cozinhas","d":"Cooktop gas mesa preto 4 bocas bdd61 biv"},"92431906":{"s":"15-Cozinhas","d":"Cooktop gas mesa preto 5 bocas bdd75 biv"},"92431920":{"s":"15-Cozinhas","d":"Cooktop gas mesa preto 5 bds75 biv"},"92431934":{"s":"15-Cozinhas","d":"Cooktop consul 4b cd060 biv"},"92431941":{"s":"15-Cozinhas","d":"Cooktop consul 5b cd075 biv"},"92490104":{"s":"15-Cozinhas","d":"COOKTOP GAS MESA VIDRO PRETO 5B FC"},"92490251":{"s":"15-Cozinhas","d":"CERVEJEIRA PTA METALI/VIDRO 82L 127V M"},"92490265":{"s":"15-Cozinhas","d":"CERVEJEIRA PTA METALI/VIDRO 82L 220V M"},"92496376":{"s":"15-Cozinhas","d":"Cervejeira frost free 82l preta 220v"},"92500086":{"s":"15-Cozinhas","d":"Microondas Brastemp 23 Litros Inox 127V"},"92500093":{"s":"15-Cozinhas","d":"Microondas Brastemp 23 Litros Inox 220V"},"92500142":{"s":"15-Cozinhas","d":"Microondas Consul 23 Litros Inox 127V"},"92500156":{"s":"15-Cozinhas","d":"Microondas Consul 23 Litros Inox 220V"},"92547490":{"s":"15-Cozinhas","d":"Kit 4 potes plástico Electrolux"},"92547511":{"s":"15-Cozinhas","d":"Lixeira New Inox c/Pedal 12l Tramontina"},"92547525":{"s":"15-Cozinhas","d":"Lixeira New Inox c/Pedal 20l Tramontina"},"92547532":{"s":"15-Cozinhas","d":"Lixeira New Inox c/Pedal 30l Tramontina"},"92548841":{"s":"15-Cozinhas","d":"Lixeira New Inox com Pedal 5l Tramontina"},"88591741":{"s":"11-Pintura","d":"Text Rust Bca 24Kg JP"},"89585230":{"s":"15-Cozinhas","d":"Cooktop 2b gas preto bivolt fischer"},"91824782":{"s":"15-Cozinhas","d":"Microondas espelhado 32l 127v consul"},"91824796":{"s":"15-Cozinhas","d":"Microondas espelhado 32l 220v consul"},"91946582":{"s":"15-Cozinhas","d":"Cooktop 2b inducao 127v oster"},"91946596":{"s":"15-Cozinhas","d":"Cooktop 2b inducao oster 220v"},"91946610":{"s":"15-Cozinhas","d":"Cooktop 4b gas oster inox"},"92270745":{"s":"15-Cozinhas","d":"Forno el fisch fit line emb 48l inx 127v"},"92270752":{"s":"15-Cozinhas","d":"Forno el fisch fit line emb 48l inx 220v"},"92270766":{"s":"15-Cozinhas","d":"Forno el fisch fit line emb 48l pt 127v"},"92270773":{"s":"15-Cozinhas","d":"Forno el fisch fit line emb 48l pt 220v"},"92302511":{"s":"15-Cozinhas","d":"*frigobar retro 220v rose quartz 76l"},"92327396":{"s":"15-Cozinhas","d":"Lava louças 15serv brastemp smart br 127"},"92327403":{"s":"15-Cozinhas","d":"Lava louças 15serv brastemp smart br 220"},"92327410":{"s":"15-Cozinhas","d":"Lava louças 15serv brastemp smart pt 127"},"92327424":{"s":"15-Cozinhas","d":"Lava louças 15serv brastemp smart pt 220"},"92395324":{"s":"15-Cozinhas","d":"Cooktop electrolux 5 bocas ke5xc"},"92395331":{"s":"15-Cozinhas","d":"Cooktop electro 5 bocas pro series ke5ps"},"92400630":{"s":"15-Cozinhas","d":"Lava-louças brastemp 8 serviços pt 127v"},"92475530":{"s":"15-Cozinhas","d":"Triturador de alimentos 550 sr 127v"},"92475544":{"s":"15-Cozinhas","d":"Triturador de alimentos 550 sr 220v"},"92475551":{"s":"15-Cozinhas","d":"Triturador de alimento 700 sr 127v"},"92475565":{"s":"15-Cozinhas","d":"Triturador de alimento 700 sr 220v"},"92532293":{"s":"15-Cozinhas","d":"Purificador philco acqua biv branca"}};
 
-    // Metas de Novembro por Seção (Padrão 01-Materiais = 14,26% e demais seções configuráveis)
+    // Seções e Metas de Novembro
     const SECOES_METAS = [
       { id: "01-Materiais", nome: "01 - Materiais de Construção", meta: 14.26 },
       { id: "02-Carpintaria e Madeiras", nome: "02 - Carpintaria e Madeiras", meta: 18.50 },
       { id: "03-Eletricidade", nome: "03 - Eletricidade", meta: 21.40 },
       { id: "04-Ferramentas", nome: "04 - Ferramentas", meta: 19.80 },
-      { id: "05-Encanamento", nome: "05 - Encanamento / Hidráulica", meta: 22.10 },
+      { id: "05-Pisos", nome: "05 - Pisos laminados e vinílicos", meta: 14.26 },
       { id: "06-Cerâmica", nome: "06 - Cerâmica e Revestimentos", meta: 17.90 },
       { id: "07-Sanitários", nome: "07 - Sanitários", meta: 20.50 },
-      { id: "08-Quincaillerie", nome: "08 - Quincaillerie / Organização", meta: 24.00 },
+      { id: "08-Encanamento", nome: "08 - Encanamento / Hidráulica", meta: 22.10 },
       { id: "09-Jardim", nome: "09 - Jardim", meta: 21.00 },
       { id: "10-Ferragens", nome: "10 - Ferragens", meta: 23.50 },
       { id: "11-Pintura", nome: "11 - Pintura", meta: 18.20 },
@@ -898,7 +927,7 @@
     const margemSimuladaDisplay = document.getElementById('margemSimuladaDisplay');
     const vendaTotalDisplay = document.getElementById('vendaTotalDisplay');
 
-    const statusPanel = document.getElementById('statusPanel');
+    const statusBox = document.getElementById('statusBox');
     const statusIcon = document.getElementById('statusIcon');
     const pisoCardDisplay = document.getElementById('pisoCardDisplay');
     const statusLabel = document.getElementById('statusLabel');
@@ -920,17 +949,17 @@
     const lmAlertIcon = document.getElementById('lmAlertIcon');
     const lmAlertText = document.getElementById('lmAlertText');
     const expurgosTableBody = document.getElementById('expurgosTableBody');
+    const copyWhatsappBtn = document.getElementById('copyWhatsappBtn');
 
-    // Formatadores
+    // Formatadores (ponto decimal como no print original: 14.26%, 9.9820%, R$ 20.000,00)
     const fmtBRL = (val) => val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    const fmtPct = (val, dec = 2) => val.toLocaleString('pt-BR', { minimumFractionDigits: dec, maximumFractionDigits: dec }) + '%';
+    const fmtPctDot = (val, dec = 2) => val.toFixed(dec) + '%';
 
-    // Inicializar selects de seção
     function initSecoes() {
       SECOES_METAS.forEach(sec => {
         const opt = document.createElement('option');
         opt.value = sec.id;
-        opt.textContent = `${sec.nome} (Meta: ${fmtPct(sec.meta, 2)})`;
+        opt.textContent = sec.nome;
         secaoSelect.appendChild(opt);
       });
 
@@ -944,41 +973,39 @@
       });
     }
 
-    // Validação em tempo real do código LM
+    // Validação em tempo real do LM na lista oficial
     function validateLmInput() {
       const raw = expurgoLmInput.value.replace(/\D/g, '');
       expurgoLmInput.value = raw;
 
       if (!raw) {
-        lmAlertBox.className = 'lm-status-alert';
+        lmAlertBox.className = 'lm-alert';
         addExpurgoBtn.disabled = true;
         return null;
       }
 
       const found = LM_EXCEPTIONS[raw];
       if (found) {
-        lmAlertBox.className = 'lm-status-alert valid';
+        lmAlertBox.className = 'lm-alert valid';
         lmAlertIcon.textContent = '✅';
         lmAlertText.innerHTML = `
-          <strong>LM ${raw} elegível para expurgo (Cód. 12 / Markdown)!</strong>
-          <span>${found.d}</span><br/>
-          <span class="badge-secao">Seção Oficial: ${found.s}</span>
+          <strong>LM ${raw} autorizado para expurgo (Cód. 12 / Markdown)</strong>
+          <span>${found.d} • <em>${found.s}</em></span>
         `;
         addExpurgoBtn.disabled = false;
         return { lm: raw, ...found };
       } else {
-        lmAlertBox.className = 'lm-status-alert invalid';
+        lmAlertBox.className = 'lm-alert invalid';
         lmAlertIcon.textContent = '⛔';
         lmAlertText.innerHTML = `
-          <strong>BLOQUEADO: LM ${raw} não faz parte da lista oficial de exceção!</strong>
-          <span>De acordo com a Regra 4.1, apenas os 960 LMs autorizados (Cód. 12 / Markdown) podem ser retirados do cálculo de margem da seção.</span>
+          <strong>LM ${raw} NÃO faz parte da lista oficial de exceção!</strong>
+          <span>Lançamento bloqueado pela Regra 4.1 (somente itens da relação Cód. 12 / Markdown podem ser expurgados).</span>
         `;
         addExpurgoBtn.disabled = true;
         return null;
       }
     }
 
-    // Adicionar item de expurgo
     function handleAddExpurgo() {
       const validItem = validateLmInput();
       if (!validItem) return;
@@ -987,7 +1014,7 @@
       const margem = parseFloat(expurgoMargemInput.value);
 
       if (isNaN(venda) || venda <= 0) {
-        alert('Informe um valor de venda válido maior que zero.');
+        alert('Informe o valor da venda (R$) do item expurgado.');
         expurgoVendaInput.focus();
         return;
       }
@@ -1018,148 +1045,175 @@
       recalculate();
     }
 
-    function removeExpurgo(id) {
+    window.removeExpurgo = function(id) {
       expurgosList = expurgosList.filter(item => item.id !== id);
       renderExpurgos();
       recalculate();
-    }
+    };
 
     function renderExpurgos() {
-      if (expurgosList.length === 0) {
-        expurgosTableBody.innerHTML = `<tr><td colspan="6" class="empty-state">Nenhum item expurgado lançado até o momento.</td></tr>`;
-        return;
-      }
-
       expurgosTableBody.innerHTML = expurgosList.map(item => `
         <tr>
-          <td><strong>${item.lm}</strong></td>
           <td>
-            <div style="font-weight: 600;">${item.descricao}</div>
-            <div style="font-size: 0.75rem; color: var(--slate-500);">${item.secao}</div>
+            <strong>${item.lm}</strong> - ${item.descricao}
+            <span style="display:block; font-size:0.74rem; color: var(--text-muted);">${item.secao}</span>
           </td>
           <td>${fmtBRL(item.venda)}</td>
-          <td>${fmtPct(item.margem, 2)}</td>
-          <td>${fmtBRL(item.lucro)}</td>
+          <td style="color: ${item.margem >= 0 ? 'var(--lm-green-bright)' : 'var(--red)'}; font-weight: 700;">
+            ${fmtPctDot(item.margem, 2)}
+          </td>
           <td style="text-align: right;">
-            <button type="button" class="btn-danger-sm" onclick="removeExpurgo(${item.id})">Remover</button>
+            <button type="button" class="btn-remove-x" title="Remover" onclick="removeExpurgo(${item.id})">✕</button>
           </td>
         </tr>
       `).join('');
     }
 
-    // Cálculo principal de MSV e Dopping
     function recalculate() {
       const secObj = SECOES_METAS.find(s => s.id === secaoSelect.value) || SECOES_METAS[0];
       const metaPct = secObj.meta;
-      const pisoDoppingPct = metaPct * 0.70; // -30% de tolerância
+      const pisoDoppingPct = metaPct * 0.70;
 
-      metaMsvDisplay.textContent = fmtPct(metaPct, 2);
-      doppingPisoDisplay.textContent = fmtPct(pisoDoppingPct, 4);
-      pisoCardDisplay.textContent = fmtPct(pisoDoppingPct, 4);
+      metaMsvDisplay.textContent = fmtPctDot(metaPct, 2);
+      doppingPisoDisplay.textContent = fmtPctDot(pisoDoppingPct, 4);
+      pisoCardDisplay.textContent = fmtPctDot(pisoDoppingPct, 4);
 
       const fatBruto = parseFloat(faturamentoInput.value) || 0;
       const margemBrutaInputPct = parseFloat(margemAtualInput.value) || 0;
       const lucroBrutoTotal = fatBruto * (margemBrutaInputPct / 100);
 
-      // Soma dos expurgos autorizados
+      // Expurgos descontados
       const totalExpurgoVenda = expurgosList.reduce((acc, i) => acc + i.venda, 0);
       const totalExpurgoLucro = expurgosList.reduce((acc, i) => acc + i.lucro, 0);
 
-      // Faturamento e lucro válidos (sem expurgos)
       const fatValido = Math.max(0, fatBruto - totalExpurgoVenda);
       const lucroValido = lucroBrutoTotal - totalExpurgoLucro;
 
       const margemEfetivaPct = fatValido > 0 ? (lucroValido / fatValido) * 100 : margemBrutaInputPct;
 
-      // Simulação pontual opcional
+      // Cotação / Negociação pontual
       const simVenda = parseFloat(simVendaInput.value) || 0;
       const simMargemPct = parseFloat(simMargemInput.value) || 0;
       const simLucro = simVenda * (simMargemPct / 100);
 
-      const fatFinalComSim = fatValido + simVenda;
-      const lucroFinalComSim = lucroValido + simLucro;
-      const margemPosSimulacaoPct = fatFinalComSim > 0 ? (lucroFinalComSim / fatFinalComSim) * 100 : 0;
+      const vendaTotalComputada = fatBruto + simVenda;
+      const fatValidoComSim = fatValido + simVenda;
+      const lucroValidoComSim = lucroValido + simLucro;
+      const margemComSimPct = fatValidoComSim > 0 ? (lucroValidoComSim / fatValidoComSim) * 100 : margemEfetivaPct;
 
-      // Atualizar KPIs
+      // Atualiza Dados da Seção
       fatValidoDisplay.textContent = fmtBRL(fatValido);
       expurgosTotalDisplay.textContent = fmtBRL(totalExpurgoVenda);
 
-      margemEfetivaDisplay.textContent = fmtPct(margemEfetivaPct, 2);
-      margemBrutaDisplay.textContent = fmtPct(margemBrutaInputPct, 2);
-      margemSimuladaDisplay.textContent = simVenda > 0 ? fmtPct(margemPosSimulacaoPct, 2) : '0,00%';
-      vendaTotalDisplay.textContent = fmtBRL(fatFinalComSim);
+      // Atualiza KPIs
+      margemEfetivaDisplay.textContent = fmtPctDot(margemEfetivaPct, 2);
+      margemBrutaDisplay.textContent = fmtPctDot(margemBrutaInputPct, 2);
+      margemSimuladaDisplay.textContent = simVenda > 0 ? fmtPctDot(margemComSimPct, 2) : '0.00%';
+      vendaTotalDisplay.textContent = fmtBRL(vendaTotalComputada);
 
-      // Margem considerada para análise de doping (usa a simulada se houver simulação ativa, senão a efetiva sem expurgos)
-      const margemAnalise = simVenda > 0 ? margemPosSimulacaoPct : margemEfetivaPct;
-      const fatAnalise = fatFinalComSim;
-      const lucroAnalise = lucroFinalComSim;
+      // Margem analisada para doping (se houver simulação, considera ela; senão, a efetiva s/ expurgos)
+      const margemAnalise = simVenda > 0 ? margemComSimPct : margemEfetivaPct;
+      const fatAnalise = fatValidoComSim;
+      const lucroAnalise = lucroValidoComSim;
 
-      // Consumo do teto de queima (0% na meta, 100% no piso de dopping)
-      const tetoAmplitude = metaPct - pisoDoppingPct;
+      // Consumo do Teto de Queima
+      const amplitude = metaPct - pisoDoppingPct;
       let queimaPct = 0;
-      if (tetoAmplitude > 0) {
-        queimaPct = ((metaPct - margemAnalise) / tetoAmplitude) * 100;
+      if (amplitude > 0 && fatAnalise > 0) {
+        queimaPct = ((metaPct - margemAnalise) / amplitude) * 100;
       }
-      const queimaClamped = Math.max(0, Math.min(100, queimaPct));
-      queimaPctDisplay.textContent = `${Math.round(queimaPct)}%`;
-      queimaBar.style.width = `${queimaClamped}%`;
+      const queimaDisplayVal = Math.max(0, queimaPct);
+      const queimaBarWidth = Math.max(0, Math.min(100, queimaPct));
+
+      queimaPctDisplay.textContent = `${queimaDisplayVal.toFixed(1)}%`;
+      queimaBar.style.width = `${queimaBarWidth}%`;
 
       const isDopping = fatAnalise > 0 && margemAnalise < pisoDoppingPct;
 
       if (isDopping) {
-        statusPanel.className = 'status-panel danger';
-        statusIcon.textContent = '🚨';
-        statusLabel.textContent = 'ALERTA: Seção em Dopping!';
-        statusLabel.style.color = 'var(--red-600)';
-        queimaBar.style.backgroundColor = 'var(--red-600)';
+        statusBox.className = 'status-box dopping';
+        statusIcon.textContent = '⚠️';
+        statusLabel.textContent = 'Teto de Queima Estourado!';
+        queimaBar.style.backgroundColor = 'var(--red)';
 
         recoveryCard.classList.remove('hidden');
-        updateRecoverySimulator(fatAnalise, lucroAnalise, pisoDoppingPct);
+        updateRecoverySimulator(fatAnalise, lucroAnalise, pisoDoppingPct, metaPct);
       } else {
-        statusPanel.className = 'status-panel safe';
-        statusIcon.textContent = '✅';
+        statusBox.className = 'status-box';
+        statusIcon.textContent = '⚠️';
         statusLabel.textContent = 'Margem sob controle';
-        statusLabel.style.color = 'var(--emerald-600)';
-        queimaBar.style.backgroundColor = queimaPct > 80 ? 'var(--amber-600)' : 'var(--lm-green)';
+        queimaBar.style.backgroundColor = queimaDisplayVal > 80 ? 'var(--amber)' : 'var(--lm-green-bright)';
 
         recoveryCard.classList.add('hidden');
       }
     }
 
-    function updateRecoverySimulator(fatAtual, lucroAtual, pisoPct) {
+    function updateRecoverySimulator(fatAtual, lucroAtual, pisoPct, metaPct) {
       const pisoDec = pisoPct / 100;
-      const lucroMinimoNecessario = fatAtual * pisoDec;
-      const deficitLucro = Math.max(0, lucroMinimoNecessario - lucroAtual);
+      const metaDec = metaPct / 100;
+      const deficitPiso = Math.max(0, (fatAtual * pisoDec) - lucroAtual);
+      const deficitMeta = Math.max(0, (fatAtual * metaDec) - lucroAtual);
 
-      recoveryText.innerHTML = `Sua seção está dopando. Faltam <strong>${fmtBRL(deficitLucro)}</strong> de lucro para atingir o piso de <strong>${fmtPct(pisoPct, 4)}</strong>. Veja quanto precisa faturar:`;
+      recoveryText.innerHTML = `Sua seção está dopando. Faltam <strong>${fmtBRL(deficitPiso)}</strong> de lucro para atingir o piso de <strong>${fmtPctDot(pisoPct, 4)}</strong>. Veja quanto precisa faturar:`;
 
-      const calcVendaNec = (margemAlvoPct) => {
+      const calcVendaParaPiso = (margemAlvoPct) => {
         const mDec = margemAlvoPct / 100;
         if (mDec <= pisoDec) return null;
-        return deficitLucro / (mDec - pisoDec);
+        return deficitPiso / (mDec - pisoDec);
       };
 
       const mOfertada = parseFloat(margemOfertadaInput.value) || 0;
-      const vNec = calcVendaNec(mOfertada);
+      const vNec = calcVendaParaPiso(mOfertada);
 
       if (vNec && vNec > 0) {
         vendaNecessariaDisplay.textContent = fmtBRL(vNec);
         custoCompraDisplay.textContent = fmtBRL(vNec * (1 - mOfertada / 100));
       } else {
-        vendaNecessariaDisplay.textContent = 'Margem insuficiente';
+        vendaNecessariaDisplay.textContent = 'Margem baixa';
         custoCompraDisplay.textContent = '-';
       }
 
-      const cenarios = [15, 20, 25, 30, 35];
-      cenariosBody.innerHTML = cenarios.map(m => {
-        const vn = calcVendaNec(m);
-        if (!vn || vn <= 0) {
-          return `<tr><td>${m}%</td><td colspan="2" style="color: var(--slate-400);">Margem abaixo do piso</td></tr>`;
+      // Cenários prontos (incluindo Meta Cheia igual ao print)
+      let rowsHtml = '';
+      // Linha Meta Cheia
+      const mMetaCenario = 25; // margem de venda para recuperar meta cheia
+      if (mMetaCenario > metaPct) {
+        const vnMeta = deficitMeta / ((mMetaCenario / 100) - metaDec);
+        const ccMeta = vnMeta * (1 - mMetaCenario / 100);
+        rowsHtml += `<tr><td>Meta Cheia (${fmtPctDot(metaPct, 2)})</td><td>${fmtBRL(vnMeta)}</td><td>${fmtBRL(ccMeta)}</td></tr>`;
+      }
+
+      [20, 25, 30].forEach(m => {
+        const vn = calcVendaParaPiso(m);
+        if (vn && vn > 0) {
+          const cc = vn * (1 - m / 100);
+          rowsHtml += `<tr><td>${fmtPctDot(m, 2)}</td><td>${fmtBRL(vn)}</td><td>${fmtBRL(cc)}</td></tr>`;
         }
-        const cc = vn * (1 - m / 100);
-        return `<tr><td><strong>${m}%</strong></td><td>${fmtBRL(vn)}</td><td>${fmtBRL(cc)}</td></tr>`;
-      }).join('');
+      });
+
+      cenariosBody.innerHTML = rowsHtml;
     }
+
+    // Copiar Status p/ WhatsApp
+    copyWhatsappBtn.addEventListener('click', () => {
+      const secNome = secaoSelect.options[secaoSelect.selectedIndex].text;
+      const msg = [
+        `*📊 STATUS MSV LEROY MERLIN (NOVEMBRO)*`,
+        `*Seção:* ${secNome}`,
+        `*Margem Meta:* ${metaMsvDisplay.textContent} | *Piso Dopping:* ${doppingPisoDisplay.textContent}`,
+        `*Faturamento Válido:* ${fatValidoDisplay.textContent}`,
+        `*Expurgos (Cód. 12):* ${expurgosTotalDisplay.textContent}`,
+        `*Margem Efetiva (s/ Expurgos):* ${margemEfetivaDisplay.textContent}`,
+        `*Margem Bruta:* ${margemBrutaDisplay.textContent}`,
+        `*Status:* ${statusLabel.textContent} (${queimaPctDisplay.textContent} do teto)`
+      ].join('\n');
+
+      navigator.clipboard.writeText(msg).then(() => {
+        const orig = copyWhatsappBtn.textContent;
+        copyWhatsappBtn.textContent = '✅ Status Copiado para o WhatsApp!';
+        setTimeout(() => copyWhatsappBtn.textContent = orig, 2200);
+      });
+    });
 
     // Modal de Consulta da Lista Oficial
     const lmModal = document.getElementById('lmModal');
@@ -1181,7 +1235,7 @@
 
       const slice = entries.slice(0, 100);
       if (slice.length === 0) {
-        modalTableBody.innerHTML = `<tr><td colspan="4" class="empty-state">Nenhum LM encontrado para esse filtro.</td></tr>`;
+        modalTableBody.innerHTML = `<tr><td colspan="4" style="text-align:center; padding:1rem; color:var(--text-muted);">Nenhum LM encontrado.</td></tr>`;
         return;
       }
 
@@ -1190,8 +1244,8 @@
           <td><strong>${lm}</strong></td>
           <td>${info.s}</td>
           <td>${info.d}</td>
-          <td>
-            <button type="button" class="btn btn-secondary" onclick="selectLmFromModal('${lm}')">Usar</button>
+          <td style="text-align:right;">
+            <button type="button" class="btn-consulta" onclick="selectLmFromModal('${lm}')">Usar</button>
           </td>
         </tr>
       `).join('');
@@ -1208,7 +1262,6 @@
       lmModal.classList.add('open');
       renderModalTable();
     });
-
     closeModalBtn.addEventListener('click', () => lmModal.classList.remove('open'));
     lmModal.addEventListener('click', (e) => { if (e.target === lmModal) lmModal.classList.remove('open'); });
     modalSearchInput.addEventListener('input', renderModalTable);
@@ -1223,7 +1276,6 @@
     expurgoLmInput.addEventListener('input', validateLmInput);
     addExpurgoBtn.addEventListener('click', handleAddExpurgo);
 
-    // Start
     initSecoes();
     recalculate();
   </script>
