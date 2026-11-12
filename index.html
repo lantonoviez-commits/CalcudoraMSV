@@ -684,22 +684,22 @@
         <div class="form-row">
           <div>
             <label for="faturamentoInput">Venda Acumulada Dia (R$)</label>
-            <input type="number" id="faturamentoInput" class="input-white" placeholder="0" step="0.01" min="0" />
+            <input type="text" id="faturamentoInput" class="input-white" placeholder="0" inputmode="decimal" />
           </div>
           <div>
             <label for="margemAtualInput">Margem Atual Dia (%)</label>
-            <input type="number" id="margemAtualInput" class="input-white" placeholder="10.01" step="0.01" value="10.01" />
+            <input type="text" id="margemAtualInput" class="input-white" placeholder="10,01" value="10,01" inputmode="decimal" />
           </div>
         </div>
 
         <div class="form-row" style="margin-bottom: 0;">
           <div>
             <label for="simVendaInput">Cotação / Negociação (R$)</label>
-            <input type="number" id="simVendaInput" class="input-white" placeholder="0" step="0.01" min="0" value="0" />
+            <input type="text" id="simVendaInput" class="input-white" placeholder="0" value="0" inputmode="decimal" />
           </div>
           <div>
             <label for="simMargemInput">Margem da Cotação (%)</label>
-            <input type="number" id="simMargemInput" class="input-white" placeholder="0" step="0.01" value="0" />
+            <input type="text" id="simMargemInput" class="input-white" placeholder="0" value="0" inputmode="decimal" />
           </div>
         </div>
       </div>
@@ -830,8 +830,8 @@
 
       <div class="expurgo-form-row">
         <input type="text" id="expurgoLmInput" class="input-white" placeholder="Item / LM (ex: 86789262)" maxlength="12" inputmode="numeric" />
-        <input type="number" id="expurgoVendaInput" class="input-white" placeholder="Venda R$" step="0.01" min="0.01" />
-        <input type="number" id="expurgoMargemInput" class="input-white" placeholder="Margem % (ex: -50, -300)" step="0.01" />
+        <input type="text" id="expurgoVendaInput" class="input-white" placeholder="Venda R$" inputmode="decimal" />
+        <input type="text" id="expurgoMargemInput" class="input-white" placeholder="Margem % (ex: -50, -300)" inputmode="decimal" />
         <button type="button" class="btn-lancar" id="addExpurgoBtn" disabled>+ Lançar</button>
       </div>
 
@@ -951,8 +951,29 @@
     const expurgosTableBody = document.getElementById('expurgosTableBody');
     const copyWhatsappBtn = document.getElementById('copyWhatsappBtn');
 
-    // Formatadores (ponto decimal como no print original: 14.26%, 9.9820%, R$ 20.000,00)
-    const fmtBRL = (val) => val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    // Parser inteligente: aceita vírgula ou ponto (ex: "10,01", "10.000,00", "20.361", "10000")
+    function parseSmartNumber(str) {
+      if (str === null || str === undefined) return NaN;
+      let s = String(str).trim().replace(/R\$\s*/gi, '').replace(/%/g, '').trim();
+      if (!s) return NaN;
+      // Se tem vírgula e ponto (ex: 10.300,50), remove pontos de milhar e troca vírgula por ponto
+      if (s.includes(',') && s.includes('.')) {
+        s = s.replace(/\./g, '').replace(',', '.');
+      } else if (s.includes(',')) {
+        // Apenas vírgula (ex: 10,01 ou 361,00) -> decimal
+        s = s.replace(',', '.');
+      } else if (s.includes('.')) {
+        // Apenas ponto: se tiver exatamente 3 dígitos após o último ponto e não for negativo pequeno (ex: 20.361 = 20361), trata como milhar se >= 1.000
+        const parts = s.split('.');
+        if (parts.length === 2 && parts[1].length === 3 && Math.abs(parseInt(parts[0], 10)) >= 1) {
+          s = s.replace(/\./g, '');
+        }
+      }
+      return parseFloat(s);
+    }
+
+    // Formatadores (ponto nas porcentagens como no print: 11.87%, 10.01% e R$ 10.300,00 com ponto de milhar e vírgula nos centavos)
+    const fmtBRL = (val) => val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2, maximumFractionDigits: 2 });
     const fmtPctDot = (val, dec = 2) => val.toFixed(dec) + '%';
 
     function initSecoes() {
@@ -1010,8 +1031,8 @@
       const validItem = validateLmInput();
       if (!validItem) return;
 
-      const venda = parseFloat(expurgoVendaInput.value);
-      const margem = parseFloat(expurgoMargemInput.value);
+      const venda = parseSmartNumber(expurgoVendaInput.value);
+      const margem = parseSmartNumber(expurgoMargemInput.value);
 
       if (isNaN(venda) || venda <= 0) {
         alert('Informe o valor da venda (R$) do item expurgado.');
@@ -1078,8 +1099,8 @@
       doppingPisoDisplay.textContent = fmtPctDot(pisoDoppingPct, 4);
       pisoCardDisplay.textContent = fmtPctDot(pisoDoppingPct, 4);
 
-      const fatBruto = parseFloat(faturamentoInput.value) || 0;
-      const margemBrutaInputPct = parseFloat(margemAtualInput.value) || 0;
+      const fatBruto = parseSmartNumber(faturamentoInput.value) || 0;
+      const margemBrutaInputPct = parseSmartNumber(margemAtualInput.value) || 0;
       const lucroBrutoTotal = fatBruto * (margemBrutaInputPct / 100);
 
       // Expurgos descontados
@@ -1092,11 +1113,11 @@
       const margemEfetivaPct = fatValido > 0 ? (lucroValido / fatValido) * 100 : margemBrutaInputPct;
 
       // Cotação / Negociação pontual
-      const simVenda = parseFloat(simVendaInput.value) || 0;
-      const simMargemPct = parseFloat(simMargemInput.value) || 0;
+      const simVenda = parseSmartNumber(simVendaInput.value) || 0;
+      const simMargemPct = parseSmartNumber(simMargemInput.value) || 0;
       const simLucro = simVenda * (simMargemPct / 100);
 
-      const vendaTotalComputada = fatBruto + simVenda;
+      const vendaTotalComputada = fatValido + simVenda;
       const fatValidoComSim = fatValido + simVenda;
       const lucroValidoComSim = lucroValido + simLucro;
       const margemComSimPct = fatValidoComSim > 0 ? (lucroValidoComSim / fatValidoComSim) * 100 : margemEfetivaPct;
